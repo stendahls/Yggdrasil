@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Yggdrasil_Example' do
+  pod 'Yggdrasil', :path => '../'
+
+  target 'Yggdrasil_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
