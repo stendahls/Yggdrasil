@@ -53,6 +53,11 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        guard ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil else {
+            // Code only executes when tests are running
+            return
+        }
+        
         Task.async {
             do {
                 let fileURL = try NetworkDownloadTask(url: "https://picsum.photos/1024/1024").await()

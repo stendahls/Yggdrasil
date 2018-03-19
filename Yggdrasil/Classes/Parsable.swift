@@ -34,7 +34,7 @@ public protocol Parsable {
 public extension Parsable {
     static func parseData<T: Decodable>(_ data: Data) throws -> T {
         return try JSONDecoder().decode(T.self, from: data)
-    }
+    }    
 }
 
 // MARK: - Make Data support Parsable
