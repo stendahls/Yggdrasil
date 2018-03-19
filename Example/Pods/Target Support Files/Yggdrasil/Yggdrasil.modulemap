@@ -1,0 +1,6 @@
+framework module Yggdrasil {
+  umbrella header "Yggdrasil-umbrella.h"
+
+  export *
+  module * { export * }
+}

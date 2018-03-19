@@ -1,7 +1,10 @@
 use_frameworks!
+platform :ios, '10.0'
 
 target 'Yggdrasil_Example' do
   pod 'Yggdrasil', :path => '../'
+  pod 'Alamofire', '~> 4.7'
+  pod 'Taskig', '~> 0.2'
 
   target 'Yggdrasil_Tests' do
     inherit! :search_paths

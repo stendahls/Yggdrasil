@@ -1,0 +1,33 @@
+{
+  "name": "Yggdrasil",
+  "version": "0.1.0",
+  "summary": "A short description of Yggdrasil.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/bitwizardry-net/Yggdrasil",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "bitwizardry-net": "thomas.sempf@stendahls.se"
+  },
+  "source": {
+    "git": "https://github.com/bitwizardry-net/Yggdrasil.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12",
+    "tvos": "10.0",
+    "watchos": "3.0"
+  },
+  "source_files": "Yggdrasil/Classes/**/*",
+  "dependencies": {
+    "Alamofire": [
+      "~> 4.7"
+    ],
+    "Taskig": [
+      "~> 0.2"
+    ]
+  }
+}

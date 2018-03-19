@@ -21,22 +21,21 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/bitwizardry-net/Yggdrasil'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/stendahls/Yggdrasil'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'bitwizardry-net' => 'thomas.sempf@stendahls.se' }
-  s.source           = { :git => 'https://github.com/bitwizardry-net/Yggdrasil.git', :tag => s.version.to_s }
+  s.author           = { 'Thomas Sempf' => 'thomas.sempf@stendahls.se' }  
+  s.source           = { :git => 'https://github.com/stendahls/Yggdrasil.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
+  s.osx.deployment_target = "10.12"
+  s.tvos.deployment_target = "10.0"
+  s.watchos.deployment_target = '3.0'
 
   s.source_files = 'Yggdrasil/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'Yggdrasil' => ['Yggdrasil/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.requires_arc = true  
+  s.dependency 'Alamofire', '~> 4.7'
+  s.dependency 'Taskig', '~> 0.2'
+  
 end

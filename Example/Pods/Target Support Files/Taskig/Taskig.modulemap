@@ -1,0 +1,6 @@
+framework module Taskig {
+  umbrella header "Taskig-umbrella.h"
+
+  export *
+  module * { export * }
+}
