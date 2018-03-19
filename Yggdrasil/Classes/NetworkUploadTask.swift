@@ -33,7 +33,7 @@ enum NetworkUploadTaskError: Error {
     case missingDataToUpload
 }
 
-public class NetworkUploadTask<T: Decodable>: NetworkBase, ThrowableTaskType {
+public class NetworkUploadTask<T: Parsable>: NetworkBase, ThrowableTaskType {
     public typealias ResultType = T
     
     private let fileURL: URL?
@@ -108,7 +108,7 @@ public class NetworkUploadTask<T: Decodable>: NetworkBase, ThrowableTaskType {
                     completion(.failure(error))
                 case .success(let data):
                     do {
-                        let result: ResultType = try self.decodeData(data)
+                        let result: ResultType = try ResultType.parseData(data)
                         completion(.success(result))
                     } catch {
                         completion(.failure(error))
@@ -120,7 +120,7 @@ public class NetworkUploadTask<T: Decodable>: NetworkBase, ThrowableTaskType {
     }
 }
 
-public class NetworkMultipartFormDataUploadTask<T: Decodable>: NetworkBase, ThrowableTaskType {
+public class NetworkMultipartFormDataUploadTask<T: Parsable>: NetworkBase, ThrowableTaskType {
     public typealias ResultType = T
     
     public init(request: MultipartRequest) {
@@ -173,7 +173,7 @@ public class NetworkMultipartFormDataUploadTask<T: Decodable>: NetworkBase, Thro
                     completion(.failure(error))
                 case .success(let data):
                     do {
-                        let result: ResultType = try self.decodeData(data)
+                        let result: ResultType = try ResultType.parseData(data)
                         completion(.success(result))
                     } catch {
                         completion(.failure(error))

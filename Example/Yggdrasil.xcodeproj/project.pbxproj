@@ -14,6 +14,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		65661602F783FFDB11975990 /* Pods_Yggdrasil_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B446094695D1B4340180B5 /* Pods_Yggdrasil_Tests.framework */; };
 		6DDCC96CE37B9E2F470267FF /* Pods_Yggdrasil_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D7675CDF39908DD762FC35 /* Pods_Yggdrasil_Example.framework */; };
+		8536DA5F205FD6D8000057C0 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536DA5E205FD6D8000057C0 /* JSONDecodable.swift */; };
 		85EC20CF205C132A00488647 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC20CE205C132A00488647 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		75D7675CDF39908DD762FC35 /* Pods_Yggdrasil_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yggdrasil_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8536DA5E205FD6D8000057C0 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
 		85EC20CE205C132A00488647 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AF2EC994CBDC66F7899533F1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C8B6FA99EBB09AC6F658E583 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				85EC20CE205C132A00488647 /* ViewController.swift */,
+				8536DA5E205FD6D8000057C0 /* JSONDecodable.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -374,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8536DA5F205FD6D8000057C0 /* JSONDecodable.swift in Sources */,
 				85EC20CF205C132A00488647 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

@@ -28,7 +28,7 @@ import Foundation
 import Alamofire
 import Taskig
 
-public class NetworkDataTask<T: Decodable>: NetworkBase, ThrowableTaskType {
+public class NetworkDataTask<T: Parsable>: NetworkBase, ThrowableTaskType {
     public typealias ResultType = T
     
     public func action(completion: @escaping (TaskResult<T>) -> Void) {
@@ -56,7 +56,7 @@ public class NetworkDataTask<T: Decodable>: NetworkBase, ThrowableTaskType {
         return sessionManager.request(encodedURLRequest)
     }
     
-    private func executeDataRequest(_ request: Alamofire.DataRequest, with completion: @escaping (TaskResult<T>) -> Void) {
+    private func executeDataRequest(_ request: Alamofire.DataRequest, with completion: @escaping (TaskResult<ResultType>) -> Void) {
         request
             .validate()
             .validate(responseValidation)
@@ -66,7 +66,7 @@ public class NetworkDataTask<T: Decodable>: NetworkBase, ThrowableTaskType {
                     completion(.failure(error))
                 case .success(let data):
                     do {
-                        let result: ResultType = try self.decodeData(data)
+                        let result: ResultType = try ResultType.parseData(data)
                         completion(.success(result))
                     } catch {
                         completion(.failure(error))

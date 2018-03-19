@@ -77,15 +77,7 @@ public class NetworkBase: NSObject, ProgressReporting {
         }
         
         return .success
-    }
-    
-    internal func decodeData<T: Decodable>(_ data: Data) throws -> T {
-        if T.self == Data.self {
-            return data as! T
-        }
-        
-        return try JSONDecoder().decode(T.self, from: data)
-    }
+    }    
 }
 
 extension NetworkBase: RequestRetrier {
@@ -97,5 +89,4 @@ extension NetworkBase: RequestRetrier {
         
         completion(true, 0)
     }
-    
 }
