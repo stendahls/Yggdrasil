@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import Yggdrasil
+import Alamofire
 
 extension String: Error {}
 
@@ -22,16 +23,18 @@ class NetworkBaseTests: XCTestCase {
         super.tearDown()
     }
     
-    private struct TestRequest: Request {
+    private struct TestRequest: Yggdrasil.Request {
         typealias Response = JSONDictionary
         
         var endpoint: Endpoint { return NetworkEndpoint(baseUrl: "https://httpbin.org", path: "/get") }
         var preconditions: [PreconditionValidation] = []
         var responseValidations: [ResponseValidation] = []
+        var retryCount: Int = 0
         
-        init(preconditions: [PreconditionValidation] = [], responseValidations: [ResponseValidation] = []) {
+        init(preconditions: [PreconditionValidation] = [], responseValidations: [ResponseValidation] = [], retryCount: Int = 0) {
             self.preconditions = preconditions
             self.responseValidations = responseValidations
+            self.retryCount = retryCount
         }
     }
     
@@ -167,16 +170,31 @@ class NetworkBaseTests: XCTestCase {
         }
     }
     
-    func testRequestRetrier() {
-//        var request = TestRequest()
-//        let networkBase = NetworkBase(request: request)
-//
-//        let requestRetryCompletion: RequestRetryCompletion = {
-//
-//        }
-//
-//        networkBase.should(networkBase.sessionManager, retry: request, with: "Something went wrong") { (<#Bool#>, <#TimeInterval#>) in
-//            <#code#>
-//        }
+    func testRequestRetrierWithRetryCountZero() {
+        let requestRetryCountZero = TestRequest()
+
+        let requestRetryCompletion: RequestRetryCompletion = { (shouldRetry, timeDelay) in
+            XCTAssert(shouldRetry == false)
+            XCTAssert(timeDelay == 0)
+        }
+        
+        NetworkBase(request: requestRetryCountZero).should(Alamofire.SessionManager.default,
+                                                           retry: Alamofire.SessionManager.default.request(requestRetryCountZero.fullURL),
+                                                           with: "Something went wrong",
+                                                           completion: requestRetryCompletion)
+    }
+    
+    func testRequestRetrierWithRetryCountOne() {
+        let requestRetryCountZero = TestRequest(retryCount: 1)
+        
+        let requestRetryCompletion: RequestRetryCompletion = { (shouldRetry, timeDelay) in
+            XCTAssert(timeDelay == 0)
+            XCTAssert(shouldRetry == true)
+        }
+        
+        NetworkBase(request: requestRetryCountZero).should(Alamofire.SessionManager.default,
+                                                           retry: Alamofire.SessionManager.default.request(requestRetryCountZero.fullURL),
+                                                           with: "Something went wrong",
+                                                           completion: requestRetryCompletion)
     }
 }
