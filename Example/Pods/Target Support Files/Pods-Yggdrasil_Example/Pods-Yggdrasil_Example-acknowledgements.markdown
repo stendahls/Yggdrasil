@@ -49,7 +49,7 @@ THE SOFTWARE.
 
 ## Yggdrasil
 
-Copyright (c) 2018 bitwizardry-net <thomas.sempf@stendahls.se>
+Copyright © 2017 Stendahls. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

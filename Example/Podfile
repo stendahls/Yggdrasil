@@ -1,14 +1,18 @@
 use_frameworks!
 platform :ios, '10.0'
 
+def shared_pods
+    pod 'Yggdrasil', :path => '../'
+    pod 'Alamofire', '~> 4.7'
+    pod 'Taskig', '~> 0.2'
+end
+
 target 'Yggdrasil_Example' do
-  pod 'Yggdrasil', :path => '../'
-  pod 'Alamofire', '~> 4.7'
-  pod 'Taskig', '~> 0.2'
+  shared_pods
 
   target 'Yggdrasil_Tests' do
     inherit! :search_paths
-
+    shared_pods
     
   end
 end

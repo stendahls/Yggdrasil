@@ -15,6 +15,7 @@
 		65661602F783FFDB11975990 /* Pods_Yggdrasil_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B446094695D1B4340180B5 /* Pods_Yggdrasil_Tests.framework */; };
 		6DDCC96CE37B9E2F470267FF /* Pods_Yggdrasil_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D7675CDF39908DD762FC35 /* Pods_Yggdrasil_Example.framework */; };
 		8536DA5F205FD6D8000057C0 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536DA5E205FD6D8000057C0 /* JSONDecodable.swift */; };
+		8536DA63205FE253000057C0 /* NetworkEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536DA62205FE253000057C0 /* NetworkEndpointTests.swift */; };
 		85EC20CF205C132A00488647 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC20CE205C132A00488647 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		607FACEB1AFB9204008FA782 /* ParsableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableTests.swift; sourceTree = "<group>"; };
 		75D7675CDF39908DD762FC35 /* Pods_Yggdrasil_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yggdrasil_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8536DA5E205FD6D8000057C0 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
+		8536DA62205FE253000057C0 /* NetworkEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpointTests.swift; sourceTree = "<group>"; };
 		85EC20CE205C132A00488647 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AF2EC994CBDC66F7899533F1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C8B6FA99EBB09AC6F658E583 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				8536DA62205FE253000057C0 /* NetworkEndpointTests.swift */,
 				607FACEB1AFB9204008FA782 /* ParsableTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -225,7 +228,6 @@
 						DevelopmentTeam = XS5U4G3W87;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
-						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
 			};
@@ -323,9 +325,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Yggdrasil_Tests/Pods-Yggdrasil_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Taskig/Taskig.framework",
+				"${BUILT_PRODUCTS_DIR}/Yggdrasil/Yggdrasil.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Taskig.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Yggdrasil.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -390,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACEC1AFB9204008FA782 /* ParsableTests.swift in Sources */,
+				8536DA63205FE253000057C0 /* NetworkEndpointTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,7 +587,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yggdrasil_Example.app/Yggdrasil_Example";
 			};
 			name = Debug;
 		};
@@ -598,7 +607,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yggdrasil_Example.app/Yggdrasil_Example";
 			};
 			name = Release;
 		};
