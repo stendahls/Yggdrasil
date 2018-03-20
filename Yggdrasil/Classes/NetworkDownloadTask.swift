@@ -107,6 +107,8 @@ public class NetworkDownloadTask: NetworkBase, ThrowableTaskType {
                 
                 completion(.failure(NetworkDownloadTaskError.unknown))
         }
+        
+        self.progress.addChild(request.progress, withPendingUnitCount: 1)
     }
     
     private func responseValidation(request: URLRequest?, response: HTTPURLResponse, temporaryURL: URL?, destinationURL: URL?) -> Alamofire.Request.ValidationResult {
