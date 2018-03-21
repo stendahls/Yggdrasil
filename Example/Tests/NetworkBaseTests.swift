@@ -24,8 +24,6 @@ class NetworkBaseTests: XCTestCase {
     }
     
     private struct TestRequest: Yggdrasil.Request {
-        typealias Response = JSONDictionary
-        
         var endpoint: Endpoint { return NetworkEndpoint(baseUrl: "https://httpbin.org", path: "/get") }
         var preconditions: [PreconditionValidation] = []
         var responseValidations: [ResponseValidation] = []

@@ -36,8 +36,6 @@ enum TestEndpoint: Endpoint {
 }
 
 struct LoremRequest: Request {
-    typealias Response = [String]
-    
     let endpoint: Endpoint = TestEndpoint.loremIpsum
 }
 

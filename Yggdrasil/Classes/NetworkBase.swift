@@ -28,7 +28,7 @@ import Foundation
 import Alamofire
 
 public class NetworkBase: NSObject, ProgressReporting {
-    public let executionQueue: DispatchQueue = .background
+    public let executionQueue: DispatchQueue = .utility
     public var progress: Progress
     
     let networkRequest: Request

@@ -46,8 +46,10 @@ public class NetworkDataTask<T: Parsable>: NetworkBase, ThrowableTaskType {
         }
     }
     
-    private func createDataRequest() throws -> Alamofire.DataRequest {
-        var urlRequest = try URLRequest(url: networkRequest.fullURL, method: networkRequest.endpoint.method, headers: networkRequest.headers)
+    internal func createDataRequest() throws -> Alamofire.DataRequest {
+        var urlRequest = try URLRequest(url: networkRequest.fullURL,
+                                        method: networkRequest.endpoint.method,
+                                        headers: networkRequest.headers)
         urlRequest.cachePolicy =  networkRequest.ignoreCache ? .reloadIgnoringCacheData : .useProtocolCachePolicy
         
         let encoding: ParameterEncoding = networkRequest.body ?? URLEncoding.default
@@ -56,7 +58,7 @@ public class NetworkDataTask<T: Parsable>: NetworkBase, ThrowableTaskType {
         return sessionManager.request(encodedURLRequest)
     }
     
-    private func executeDataRequest(_ request: Alamofire.DataRequest, with completion: @escaping (TaskResult<ResultType>) -> Void) {
+    internal func executeDataRequest(_ request: Alamofire.DataRequest, with completion: @escaping (TaskResult<ResultType>) -> Void) {
         request
             .validate()
             .validate(responseValidation)
