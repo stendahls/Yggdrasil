@@ -80,7 +80,7 @@ public class NetworkUploadTask<T: Parsable>: NetworkBase, ThrowableTaskType {
         }
     }
     
-    private func createUploadRequest() throws -> Alamofire.UploadRequest {
+    internal func createUploadRequest() throws -> Alamofire.UploadRequest {
         if let data = self.data {
             return sessionManager.upload(data,
                                          to: self.networkRequest.endpoint.baseUrl + self.networkRequest.endpoint.path,
@@ -98,7 +98,7 @@ public class NetworkUploadTask<T: Parsable>: NetworkBase, ThrowableTaskType {
         throw NetworkUploadTaskError.missingDataToUpload
     }
     
-    private func executeUploadRequest(_ request: Alamofire.UploadRequest, with completion: @escaping (TaskResult<T>) -> Void) {
+    internal func executeUploadRequest(_ request: Alamofire.UploadRequest, with completion: @escaping (TaskResult<T>) -> Void) {
         request
             .validate()
             .validate(responseValidation)
@@ -142,7 +142,7 @@ public class NetworkMultipartFormDataUploadTask<T: Parsable>: NetworkBase, Throw
         }
     }
     
-    private func createUploadRequest(_ multipartRequest: MultipartRequest) -> ThrowableTask<UploadRequest> {
+    internal func createUploadRequest(_ multipartRequest: MultipartRequest) -> ThrowableTask<UploadRequest> {
         return ThrowableTask<UploadRequest>(action: { (completion) in
             self.sessionManager.upload(
                 multipartFormData: { (multipartFormData) in
@@ -163,7 +163,7 @@ public class NetworkMultipartFormDataUploadTask<T: Parsable>: NetworkBase, Throw
         })
     }
     
-    private func executeUploadRequest(_ request: Alamofire.UploadRequest, with completion: @escaping (TaskResult<T>) -> Void) {
+    internal func executeUploadRequest(_ request: Alamofire.UploadRequest, with completion: @escaping (TaskResult<T>) -> Void) {
         request
             .validate()
             .validate(responseValidation)

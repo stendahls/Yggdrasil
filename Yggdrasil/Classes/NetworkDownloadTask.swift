@@ -71,7 +71,7 @@ public class NetworkDownloadTask: NetworkBase, ThrowableTaskType {
         }
     }
     
-    private func createDownloadRequest(toFileURL fileURL: URL) throws -> Alamofire.DownloadRequest {
+    internal func createDownloadRequest(toFileURL fileURL: URL) throws -> Alamofire.DownloadRequest {
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
@@ -85,7 +85,7 @@ public class NetworkDownloadTask: NetworkBase, ThrowableTaskType {
         return sessionManager.download(encodedURLRequest, to: destination)
     }
     
-    private func executeDownloadRequest(_ request: Alamofire.DownloadRequest, with completion: @escaping (TaskResult<URL>) -> Void) {
+    internal func executeDownloadRequest(_ request: Alamofire.DownloadRequest, with completion: @escaping (TaskResult<URL>) -> Void) {
         request
             .validate()
             .validate(responseValidation)
@@ -111,11 +111,14 @@ public class NetworkDownloadTask: NetworkBase, ThrowableTaskType {
         self.progress.addChild(request.progress, withPendingUnitCount: 1)
     }
     
-    private func responseValidation(request: URLRequest?, response: HTTPURLResponse, temporaryURL: URL?, destinationURL: URL?) -> Alamofire.Request.ValidationResult {
+    internal func responseValidation(request: URLRequest?, response: HTTPURLResponse, temporaryURL: URL?, destinationURL: URL?) -> Alamofire.Request.ValidationResult {
         var data: Data? = nil
         
         if let destinationURL = destinationURL {
             data = try? Data(contentsOf: destinationURL)
+        }
+        else if let temporaryURL = temporaryURL {
+            data = try? Data(contentsOf: temporaryURL)
         }
         
         return responseValidation(request: request, response: response, data: data)

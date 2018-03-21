@@ -67,7 +67,7 @@ class ViewController: UIViewController {
                 
                 let jsonUpload: JSONDictionary = try NetworkUploadTask(url: "https://httpbin.org/post", fileURL: fileURL, data: nil).await()
                 print(jsonUpload)
-
+                
                 let json: JSONDictionary = try NetworkDataTask(url: "https://httpbin.org/uuid").await()
                 print(json)
                 
