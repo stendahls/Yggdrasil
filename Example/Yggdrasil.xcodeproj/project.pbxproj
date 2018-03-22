@@ -22,6 +22,7 @@
 		857F11AF2060DAA400B75A2B /* NetworkDataTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11AE2060DAA400B75A2B /* NetworkDataTaskTests.swift */; };
 		857F11B12062540100B75A2B /* NetworkDownloadTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11B02062540100B75A2B /* NetworkDownloadTaskTests.swift */; };
 		857F11B320625BBD00B75A2B /* NetworkUploadTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11B220625BBD00B75A2B /* NetworkUploadTaskTests.swift */; };
+		857F11B72063B1F800B75A2B /* NetworkMultipartFormDataUploadTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11B62063B1F800B75A2B /* NetworkMultipartFormDataUploadTaskTests.swift */; };
 		85EC20CF205C132A00488647 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC20CE205C132A00488647 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		857F11AE2060DAA400B75A2B /* NetworkDataTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataTaskTests.swift; sourceTree = "<group>"; };
 		857F11B02062540100B75A2B /* NetworkDownloadTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDownloadTaskTests.swift; sourceTree = "<group>"; };
 		857F11B220625BBD00B75A2B /* NetworkUploadTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUploadTaskTests.swift; sourceTree = "<group>"; };
+		857F11B62063B1F800B75A2B /* NetworkMultipartFormDataUploadTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMultipartFormDataUploadTaskTests.swift; sourceTree = "<group>"; };
 		85EC20CE205C132A00488647 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AF2EC994CBDC66F7899533F1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C8B6FA99EBB09AC6F658E583 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				857F11B62063B1F800B75A2B /* NetworkMultipartFormDataUploadTaskTests.swift */,
 				857F11B220625BBD00B75A2B /* NetworkUploadTaskTests.swift */,
 				857F11B02062540100B75A2B /* NetworkDownloadTaskTests.swift */,
 				857F11AE2060DAA400B75A2B /* NetworkDataTaskTests.swift */,
@@ -422,6 +425,7 @@
 				607FACEC1AFB9204008FA782 /* ParsableTests.swift in Sources */,
 				857F11B12062540100B75A2B /* NetworkDownloadTaskTests.swift in Sources */,
 				8536DA63205FE253000057C0 /* NetworkEndpointTests.swift in Sources */,
+				857F11B72063B1F800B75A2B /* NetworkMultipartFormDataUploadTaskTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
