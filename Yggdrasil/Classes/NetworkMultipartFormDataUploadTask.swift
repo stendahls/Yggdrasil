@@ -1,5 +1,5 @@
 //
-//  NetworkUploadTask.swift
+//  NetworkMultipartFormDataUploadTask.swift
 //  Yggdrasil
 //
 //  Created by Thomas Sempf on 2017-12-08.
@@ -25,40 +25,14 @@
 //
 
 import Foundation
-import Alamofire
 import Taskig
+import MobileCoreServices
+import Alamofire
 
-public enum NetworkUploadData {
-    case file(URL)
-    case data(Data)
-}
-
-public class NetworkUploadTask<T: Parsable>: NetworkBase, ThrowableTaskType {
+public class NetworkMultipartFormDataUploadTask<T: Parsable>: NetworkBase, ThrowableTaskType {
     public typealias ResultType = T
     
-    private let dataToUpload: NetworkUploadData
-    
-    public init(request: Request, dataToUpload: NetworkUploadData) {
-        self.dataToUpload = dataToUpload
-        
-        super.init(request: request)
-    }
-    
-    public init(url: URLConvertible, dataToUpload: NetworkUploadData) {
-        self.dataToUpload = dataToUpload
-        
-        var endpoint: NetworkEndpoint
-        
-        if let url = try? url.asURL() {
-            endpoint = NetworkEndpoint(baseUrl: (url.scheme ?? "") + "://" + (url.host ?? ""),
-                                       path: url.path,
-                                       method: .post)
-        } else {
-            endpoint = NetworkEndpoint(baseUrl: "", path: "", method: .post)
-        }
-        
-        let request = NetworkRequest(endpoint: endpoint)
-        
+    public init(request: MultipartRequest) {
         super.init(request: request)
     }
     
@@ -69,7 +43,7 @@ public class NetworkUploadTask<T: Parsable>: NetworkBase, ThrowableTaskType {
         }
         
         do {
-            let uploadRequest = try createUploadRequest()
+            let uploadRequest = try createUploadRequest(networkRequest as! MultipartRequest).await()
             
             executeUploadRequest(uploadRequest, with: completion)
         } catch {
@@ -77,19 +51,25 @@ public class NetworkUploadTask<T: Parsable>: NetworkBase, ThrowableTaskType {
         }
     }
     
-    internal func createUploadRequest() throws -> Alamofire.UploadRequest {
-        switch dataToUpload {
-        case .data(let data):
-            return sessionManager.upload(data,
-                                         to: self.networkRequest.endpoint.baseUrl + self.networkRequest.endpoint.path,
-                                         method: self.networkRequest.endpoint.method,
-                                         headers: self.networkRequest.headers)
-        case .file(let fileURL):
-            return sessionManager.upload(fileURL,
-                                         to: self.networkRequest.endpoint.baseUrl + self.networkRequest.endpoint.path,
-                                         method: self.networkRequest.endpoint.method,
-                                         headers: self.networkRequest.headers)
-        }
+    internal func createUploadRequest(_ multipartRequest: MultipartRequest) -> ThrowableTask<UploadRequest> {
+        return ThrowableTask<UploadRequest>(action: { (completion) in
+            self.sessionManager.upload(
+                multipartFormData: { (multipartFormData) in
+                    multipartFormData.append(multipartRequest.data, withName: multipartRequest.filename, mimeType: multipartRequest.mimeType)
+            },
+                to: self.networkRequest.endpoint.baseUrl + self.networkRequest.endpoint.path,
+                method: self.networkRequest.endpoint.method,
+                headers: self.networkRequest.headers,
+                encodingCompletion: { (encodingResult) in
+                    switch encodingResult {
+                    case .failure(let error):
+                        completion(.failure(error))
+                    case .success(let upload, _, _):
+                        completion(.success(upload))
+                    }
+            }
+            )
+        })
     }
     
     internal func executeUploadRequest(_ request: Alamofire.UploadRequest, with completion: @escaping (TaskResult<T>) -> Void) {
@@ -113,4 +93,3 @@ public class NetworkUploadTask<T: Parsable>: NetworkBase, ThrowableTaskType {
         self.progress.addChild(request.progress, withPendingUnitCount: 1)
     }
 }
-

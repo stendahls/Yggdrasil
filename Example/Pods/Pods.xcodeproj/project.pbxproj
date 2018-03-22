@@ -39,6 +39,7 @@
 		7B4AB636900B52F169B273B48A1FE08B /* ThrowableTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04B5932A09A4F80C90DE9C7A8C2630B /* ThrowableTask.swift */; };
 		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35876214A8723272265E5D24321ECF19 /* SessionDelegate.swift */; };
 		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683B927CE3B4AA718F439B76F1F26E5B /* Result.swift */; };
+		857F11B520626CFC00B75A2B /* NetworkMultipartFormDataUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11B420626CFC00B75A2B /* NetworkMultipartFormDataUploadTask.swift */; };
 		97E71BDDC06A6A2C6D689700F3606C3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A19206D313BE6B1E357D6F03B9867F0 /* Foundation.framework */; };
 		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC880E0E28550BA4BF911A8FE6DC9C58 /* AFError.swift */; };
 		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25D380F1392E5F5999DDBAED1F24677 /* NetworkReachabilityManager.swift */; };
@@ -161,6 +162,7 @@
 		7E53699980BDA1E90561DD60E3AC80C4 /* Taskig.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Taskig.xcconfig; sourceTree = "<group>"; };
 		7E66BA69C1FDE584F0208E65307508C5 /* Taskig-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Taskig-prefix.pch"; sourceTree = "<group>"; };
 		7E95210800822EB4C7D132FD7A920B38 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		857F11B420626CFC00B75A2B /* NetworkMultipartFormDataUploadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkMultipartFormDataUploadTask.swift; path = Yggdrasil/Classes/NetworkMultipartFormDataUploadTask.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9517E75735C0FBB1566A37B6295C4F86 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		998DAC66B0B9B296A4FFA3A1DC3B6092 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				0268E396A668F427245551B54E507E5B /* NetworkDataTask.swift */,
 				C52F936362D06CF2660E1D52D7A8159F /* NetworkDownloadTask.swift */,
 				E97F008282DD51EC56CF71B2502B7AC8 /* NetworkUploadTask.swift */,
+				857F11B420626CFC00B75A2B /* NetworkMultipartFormDataUploadTask.swift */,
 				70C10562A10088CAB17A0D8DECA1D2EC /* Pod */,
 				EBD5AA8EDAA50270EABE683D34CF89FB /* Support Files */,
 			);
@@ -681,6 +684,7 @@
 			files = (
 				271A13DE170089D2AFCF02DF31EF08F7 /* AlamofireExtensions.swift in Sources */,
 				55D08CAAE1EF06D7AAB47902E1C74E6A /* Endpoint.swift in Sources */,
+				857F11B520626CFC00B75A2B /* NetworkMultipartFormDataUploadTask.swift in Sources */,
 				1942D97A3CE3BB03C6365E4119B62670 /* MultipartRequest.swift in Sources */,
 				41F8B3E67D851D7F3F52323FD2ABB841 /* NetworkBase.swift in Sources */,
 				50D43456C3BD6E05261AD85026BBC661 /* NetworkDataTask.swift in Sources */,

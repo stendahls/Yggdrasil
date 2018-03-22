@@ -65,7 +65,7 @@ class ViewController: UIViewController {
                     self.imageView.image = fileimage
                 }
                 
-                let jsonUpload: JSONDictionary = try NetworkUploadTask(url: "https://httpbin.org/post", fileURL: fileURL, data: nil).await()
+                let jsonUpload: JSONDictionary = try NetworkUploadTask(url: "https://httpbin.org/post", dataToUpload: .file(fileURL)).await()
                 print(jsonUpload)
                 
                 let json: JSONDictionary = try NetworkDataTask(url: "https://httpbin.org/uuid").await()
