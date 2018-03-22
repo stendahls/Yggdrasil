@@ -19,17 +19,17 @@
 		37400DB7B80A43CFA11D4B91AF65C475 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4518E9E94BEAF5B8F01FFBA483DA27EF /* Request.swift */; };
 		39A182502F03DFD8316221075D6817AD /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567D08B2B4E34E7880BF7E17C42C7B4 /* Collections.swift */; };
 		403FECC507C4EAB00C45292A9665E718 /* Pods-Yggdrasil_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CC665042580C2593278E3417BDBE930A /* Pods-Yggdrasil_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		41F8B3E67D851D7F3F52323FD2ABB841 /* NetworkBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA79DAC09A518B2CF82DFED92B5FB17 /* NetworkBase.swift */; };
-		45B2E528E4AEE4C478D13CF228466FCE /* NetworkUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F008282DD51EC56CF71B2502B7AC8 /* NetworkUploadTask.swift */; };
+		41F8B3E67D851D7F3F52323FD2ABB841 /* BaseTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA79DAC09A518B2CF82DFED92B5FB17 /* BaseTask.swift */; };
+		45B2E528E4AEE4C478D13CF228466FCE /* UploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F008282DD51EC56CF71B2502B7AC8 /* UploadTask.swift */; };
 		488F8FA583CAC007BE5157E1EBF32088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A19206D313BE6B1E357D6F03B9867F0 /* Foundation.framework */; };
-		50D43456C3BD6E05261AD85026BBC661 /* NetworkDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268E396A668F427245551B54E507E5B /* NetworkDataTask.swift */; };
+		50D43456C3BD6E05261AD85026BBC661 /* DataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268E396A668F427245551B54E507E5B /* DataTask.swift */; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E77E1B5969769A4D5523293311D834 /* Request.swift */; };
 		55D08CAAE1EF06D7AAB47902E1C74E6A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0996CED80D1134CBA76AD8EDFB7B95 /* Endpoint.swift */; };
 		60929BFB75062F132E211683EB471641 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A19206D313BE6B1E357D6F03B9867F0 /* Foundation.framework */; };
 		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6070E0E1D8C76B982E932455683E08A6 /* DispatchQueue+Alamofire.swift */; };
 		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E6875A28DFE412436EF529288DF003 /* ServerTrustPolicy.swift */; };
 		646FF93909FBA330025D7629E93B1298 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C779B4A2BEB444F2CFA3CF68BE611B /* TaskType.swift */; };
-		6D77D24BA8614222C34E193226E3EADC /* NetworkDownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52F936362D06CF2660E1D52D7A8159F /* NetworkDownloadTask.swift */; };
+		6D77D24BA8614222C34E193226E3EADC /* DownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52F936362D06CF2660E1D52D7A8159F /* DownloadTask.swift */; };
 		6E8140C0FB742D1BF34A474A494468A1 /* Taskig-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BCED9D8EEBD304F13A32D7BE31DBDDE6 /* Taskig-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EFC01EF4E286D01AFAA9A273615F47A /* ThrowableTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645B88A4CB4D1F47C57522E167CB0B4 /* ThrowableTaskType.swift */; };
 		6F11A0482AC95A1619E4C1CD011443C1 /* Yggdrasil-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBBB873B0478EEB3BCE3115BC41FDBF /* Yggdrasil-dummy.m */; };
@@ -39,7 +39,7 @@
 		7B4AB636900B52F169B273B48A1FE08B /* ThrowableTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04B5932A09A4F80C90DE9C7A8C2630B /* ThrowableTask.swift */; };
 		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35876214A8723272265E5D24321ECF19 /* SessionDelegate.swift */; };
 		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683B927CE3B4AA718F439B76F1F26E5B /* Result.swift */; };
-		857F11B520626CFC00B75A2B /* NetworkMultipartFormDataUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11B420626CFC00B75A2B /* NetworkMultipartFormDataUploadTask.swift */; };
+		857F11B520626CFC00B75A2B /* MultipartFormDataUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11B420626CFC00B75A2B /* MultipartFormDataUploadTask.swift */; };
 		97E71BDDC06A6A2C6D689700F3606C3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A19206D313BE6B1E357D6F03B9867F0 /* Foundation.framework */; };
 		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC880E0E28550BA4BF911A8FE6DC9C58 /* AFError.swift */; };
 		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25D380F1392E5F5999DDBAED1F24677 /* NetworkReachabilityManager.swift */; };
@@ -120,7 +120,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0268E396A668F427245551B54E507E5B /* NetworkDataTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkDataTask.swift; path = Yggdrasil/Classes/NetworkDataTask.swift; sourceTree = "<group>"; };
+		0268E396A668F427245551B54E507E5B /* DataTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTask.swift; path = Yggdrasil/Classes/DataTask.swift; sourceTree = "<group>"; };
 		0B07C3FE7F3701787126403A46FC0769 /* Parsable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parsable.swift; path = Yggdrasil/Classes/Parsable.swift; sourceTree = "<group>"; };
 		0CBD3355E792B7787024705544E05926 /* Taskig-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Taskig-dummy.m"; sourceTree = "<group>"; };
 		0EBBB873B0478EEB3BCE3115BC41FDBF /* Yggdrasil-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Yggdrasil-dummy.m"; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		7E53699980BDA1E90561DD60E3AC80C4 /* Taskig.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Taskig.xcconfig; sourceTree = "<group>"; };
 		7E66BA69C1FDE584F0208E65307508C5 /* Taskig-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Taskig-prefix.pch"; sourceTree = "<group>"; };
 		7E95210800822EB4C7D132FD7A920B38 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		857F11B420626CFC00B75A2B /* NetworkMultipartFormDataUploadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkMultipartFormDataUploadTask.swift; path = Yggdrasil/Classes/NetworkMultipartFormDataUploadTask.swift; sourceTree = "<group>"; };
+		857F11B420626CFC00B75A2B /* MultipartFormDataUploadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipartFormDataUploadTask.swift; path = Yggdrasil/Classes/MultipartFormDataUploadTask.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9517E75735C0FBB1566A37B6295C4F86 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		998DAC66B0B9B296A4FFA3A1DC3B6092 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 		C2F0088992B9B2A3FC3D0FD0EC43DF2E /* Pods_Yggdrasil_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yggdrasil_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33A7E3CE365F76BEA3842AF4202FFE2 /* Pods-Yggdrasil_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Yggdrasil_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C35035B844CADC6CEEACAFA28A9F76E0 /* Pods-Yggdrasil_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Yggdrasil_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		C52F936362D06CF2660E1D52D7A8159F /* NetworkDownloadTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkDownloadTask.swift; path = Yggdrasil/Classes/NetworkDownloadTask.swift; sourceTree = "<group>"; };
+		C52F936362D06CF2660E1D52D7A8159F /* DownloadTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DownloadTask.swift; path = Yggdrasil/Classes/DownloadTask.swift; sourceTree = "<group>"; };
 		CC665042580C2593278E3417BDBE930A /* Pods-Yggdrasil_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Yggdrasil_Example-umbrella.h"; sourceTree = "<group>"; };
 		CCFA3BC2C46EB9440F27156C42A4B953 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		D25D380F1392E5F5999DDBAED1F24677 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
@@ -195,9 +195,9 @@
 		E26767312E6D458D2D130232622680AE /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		E3C779B4A2BEB444F2CFA3CF68BE611B /* TaskType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskType.swift; path = TaskigSource/Base/TaskType.swift; sourceTree = "<group>"; };
 		E88D1EBBB2BDFC0F693A388ED5DB049E /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
-		E97F008282DD51EC56CF71B2502B7AC8 /* NetworkUploadTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkUploadTask.swift; path = Yggdrasil/Classes/NetworkUploadTask.swift; sourceTree = "<group>"; };
+		E97F008282DD51EC56CF71B2502B7AC8 /* UploadTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UploadTask.swift; path = Yggdrasil/Classes/UploadTask.swift; sourceTree = "<group>"; };
 		ECDB078BB65A36F8055CEC87FE65CFC2 /* Pods-Yggdrasil_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Yggdrasil_Example-resources.sh"; sourceTree = "<group>"; };
-		EEA79DAC09A518B2CF82DFED92B5FB17 /* NetworkBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkBase.swift; path = Yggdrasil/Classes/NetworkBase.swift; sourceTree = "<group>"; };
+		EEA79DAC09A518B2CF82DFED92B5FB17 /* BaseTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseTask.swift; path = Yggdrasil/Classes/BaseTask.swift; sourceTree = "<group>"; };
 		F04B5932A09A4F80C90DE9C7A8C2630B /* ThrowableTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThrowableTask.swift; path = TaskigSource/Base/ThrowableTask.swift; sourceTree = "<group>"; };
 		F1E6875A28DFE412436EF529288DF003 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		F2978FA9DE684197274A7678A289DF31 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
@@ -389,11 +389,11 @@
 				DC0996CED80D1134CBA76AD8EDFB7B95 /* Endpoint.swift */,
 				4518E9E94BEAF5B8F01FFBA483DA27EF /* Request.swift */,
 				36B8E9F6139761239845ACCCE999A9D6 /* MultipartRequest.swift */,
-				EEA79DAC09A518B2CF82DFED92B5FB17 /* NetworkBase.swift */,
-				0268E396A668F427245551B54E507E5B /* NetworkDataTask.swift */,
-				C52F936362D06CF2660E1D52D7A8159F /* NetworkDownloadTask.swift */,
-				E97F008282DD51EC56CF71B2502B7AC8 /* NetworkUploadTask.swift */,
-				857F11B420626CFC00B75A2B /* NetworkMultipartFormDataUploadTask.swift */,
+				EEA79DAC09A518B2CF82DFED92B5FB17 /* BaseTask.swift */,
+				0268E396A668F427245551B54E507E5B /* DataTask.swift */,
+				C52F936362D06CF2660E1D52D7A8159F /* DownloadTask.swift */,
+				E97F008282DD51EC56CF71B2502B7AC8 /* UploadTask.swift */,
+				857F11B420626CFC00B75A2B /* MultipartFormDataUploadTask.swift */,
 				70C10562A10088CAB17A0D8DECA1D2EC /* Pod */,
 				EBD5AA8EDAA50270EABE683D34CF89FB /* Support Files */,
 			);
@@ -684,12 +684,12 @@
 			files = (
 				271A13DE170089D2AFCF02DF31EF08F7 /* AlamofireExtensions.swift in Sources */,
 				55D08CAAE1EF06D7AAB47902E1C74E6A /* Endpoint.swift in Sources */,
-				857F11B520626CFC00B75A2B /* NetworkMultipartFormDataUploadTask.swift in Sources */,
+				857F11B520626CFC00B75A2B /* MultipartFormDataUploadTask.swift in Sources */,
 				1942D97A3CE3BB03C6365E4119B62670 /* MultipartRequest.swift in Sources */,
-				41F8B3E67D851D7F3F52323FD2ABB841 /* NetworkBase.swift in Sources */,
-				50D43456C3BD6E05261AD85026BBC661 /* NetworkDataTask.swift in Sources */,
-				6D77D24BA8614222C34E193226E3EADC /* NetworkDownloadTask.swift in Sources */,
-				45B2E528E4AEE4C478D13CF228466FCE /* NetworkUploadTask.swift in Sources */,
+				41F8B3E67D851D7F3F52323FD2ABB841 /* BaseTask.swift in Sources */,
+				50D43456C3BD6E05261AD85026BBC661 /* DataTask.swift in Sources */,
+				6D77D24BA8614222C34E193226E3EADC /* DownloadTask.swift in Sources */,
+				45B2E528E4AEE4C478D13CF228466FCE /* UploadTask.swift in Sources */,
 				A4986C5F4D8D2760238A1845A05B5AE4 /* Parsable.swift in Sources */,
 				37400DB7B80A43CFA11D4B91AF65C475 /* Request.swift in Sources */,
 				6F11A0482AC95A1619E4C1CD011443C1 /* Yggdrasil-dummy.m in Sources */,

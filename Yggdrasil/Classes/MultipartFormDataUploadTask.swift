@@ -29,7 +29,7 @@ import Taskig
 import MobileCoreServices
 import Alamofire
 
-public class NetworkMultipartFormDataUploadTask<T: Parsable>: NetworkBase, ThrowableTaskType {
+public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
     public typealias ResultType = T
     
     public init(request: MultipartRequest) {

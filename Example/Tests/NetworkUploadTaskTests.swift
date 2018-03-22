@@ -37,7 +37,7 @@ class NetworkUploadTaskTests: XCTestCase {
     
     func testCreationOfUploadRequest() {
         let request = TestPostRequest()
-        let uploadTask = NetworkUploadTask<Data>(request: request, dataToUpload: .data("FooBar".data(using: .utf8)!))
+        let uploadTask = UploadTask<Data>(request: request, dataToUpload: .data("FooBar".data(using: .utf8)!))
         
         do {
             let uploadRequest = try uploadTask.createUploadRequest()
@@ -53,7 +53,7 @@ class NetworkUploadTaskTests: XCTestCase {
     
     func testProgressReportingIsTriggered() {
         let request = TestPostRequest()
-        let uploadTask = NetworkUploadTask<Data>(request: request, dataToUpload: .data("FooBar".data(using: .utf8)!))
+        let uploadTask = UploadTask<Data>(request: request, dataToUpload: .data("FooBar".data(using: .utf8)!))
         let finishedExpectation = expectation(description: "Finished")
         
         DispatchQueue.global().async {
@@ -74,7 +74,7 @@ class NetworkUploadTaskTests: XCTestCase {
     
     func testSuccessCase() {
         let request = TestPostRequest()
-        let uploadTask = NetworkUploadTask<Data>(request: request, dataToUpload: .data("FooBar".data(using: .utf8)!))
+        let uploadTask = UploadTask<Data>(request: request, dataToUpload: .data("FooBar".data(using: .utf8)!))
         let finishedExpectation = expectation(description: "Finished")
         
         uploadTask.async { (result) in
@@ -90,7 +90,7 @@ class NetworkUploadTaskTests: XCTestCase {
     }
     
     func testFailureCase() {
-        let uploadTask = NetworkUploadTask<Data>(url: " ", dataToUpload: .data("FooBar".data(using: .utf8)!))
+        let uploadTask = UploadTask<Data>(url: " ", dataToUpload: .data("FooBar".data(using: .utf8)!))
         let finishedExpectation = expectation(description: "Finished")
         
         uploadTask.async(completion: { (result) in

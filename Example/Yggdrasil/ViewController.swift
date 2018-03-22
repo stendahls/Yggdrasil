@@ -10,7 +10,7 @@ import UIKit
 import Yggdrasil
 import Taskig
 
-enum TestEndpoint: Endpoint {
+enum BaconIpsumEndpoint: Endpoint {
     case loremIpsum
     case fail
     
@@ -35,8 +35,24 @@ enum TestEndpoint: Endpoint {
     }
 }
 
+enum HttpBinEndpoint: Endpoint {
+    case get
+    case post
+    case uuid
+    
+    var baseUrl: String { return "https://httpbin.org" }
+    
+    var path: String {
+        switch self {
+        case .get: return "/get"
+        case .post: return "/post"
+        case .uuid: return "/uuid"
+        }
+    }
+}
+
 struct LoremRequest: Request {
-    let endpoint: Endpoint = TestEndpoint.loremIpsum
+    let endpoint: Endpoint = BaconIpsumEndpoint.loremIpsum
 }
 
 class ViewController: UIViewController {
@@ -51,42 +67,37 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        guard ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil else {
-            // Code only executes when tests are running
-            return
-        }
-        
         Task.async {
             do {
-                let fileURL = try NetworkDownloadTask(url: "https://picsum.photos/1024/1024").await()
+                let fileURL = try DownloadTask(url: "https://picsum.photos/1024/1024").await()
                 let fileimage = UIImage(contentsOfFile: fileURL.path)
                 
                 Task.async(executionQueue: .main) {
                     self.imageView.image = fileimage
                 }
                 
-                let jsonUpload: JSONDictionary = try NetworkUploadTask(url: "https://httpbin.org/post", dataToUpload: .file(fileURL)).await()
+                let jsonUpload: JSONDictionary = try UploadTask(url: "https://httpbin.org/post", dataToUpload: .file(fileURL)).await()
                 print(jsonUpload)
                 
-                let json: JSONDictionary = try NetworkDataTask(url: "https://httpbin.org/uuid").await()
+                let json: JSONDictionary = try DataTask(url: "https://httpbin.org/uuid").await()
                 print(json)
                 
                 let endPoint = NetworkEndpoint(baseUrl: "https://baconipsum.com", path: "/api", parameters: ["type": "meat-and-filler"])
-                var text: [String] = try NetworkDataTask(request: NetworkRequest(endpoint: endPoint)).await()
+                var text: [String] = try DataTask(request: NetworkRequest(endpoint: endPoint)).await()
                 print(text)
                 
-                let request = NetworkRequest(endpoint: TestEndpoint.loremIpsum, ignoreCache: true, retryCount: 2)
-                text = try NetworkDataTask(request: request).await()
+                let request = NetworkRequest(endpoint: BaconIpsumEndpoint.loremIpsum, ignoreCache: true, retryCount: 2)
+                text = try DataTask(request: request).await()
                 print(text)
                 
-                text = try NetworkDataTask(request: LoremRequest()).await()
+                text = try DataTask(request: LoremRequest()).await()
                 print(text)
                 
-                let textAnother = try NetworkDataTask<[String]>(request: LoremRequest()).await()
+                let textAnother = try DataTask<[String]>(request: LoremRequest()).await()
                 print(textAnother)
                 
                 let imageEndPoint = NetworkEndpoint(baseUrl: "https://picsum.photos", path: "/2048/2048")
-                let imageData = try NetworkDataTask<Data>(request: NetworkRequest(endpoint: imageEndPoint)).await()
+                let imageData = try DataTask<Data>(request: NetworkRequest(endpoint: imageEndPoint)).await()
                 
                 let multiPartEndpoint = NetworkEndpoint(baseUrl: "https://httpbin.org", path: "/post", method: .post, parameters: [:])
                 let multiPartRequest = NetworkMultipartFormDataRequest(endpoint: multiPartEndpoint,
@@ -94,7 +105,7 @@ class ViewController: UIViewController {
                                                                        mimeType: "jpeg",
                                                                        filename: "MyImage")
                 
-                let uploadTask = NetworkMultipartFormDataUploadTask<Data>(request: multiPartRequest)
+                let uploadTask = MultipartFormDataUploadTask<Data>(request: multiPartRequest)
                 
                 DispatchQueue.main.sync {
                     self.progressView.observedProgress = uploadTask.progress
@@ -108,7 +119,7 @@ class ViewController: UIViewController {
                 
                 let fullURL = NSURL.fileURL(withPathComponents: [directory, fileName])
                 let downloadRequest = NetworkRequest(endpoint: imageEndPoint)
-                let downloadTask = NetworkDownloadTask(request: downloadRequest, downloadDestination: fullURL!)
+                let downloadTask = DownloadTask(request: downloadRequest, downloadDestination: fullURL!)
                 
                 DispatchQueue.main.sync {
                     self.progressView.observedProgress = downloadTask.progress

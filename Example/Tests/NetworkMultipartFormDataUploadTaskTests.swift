@@ -41,7 +41,7 @@ class NetworkMultipartFormDataUploadTaskTests: XCTestCase {
     
     func testProgressReportingIsTriggered() {
         let request = TestMultipartRequest()
-        let uploadTask = NetworkMultipartFormDataUploadTask<Data>(request: request)
+        let uploadTask = MultipartFormDataUploadTask<Data>(request: request)
         let finishedExpectation = expectation(description: "Finished")
         
         DispatchQueue.global().async {
@@ -62,7 +62,7 @@ class NetworkMultipartFormDataUploadTaskTests: XCTestCase {
     
     func testSuccessCase() {
         let request = TestMultipartRequest()
-        let uploadTask = NetworkMultipartFormDataUploadTask<Data>(request: request)
+        let uploadTask = MultipartFormDataUploadTask<Data>(request: request)
         let finishedExpectation = expectation(description: "Finished")
         
         uploadTask.async { (result) in
@@ -79,7 +79,7 @@ class NetworkMultipartFormDataUploadTaskTests: XCTestCase {
     
     func testFailureCase() {
         let request = NetworkMultipartFormDataRequest(endpoint: NetworkEndpoint(baseUrl: "", path: ""), data: "FooBar".data(using: .utf8)!, mimeType: "txt", filename: "Foobar.txt")
-        let uploadTask = NetworkMultipartFormDataUploadTask<Data>(request: request)
+        let uploadTask = MultipartFormDataUploadTask<Data>(request: request)
         let finishedExpectation = expectation(description: "Finished")
         
         uploadTask.async(completion: { (result) in

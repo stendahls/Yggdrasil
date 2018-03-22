@@ -28,7 +28,7 @@ import Foundation
 import Alamofire
 import Taskig
 
-public class NetworkDataTask<T: Parsable>: NetworkBase, ThrowableTaskType {
+public class DataTask<T: Parsable>: BaseTask, ThrowableTaskType {
     public typealias ResultType = T
     
     public func action(completion: @escaping (TaskResult<T>) -> Void) {

@@ -44,12 +44,12 @@ class NetworkBaseTests: XCTestCase {
     }
     
     func testNetworkBaseInit() {
-        let validURL = NetworkBase(url: "https://httpbin.org/get")
+        let validURL = BaseTask(url: "https://httpbin.org/get")
         
         XCTAssert(validURL.networkRequest.endpoint.baseUrl == "https://httpbin.org")
         XCTAssert(validURL.networkRequest.endpoint.path == "/get")
         
-        let invalidURL = NetworkBase(url: " a _ _ ")
+        let invalidURL = BaseTask(url: " a _ _ ")
         XCTAssert(invalidURL.networkRequest.endpoint.baseUrl == "")
         XCTAssert(invalidURL.networkRequest.endpoint.path == "")
     }
@@ -68,7 +68,7 @@ class NetworkBaseTests: XCTestCase {
         let preconditions = [successValidation(expectationOne), successValidation(expectationTwo)]
         let request = TestRequest(preconditions: preconditions)
         
-        if case .failure = NetworkBase(request: request).preconditionValidation() {
+        if case .failure = BaseTask(request: request).preconditionValidation() {
             XCTFail()
         }
         
@@ -80,7 +80,7 @@ class NetworkBaseTests: XCTestCase {
         let preconditions = [ successPrecondition, successPrecondition]
         let request = TestRequest(preconditions: preconditions)
         
-        if case .failure = NetworkBase(request: request).preconditionValidation() {
+        if case .failure = BaseTask(request: request).preconditionValidation() {
             XCTFail()
         }
     }
@@ -91,7 +91,7 @@ class NetworkBaseTests: XCTestCase {
         let preconditions = [successPrecondition, failurePrecondition]
         let request = TestRequest(preconditions: preconditions)
         
-        if case let .failure(error) = NetworkBase(request: request).preconditionValidation() {
+        if case let .failure(error) = BaseTask(request: request).preconditionValidation() {
             XCTAssert(error as! String == "Something went wrong")
         } else {
             XCTFail()
@@ -112,7 +112,7 @@ class NetworkBaseTests: XCTestCase {
         let responseValidations = [successValidation(expectationOne), successValidation(expectationTwo)]
         let request = TestRequest(responseValidations: responseValidations)
         
-        let networkBase = NetworkBase(request: request)
+        let networkBase = BaseTask(request: request)
         
         if case .failure = networkBase.responseValidation(request: nil, response: testHTTPURLResponse(), data: nil) {
             XCTFail()
@@ -135,7 +135,7 @@ class NetworkBaseTests: XCTestCase {
         }
         
         let request = TestRequest(responseValidations: [responseValidator])
-        let networkBase = NetworkBase(request: request)
+        let networkBase = BaseTask(request: request)
         
         if case .failure = networkBase.responseValidation(request: testRequest, response: testResponse, data: testData) {
             XCTFail()
@@ -145,7 +145,7 @@ class NetworkBaseTests: XCTestCase {
     func testExecutionOfResponseValidationsWithSuccessResult() {
         let successValidation: ResponseValidation = { (_,_,_) in return .success }
         let request = TestRequest(responseValidations: [successValidation, successValidation])
-        let networkBase = NetworkBase(request: request)
+        let networkBase = BaseTask(request: request)
         
         if case .failure = networkBase.responseValidation(request: nil, response: testHTTPURLResponse(), data: nil) {
             XCTFail()
@@ -156,7 +156,7 @@ class NetworkBaseTests: XCTestCase {
         let successPrecondition: ResponseValidation = { (_,_,_) in return .success }
         let failurePrecondition: ResponseValidation = { (_,_,_) in return .failure("Something went wrong") }
         let request = TestRequest(responseValidations: [successPrecondition, failurePrecondition])
-        let networkBase = NetworkBase(request: request)
+        let networkBase = BaseTask(request: request)
         
         if case let .failure(error) = networkBase.responseValidation(request: nil,
                                                                      response: testHTTPURLResponse(),
@@ -176,7 +176,7 @@ class NetworkBaseTests: XCTestCase {
             XCTAssert(timeDelay == 0)
         }
         
-        NetworkBase(request: requestRetryCountZero).should(Alamofire.SessionManager.default,
+        BaseTask(request: requestRetryCountZero).should(Alamofire.SessionManager.default,
                                                            retry: Alamofire.SessionManager.default.request(requestRetryCountZero.fullURL),
                                                            with: "Something went wrong",
                                                            completion: requestRetryCompletion)
@@ -190,7 +190,7 @@ class NetworkBaseTests: XCTestCase {
             XCTAssert(shouldRetry == true)
         }
         
-        NetworkBase(request: requestRetryCountZero).should(Alamofire.SessionManager.default,
+        BaseTask(request: requestRetryCountZero).should(Alamofire.SessionManager.default,
                                                            retry: Alamofire.SessionManager.default.request(requestRetryCountZero.fullURL),
                                                            with: "Something went wrong",
                                                            completion: requestRetryCompletion)

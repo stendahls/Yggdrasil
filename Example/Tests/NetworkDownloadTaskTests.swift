@@ -38,7 +38,7 @@ class NetworkDownloadTaskTests: XCTestCase {
     
     func testCreationOfDownloadRequest() {
         let request = TestRequest()
-        let downloadTask = NetworkDownloadTask(request: request)
+        let downloadTask = DownloadTask(request: request)
         let temporaryFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(UUID().uuidString)
         
         do {
@@ -56,7 +56,7 @@ class NetworkDownloadTaskTests: XCTestCase {
     
     func testProgressReportingIsTriggered() {
         let request = TestRequest()
-        let downloadTask = NetworkDownloadTask(request: request)
+        let downloadTask = DownloadTask(request: request)
         let finishedExpectation = expectation(description: "Finished")
 
         DispatchQueue.global().async {
@@ -79,7 +79,7 @@ class NetworkDownloadTaskTests: XCTestCase {
     
     func testSuccessCase() {
         let request = TestRequest()
-        let downloadTask = NetworkDownloadTask(request: request)
+        let downloadTask = DownloadTask(request: request)
         let finishedExpectation = expectation(description: "Finished")
 
         downloadTask.async(completion: { (result) in
@@ -99,7 +99,7 @@ class NetworkDownloadTaskTests: XCTestCase {
     }
     
     func testFailureCase() {
-        let downloadTask = NetworkDownloadTask(url: "")
+        let downloadTask = DownloadTask(url: "")
         let finishedExpectation = expectation(description: "Finished")
 
         downloadTask.async(completion: { (result) in
@@ -132,7 +132,7 @@ class NetworkDownloadTaskTests: XCTestCase {
         }
         
         let request = TestRequest(responseValidations: [validateTemporaryData])
-        let downloadTask = NetworkDownloadTask(request: request)
+        let downloadTask = DownloadTask(request: request)
         let _ = downloadTask.responseValidation(request: nil, response: HTTPURLResponse(), temporaryURL: temporaryFileURL, destinationURL: nil)
     }
     
@@ -152,7 +152,7 @@ class NetworkDownloadTaskTests: XCTestCase {
         }
         
         let request = TestRequest(responseValidations: [validateDestinationData])
-        let downloadTask = NetworkDownloadTask(request: request)
+        let downloadTask = DownloadTask(request: request)
         let _ = downloadTask.responseValidation(request: nil, response: HTTPURLResponse(), temporaryURL: nil, destinationURL: destinationFileURL)
     }
     
@@ -180,7 +180,7 @@ class NetworkDownloadTaskTests: XCTestCase {
         }
         
         let request = TestRequest(responseValidations: [validateDestinationData, validateTemporaryData])
-        let downloadTask = NetworkDownloadTask(request: request)
+        let downloadTask = DownloadTask(request: request)
         let _ = downloadTask.responseValidation(request: nil, response: HTTPURLResponse(), temporaryURL: temporaryFileURL, destinationURL: destinationFileURL)
     }
 }

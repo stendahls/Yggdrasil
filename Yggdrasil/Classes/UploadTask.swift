@@ -28,23 +28,23 @@ import Foundation
 import Alamofire
 import Taskig
 
-public enum NetworkUploadData {
+public enum UploadData {
     case file(URL)
     case data(Data)
 }
 
-public class NetworkUploadTask<T: Parsable>: NetworkBase, ThrowableTaskType {
+public class UploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
     public typealias ResultType = T
     
-    private let dataToUpload: NetworkUploadData
+    private let dataToUpload: UploadData
     
-    public init(request: Request, dataToUpload: NetworkUploadData) {
+    public init(request: Request, dataToUpload: UploadData) {
         self.dataToUpload = dataToUpload
         
         super.init(request: request)
     }
     
-    public init(url: URLConvertible, dataToUpload: NetworkUploadData) {
+    public init(url: URLConvertible, dataToUpload: UploadData) {
         self.dataToUpload = dataToUpload
         
         var endpoint: NetworkEndpoint

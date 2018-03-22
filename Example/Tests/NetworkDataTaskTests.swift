@@ -38,7 +38,7 @@ class NetworkDataTaskTests: XCTestCase {
     
     func testCreationOfDataRequest() {
         let request = TestRequest()
-        let dataTask = NetworkDataTask<JSONDictionary>(request: request)
+        let dataTask = DataTask<JSONDictionary>(request: request)
         
         do {
             let dataRequest = try dataTask.createDataRequest()
@@ -55,7 +55,7 @@ class NetworkDataTaskTests: XCTestCase {
     
     func testProgressReportingIsTriggered() {
         let request = TestRequest()
-        let dataTask = NetworkDataTask<JSONDictionary>(request: request)
+        let dataTask = DataTask<JSONDictionary>(request: request)
         let finishedExpectation = expectation(description: "Finished")
         
         DispatchQueue.global().async {
@@ -74,7 +74,7 @@ class NetworkDataTaskTests: XCTestCase {
     
     func testSuccessCase() {
         let request = TestRequest()
-        let dataTask = NetworkDataTask<JSONDictionary>(request: request)
+        let dataTask = DataTask<JSONDictionary>(request: request)
         let finishedExpectation = expectation(description: "Finished")
         
         dataTask.async(completion: { (result) in
@@ -90,7 +90,7 @@ class NetworkDataTaskTests: XCTestCase {
     }
     
     func testFailureCase() {
-        let dataTask = NetworkDataTask<Data>(url: "")
+        let dataTask = DataTask<Data>(url: "")
         let finishedExpectation = expectation(description: "Finished")
         
         dataTask.async(completion: { (result) in

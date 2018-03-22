@@ -28,11 +28,11 @@ import Foundation
 import Alamofire
 import Taskig
 
-public enum NetworkDownloadTaskError: Error {
+public enum DownloadTaskError: Error {
     case unknown
 }
 
-public class NetworkDownloadTask: NetworkBase, ThrowableTaskType {
+public class DownloadTask: BaseTask, ThrowableTaskType {
     public typealias ResultType = URL
     
     private let downloadDestination: URL
@@ -105,7 +105,7 @@ public class NetworkDownloadTask: NetworkBase, ThrowableTaskType {
                     return
                 }
                 
-                completion(.failure(NetworkDownloadTaskError.unknown))
+                completion(.failure(DownloadTaskError.unknown))
         }
         
         self.progress.addChild(request.progress, withPendingUnitCount: 1)

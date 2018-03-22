@@ -27,7 +27,7 @@
 import Foundation
 import Alamofire
 
-public class NetworkBase: NSObject, ProgressReporting {
+public class BaseTask: NSObject, ProgressReporting {
     public let executionQueue: DispatchQueue = .utility
     public var progress: Progress
     
@@ -80,7 +80,7 @@ public class NetworkBase: NSObject, ProgressReporting {
     }    
 }
 
-extension NetworkBase: RequestRetrier {
+extension BaseTask: RequestRetrier {
     public func should(_ manager: SessionManager, retry request: Alamofire.Request, with error: Error, completion: @escaping RequestRetryCompletion) {
         guard request.retryCount < networkRequest.retryCount else {
             completion(false, 0)
