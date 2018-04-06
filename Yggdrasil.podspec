@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Thomas Sempf' => 'thomas.sempf@stendahls.se' }  
   s.source           = { :git => 'https://github.com/stendahls/Yggdrasil.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://twitter.com/tsempf'
 
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = "10.12"
