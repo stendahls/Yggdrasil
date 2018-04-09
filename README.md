@@ -22,7 +22,7 @@ pod 'Yggdrasil'
 
 ## Author
 
-bitwizardry-net, thomas.sempf@stendahls.se
+thomas.sempf@stendahls.se
 
 ## License
 

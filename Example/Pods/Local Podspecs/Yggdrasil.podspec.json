@@ -15,6 +15,7 @@
     "git": "https://github.com/stendahls/Yggdrasil.git",
     "tag": "0.1.0"
   },
+  "social_media_url": "https://twitter.com/tsempf",
   "platforms": {
     "ios": "10.0",
     "osx": "10.12",

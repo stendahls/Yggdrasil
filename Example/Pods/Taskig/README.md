@@ -1,9 +1,10 @@
-# Taskig
-
+![Taskig: Evil Genius Task Management for Swift](../master/TaskigIcon.png)
+---
 [![CI Status](http://img.shields.io/travis/stendahls/Taskig.svg?style=flat)](https://travis-ci.org/stendahls/Taskig)
 [![Version](https://img.shields.io/cocoapods/v/Taskig.svg?style=flat)](http://cocoapods.org/stendahls/Taskig)
 [![License](https://img.shields.io/cocoapods/l/Taskig.svg?style=flat)](http://cocoapods.org/stendahls/Taskig)
 [![Platform](https://img.shields.io/cocoapods/p/Taskig.svg?style=flat)](http://cocoapods.org/stendahls/Taskig)
+![Swift](https://img.shields.io/badge/%20in-swift%204.0-orange.svg)
 
 An async/await inspired library which makes asynchronous programming in Swift a joy!
 

@@ -9,51 +9,51 @@
 /* Begin PBXBuildFile section */
 		0F3E0350C0E9C2F7360E85CEC367691D /* Pods-Yggdrasil_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4FF1F8163A8AB1C1627A1E3669EAA0 /* Pods-Yggdrasil_Example-dummy.m */; };
 		10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2978FA9DE684197274A7678A289DF31 /* Timeline.swift */; };
-		1399C68759BCD8A5C4D26D4454906DE7 /* Yggdrasil-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 264C2F0F0FA3DF397D4FBB37E61AE898 /* Yggdrasil-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1942D97A3CE3BB03C6365E4119B62670 /* MultipartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B8E9F6139761239845ACCCE999A9D6 /* MultipartRequest.swift */; };
+		1399C68759BCD8A5C4D26D4454906DE7 /* Yggdrasil-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E8090CD7F5BC614AC7510B6A7712D5E1 /* Yggdrasil-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15994A5B5F7DB10650518F5BB974C512 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A436834365252F97F6FB99DE7CE7E34 /* Endpoint.swift */; };
 		1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AA3892DA3BCED47AA13B2817049B0C93 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		271A13DE170089D2AFCF02DF31EF08F7 /* AlamofireExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6C177E1A76881BD1473036EB30BE7 /* AlamofireExtensions.swift */; };
 		2D4E2B9D7A7E70972B84522E5999C2AD /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327CE9F778A05655C21D2E17870A70A5 /* Task.swift */; };
 		2F5076F0086C8F025B0DE661407F1362 /* Taskig-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBD3355E792B7787024705544E05926 /* Taskig-dummy.m */; };
+		31838F498E3E03C77FDD9D4B9CB4CB83 /* UploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFD496F66684D8C92951A3EA7A563DC /* UploadTask.swift */; };
 		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFA3BC2C46EB9440F27156C42A4B953 /* TaskDelegate.swift */; };
-		37400DB7B80A43CFA11D4B91AF65C475 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4518E9E94BEAF5B8F01FFBA483DA27EF /* Request.swift */; };
 		39A182502F03DFD8316221075D6817AD /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567D08B2B4E34E7880BF7E17C42C7B4 /* Collections.swift */; };
 		403FECC507C4EAB00C45292A9665E718 /* Pods-Yggdrasil_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CC665042580C2593278E3417BDBE930A /* Pods-Yggdrasil_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		41F8B3E67D851D7F3F52323FD2ABB841 /* BaseTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA79DAC09A518B2CF82DFED92B5FB17 /* BaseTask.swift */; };
-		45B2E528E4AEE4C478D13CF228466FCE /* UploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F008282DD51EC56CF71B2502B7AC8 /* UploadTask.swift */; };
 		488F8FA583CAC007BE5157E1EBF32088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A19206D313BE6B1E357D6F03B9867F0 /* Foundation.framework */; };
-		50D43456C3BD6E05261AD85026BBC661 /* DataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268E396A668F427245551B54E507E5B /* DataTask.swift */; };
+		4A8E16A896C191B69D4FE247E54C0701 /* Pods-Yggdrasil_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E32F7EC88A19C7A3F94D2F9CBBEA24C /* Pods-Yggdrasil_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E77E1B5969769A4D5523293311D834 /* Request.swift */; };
-		55D08CAAE1EF06D7AAB47902E1C74E6A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0996CED80D1134CBA76AD8EDFB7B95 /* Endpoint.swift */; };
 		60929BFB75062F132E211683EB471641 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A19206D313BE6B1E357D6F03B9867F0 /* Foundation.framework */; };
 		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6070E0E1D8C76B982E932455683E08A6 /* DispatchQueue+Alamofire.swift */; };
 		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E6875A28DFE412436EF529288DF003 /* ServerTrustPolicy.swift */; };
+		641E2D3260EB96BE14065880EE23A0F8 /* BaseTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70DE1A4222AE03C61F237B028229DCB /* BaseTask.swift */; };
 		646FF93909FBA330025D7629E93B1298 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C779B4A2BEB444F2CFA3CF68BE611B /* TaskType.swift */; };
-		6D77D24BA8614222C34E193226E3EADC /* DownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52F936362D06CF2660E1D52D7A8159F /* DownloadTask.swift */; };
 		6E8140C0FB742D1BF34A474A494468A1 /* Taskig-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BCED9D8EEBD304F13A32D7BE31DBDDE6 /* Taskig-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EFC01EF4E286D01AFAA9A273615F47A /* ThrowableTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645B88A4CB4D1F47C57522E167CB0B4 /* ThrowableTaskType.swift */; };
-		6F11A0482AC95A1619E4C1CD011443C1 /* Yggdrasil-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBBB873B0478EEB3BCE3115BC41FDBF /* Yggdrasil-dummy.m */; };
-		7263D4AC797231A0242D9A67F7FC6B5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A19206D313BE6B1E357D6F03B9867F0 /* Foundation.framework */; };
 		73B9C996AED49ED7CF8EC2A6F1738059 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A19206D313BE6B1E357D6F03B9867F0 /* Foundation.framework */; };
-		7A2F6A7481AE4EB69FD9747AF41F2E26 /* Pods-Yggdrasil_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F8CFDCD5E45DA513CF13918B62B11 /* Pods-Yggdrasil_Tests-dummy.m */; };
+		79661D8A0E43F225F6BF4489B2AA8625 /* DownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8C2EE483ED7754784FC3E9752CFEB /* DownloadTask.swift */; };
 		7B4AB636900B52F169B273B48A1FE08B /* ThrowableTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04B5932A09A4F80C90DE9C7A8C2630B /* ThrowableTask.swift */; };
 		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35876214A8723272265E5D24321ECF19 /* SessionDelegate.swift */; };
 		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683B927CE3B4AA718F439B76F1F26E5B /* Result.swift */; };
-		857F11B520626CFC00B75A2B /* MultipartFormDataUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11B420626CFC00B75A2B /* MultipartFormDataUploadTask.swift */; };
+		801E40A9C64718C474AA6A8EB6DA8A0F /* MultipartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5C676C9267F97BF78D08550F04591 /* MultipartRequest.swift */; };
 		97E71BDDC06A6A2C6D689700F3606C3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A19206D313BE6B1E357D6F03B9867F0 /* Foundation.framework */; };
+		988BE07590FD55DB25B0FDE710F46BAE /* MultipartFormDataUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7DEB6B58AB2639F69DD2ACEEED7B70 /* MultipartFormDataUploadTask.swift */; };
 		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC880E0E28550BA4BF911A8FE6DC9C58 /* AFError.swift */; };
 		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25D380F1392E5F5999DDBAED1F24677 /* NetworkReachabilityManager.swift */; };
-		A4986C5F4D8D2760238A1845A05B5AE4 /* Parsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B07C3FE7F3701787126403A46FC0769 /* Parsable.swift */; };
 		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CF003BD40D1E1085F4935783123A57 /* Alamofire-dummy.m */; };
 		AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B878B28290078FA243316C7E5C3B167 /* SessionManager.swift */; };
 		B0141CB42F8CEF5ADEB4A41C6292DD30 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E707A13B5A079A0D4F9E0FA63CFC188 /* Alamofire.framework */; };
+		B377819CB27B0920EE1364D7619DB238 /* Parsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562B8C934BF572222376275D88147F59 /* Parsable.swift */; };
 		B62C2CCB3C05AC8AB48C6A88A2B595C6 /* Taskig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE578CF829C95F09B5E751000EDD0AA1 /* Taskig.framework */; };
 		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F610EA4F0D39AECDE61BE9EAFE900BE /* MultipartFormData.swift */; };
 		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998DAC66B0B9B296A4FFA3A1DC3B6092 /* Validation.swift */; };
 		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4683C9A85D5E68C36776335585CEE2 /* ParameterEncoding.swift */; };
-		BFB8019E3903B0BE16E911AA5CE95249 /* Pods-Yggdrasil_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E32F7EC88A19C7A3F94D2F9CBBEA24C /* Pods-Yggdrasil_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE8038B4677C4C2B42A1189250BE1203 /* AlamofireExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28065D8D31BF7AD3CE1336F6CEB85682 /* AlamofireExtensions.swift */; };
+		BF276ABB077BAEA9C75CAE2416F96CCC /* Pods-Yggdrasil_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F8CFDCD5E45DA513CF13918B62B11 /* Pods-Yggdrasil_Tests-dummy.m */; };
 		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D809885549481BC00044EFA52BB09 /* Response.swift */; };
 		D161EDCD900487D67E545960BFF1B351 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2BDB7CAF419006EF400B25CCA74E0E /* Helpers.swift */; };
+		D66523739F0D9114245B9A6F17C2615D /* DataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711818E1C5A0FB1DC26C64B18FFEFF6 /* DataTask.swift */; };
+		DF609CDFD44460F3507AB86903094F00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A19206D313BE6B1E357D6F03B9867F0 /* Foundation.framework */; };
+		E426B38F8DC3EFE89FC4045668667DC3 /* Yggdrasil-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5498FE627006A803E1A37FFD8FCC54 /* Yggdrasil-dummy.m */; };
+		ED6543BD6872A3694EB60504AE548775 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE6602DC82A18FA8B8D218DF92C8C22 /* Request.swift */; };
 		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9517E75735C0FBB1566A37B6295C4F86 /* Notifications.swift */; };
 		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88D1EBBB2BDFC0F693A388ED5DB049E /* ResponseSerialization.swift */; };
 		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC2039DC0F84E059721F2A5AFFD3B36 /* Alamofire.swift */; };
@@ -68,12 +68,33 @@
 			remoteGlobalIDString = EB41C2CC0B0FEFFA2AB5A29B16CAD083;
 			remoteInfo = Taskig;
 		};
+		171AF7182B2DB6F14647DF3467F83D36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92A76AA1B77CBAC7A7C36A432250D5B3;
+			remoteInfo = Yggdrasil;
+		};
 		1CDCC52803AA161E96271F56997BD64E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
 			remoteInfo = Alamofire;
+		};
+		1DE0280F9271D0C2051600664031E11E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
+			remoteInfo = Alamofire;
+		};
+		300EA85F6C25CF293A1B25525ED55BAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E8B0C5EEC2DEAE895739A6C07178FF29;
+			remoteInfo = "Pods-Yggdrasil_Example";
 		};
 		3F1295447169422452037D92B829F68B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -82,20 +103,6 @@
 			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
 			remoteInfo = Alamofire;
 		};
-		6C2F0ABBB5BD7BBCF04BB32CBE2621F1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
-			remoteInfo = Alamofire;
-		};
-		7CCB1B6738FE4424012B65E2FEF5B4ED /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EB41C2CC0B0FEFFA2AB5A29B16CAD083;
-			remoteInfo = Taskig;
-		};
 		B06A27F542CC16012FB6459E39901903 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -103,12 +110,12 @@
 			remoteGlobalIDString = 92A76AA1B77CBAC7A7C36A432250D5B3;
 			remoteInfo = Yggdrasil;
 		};
-		B1ECEAC885BF8C9B1A01162692AA93AD /* PBXContainerItemProxy */ = {
+		C405092510DCCB00A55B00BA49CD2000 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 92A76AA1B77CBAC7A7C36A432250D5B3;
-			remoteInfo = Yggdrasil;
+			remoteGlobalIDString = EB41C2CC0B0FEFFA2AB5A29B16CAD083;
+			remoteInfo = Taskig;
 		};
 		FD52FBD5D4253C18594EB29A1B679968 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -120,90 +127,90 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0268E396A668F427245551B54E507E5B /* DataTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTask.swift; path = Yggdrasil/Classes/DataTask.swift; sourceTree = "<group>"; };
-		0B07C3FE7F3701787126403A46FC0769 /* Parsable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parsable.swift; path = Yggdrasil/Classes/Parsable.swift; sourceTree = "<group>"; };
 		0CBD3355E792B7787024705544E05926 /* Taskig-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Taskig-dummy.m"; sourceTree = "<group>"; };
-		0EBBB873B0478EEB3BCE3115BC41FDBF /* Yggdrasil-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Yggdrasil-dummy.m"; sourceTree = "<group>"; };
 		11D9AE0F666D9CD6327C8B11E654BD3D /* Pods-Yggdrasil_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Yggdrasil_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		143AF6409822136C19622AECCB56BDA1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BFD496F66684D8C92951A3EA7A563DC /* UploadTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UploadTask.swift; path = Yggdrasil/Classes/UploadTask.swift; sourceTree = "<group>"; };
 		1E32F7EC88A19C7A3F94D2F9CBBEA24C /* Pods-Yggdrasil_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Yggdrasil_Tests-umbrella.h"; sourceTree = "<group>"; };
-		1EA667B362876F187BBBFAF567935BF8 /* Yggdrasil.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = Yggdrasil.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1F03CFBFB065937CBC84D20DF5060575 /* Pods-Yggdrasil_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Yggdrasil_Example.modulemap"; sourceTree = "<group>"; };
 		1F19F1B0E0E994DB77ABC8250E2CA18C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2257CFB40D0E108EA6B66BEA2935CA40 /* Pods-Yggdrasil_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Yggdrasil_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		264C2F0F0FA3DF397D4FBB37E61AE898 /* Yggdrasil-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Yggdrasil-umbrella.h"; sourceTree = "<group>"; };
+		28065D8D31BF7AD3CE1336F6CEB85682 /* AlamofireExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlamofireExtensions.swift; path = Yggdrasil/Classes/AlamofireExtensions.swift; sourceTree = "<group>"; };
 		2E707A13B5A079A0D4F9E0FA63CFC188 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		315B746FAAFEEC982552DC3252AE548C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		327CE9F778A05655C21D2E17870A70A5 /* Task.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Task.swift; path = TaskigSource/Base/Task.swift; sourceTree = "<group>"; };
 		35876214A8723272265E5D24321ECF19 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
-		36B8E9F6139761239845ACCCE999A9D6 /* MultipartRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartRequest.swift; path = Yggdrasil/Classes/MultipartRequest.swift; sourceTree = "<group>"; };
-		3BC6C177E1A76881BD1473036EB30BE7 /* AlamofireExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlamofireExtensions.swift; path = Yggdrasil/Classes/AlamofireExtensions.swift; sourceTree = "<group>"; };
+		3A436834365252F97F6FB99DE7CE7E34 /* Endpoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Endpoint.swift; path = Yggdrasil/Classes/Endpoint.swift; sourceTree = "<group>"; };
+		3D5498FE627006A803E1A37FFD8FCC54 /* Yggdrasil-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Yggdrasil-dummy.m"; sourceTree = "<group>"; };
 		3F4FF1F8163A8AB1C1627A1E3669EAA0 /* Pods-Yggdrasil_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Yggdrasil_Example-dummy.m"; sourceTree = "<group>"; };
-		420AFD5273BB998EB59D01201F85CFEA /* Yggdrasil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Yggdrasil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4518E9E94BEAF5B8F01FFBA483DA27EF /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Yggdrasil/Classes/Request.swift; sourceTree = "<group>"; };
+		420AFD5273BB998EB59D01201F85CFEA /* Yggdrasil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Yggdrasil.framework; path = Yggdrasil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E77E1B5969769A4D5523293311D834 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		4BB509BBB4F914C297B74EC9A51636A5 /* Taskig.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Taskig.modulemap; sourceTree = "<group>"; };
+		4CA2AFEE418D3AF69FB84287C0895045 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F610EA4F0D39AECDE61BE9EAFE900BE /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		50BC48156D2AF3E45E981B1710637A4E /* Pods-Yggdrasil_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Yggdrasil_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		575F0672D888669BEF1A3CD98DE55CE0 /* Taskig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Taskig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50F94911A7AF5F395F47F6A26E24CFCC /* Yggdrasil-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Yggdrasil-prefix.pch"; sourceTree = "<group>"; };
+		562B8C934BF572222376275D88147F59 /* Parsable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parsable.swift; path = Yggdrasil/Classes/Parsable.swift; sourceTree = "<group>"; };
+		575F0672D888669BEF1A3CD98DE55CE0 /* Taskig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Taskig.framework; path = Taskig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A07975E78FAEF8D834233A1374BB597 /* Pods-Yggdrasil_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Yggdrasil_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		5B878B28290078FA243316C7E5C3B167 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
 		606CE81D330D2890B1E00393D1A9F19A /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
 		6070E0E1D8C76B982E932455683E08A6 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
-		61BFFC1665F8737C73649E5D9FCBDB2F /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61BFFC1665F8737C73649E5D9FCBDB2F /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		683B927CE3B4AA718F439B76F1F26E5B /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		6A19206D313BE6B1E357D6F03B9867F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6DC2039DC0F84E059721F2A5AFFD3B36 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		6F5F8CFDCD5E45DA513CF13918B62B11 /* Pods-Yggdrasil_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Yggdrasil_Tests-dummy.m"; sourceTree = "<group>"; };
-		749896014D93EA0AFBAA11305946FF7D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71C8C2EE483ED7754784FC3E9752CFEB /* DownloadTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DownloadTask.swift; path = Yggdrasil/Classes/DownloadTask.swift; sourceTree = "<group>"; };
+		7711818E1C5A0FB1DC26C64B18FFEFF6 /* DataTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTask.swift; path = Yggdrasil/Classes/DataTask.swift; sourceTree = "<group>"; };
 		7ACFEE2BFBE585A4F23C0F83F24B789E /* Pods-Yggdrasil_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Yggdrasil_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		7BAC23EFF71F1ADFC4135FBBD6B8D4DF /* Pods-Yggdrasil_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Yggdrasil_Tests-resources.sh"; sourceTree = "<group>"; };
 		7D2BDB7CAF419006EF400B25CCA74E0E /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = TaskigSource/Base/Helpers.swift; sourceTree = "<group>"; };
 		7E53699980BDA1E90561DD60E3AC80C4 /* Taskig.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Taskig.xcconfig; sourceTree = "<group>"; };
 		7E66BA69C1FDE584F0208E65307508C5 /* Taskig-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Taskig-prefix.pch"; sourceTree = "<group>"; };
-		7E95210800822EB4C7D132FD7A920B38 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		857F11B420626CFC00B75A2B /* MultipartFormDataUploadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipartFormDataUploadTask.swift; path = Yggdrasil/Classes/MultipartFormDataUploadTask.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		879AE2B12FDACA2CA65869F171DC3860 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9517E75735C0FBB1566A37B6295C4F86 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+		9586E79E486100FA6B8926A355454DE6 /* Yggdrasil.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Yggdrasil.xcconfig; sourceTree = "<group>"; };
 		998DAC66B0B9B296A4FFA3A1DC3B6092 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
-		9AA7332776C27CE6188AF4ED4230FA2F /* Yggdrasil.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Yggdrasil.xcconfig; sourceTree = "<group>"; };
 		9B7C94EB6C241A3C34F6316FB6CA26E6 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		9DF5C676C9267F97BF78D08550F04591 /* MultipartRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartRequest.swift; path = Yggdrasil/Classes/MultipartRequest.swift; sourceTree = "<group>"; };
 		9F4683C9A85D5E68C36776335585CEE2 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		A2CF003BD40D1E1085F4935783123A57 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		A567D08B2B4E34E7880BF7E17C42C7B4 /* Collections.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Collections.swift; path = TaskigSource/Base/Collections.swift; sourceTree = "<group>"; };
 		A9F40A2D82636A5C98C237CD44DC0465 /* Pods-Yggdrasil_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Yggdrasil_Example-frameworks.sh"; sourceTree = "<group>"; };
 		AA3892DA3BCED47AA13B2817049B0C93 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		AD8D5D0483C5F158AE88CF91A9574E58 /* Yggdrasil.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Yggdrasil.modulemap; sourceTree = "<group>"; };
 		B32D809885549481BC00044EFA52BB09 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		B46995747901DDA62FA76B5210B1CB1F /* Yggdrasil.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = Yggdrasil.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B98D2021FD6C772CCAA8948162170B56 /* Pods-Yggdrasil_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Yggdrasil_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BC880E0E28550BA4BF911A8FE6DC9C58 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
 		BCED9D8EEBD304F13A32D7BE31DBDDE6 /* Taskig-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Taskig-umbrella.h"; sourceTree = "<group>"; };
 		C1A685286E2D6CA580C10413935A8FF5 /* Pods-Yggdrasil_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Yggdrasil_Tests.modulemap"; sourceTree = "<group>"; };
-		C2F0088992B9B2A3FC3D0FD0EC43DF2E /* Pods_Yggdrasil_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yggdrasil_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F0088992B9B2A3FC3D0FD0EC43DF2E /* Pods_Yggdrasil_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Yggdrasil_Tests.framework; path = "Pods-Yggdrasil_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33A7E3CE365F76BEA3842AF4202FFE2 /* Pods-Yggdrasil_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Yggdrasil_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C35035B844CADC6CEEACAFA28A9F76E0 /* Pods-Yggdrasil_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Yggdrasil_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		C52F936362D06CF2660E1D52D7A8159F /* DownloadTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DownloadTask.swift; path = Yggdrasil/Classes/DownloadTask.swift; sourceTree = "<group>"; };
+		C70DE1A4222AE03C61F237B028229DCB /* BaseTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseTask.swift; path = Yggdrasil/Classes/BaseTask.swift; sourceTree = "<group>"; };
+		CB0858DE40889AA2CE1AE6B25D7CC162 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		CC665042580C2593278E3417BDBE930A /* Pods-Yggdrasil_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Yggdrasil_Example-umbrella.h"; sourceTree = "<group>"; };
 		CCFA3BC2C46EB9440F27156C42A4B953 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		D25D380F1392E5F5999DDBAED1F24677 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		D645B88A4CB4D1F47C57522E167CB0B4 /* ThrowableTaskType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThrowableTaskType.swift; path = TaskigSource/Base/ThrowableTaskType.swift; sourceTree = "<group>"; };
 		DA9C3860A591393F1E60DF1D12B82F32 /* Pods-Yggdrasil_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Yggdrasil_Example.release.xcconfig"; sourceTree = "<group>"; };
+		DAE6602DC82A18FA8B8D218DF92C8C22 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Yggdrasil/Classes/Request.swift; sourceTree = "<group>"; };
 		DB09926582266006394C10F047336AC8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC0996CED80D1134CBA76AD8EDFB7B95 /* Endpoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Endpoint.swift; path = Yggdrasil/Classes/Endpoint.swift; sourceTree = "<group>"; };
 		DE578CF829C95F09B5E751000EDD0AA1 /* Taskig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Taskig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DFE748EDBA50FCFBFAAA835A206BB02E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		E04A5638AE188FBF0DF05C9D374DD55C /* Pods_Yggdrasil_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yggdrasil_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E04A5638AE188FBF0DF05C9D374DD55C /* Pods_Yggdrasil_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Yggdrasil_Example.framework; path = "Pods-Yggdrasil_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26767312E6D458D2D130232622680AE /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		E3C779B4A2BEB444F2CFA3CF68BE611B /* TaskType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskType.swift; path = TaskigSource/Base/TaskType.swift; sourceTree = "<group>"; };
+		E8090CD7F5BC614AC7510B6A7712D5E1 /* Yggdrasil-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Yggdrasil-umbrella.h"; sourceTree = "<group>"; };
 		E88D1EBBB2BDFC0F693A388ED5DB049E /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
-		E97F008282DD51EC56CF71B2502B7AC8 /* UploadTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UploadTask.swift; path = Yggdrasil/Classes/UploadTask.swift; sourceTree = "<group>"; };
 		ECDB078BB65A36F8055CEC87FE65CFC2 /* Pods-Yggdrasil_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Yggdrasil_Example-resources.sh"; sourceTree = "<group>"; };
-		EEA79DAC09A518B2CF82DFED92B5FB17 /* BaseTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseTask.swift; path = Yggdrasil/Classes/BaseTask.swift; sourceTree = "<group>"; };
 		F04B5932A09A4F80C90DE9C7A8C2630B /* ThrowableTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThrowableTask.swift; path = TaskigSource/Base/ThrowableTask.swift; sourceTree = "<group>"; };
 		F1E6875A28DFE412436EF529288DF003 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		F2978FA9DE684197274A7678A289DF31 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
-		FA6ABACED8C1EBB4329A29342845066E /* Yggdrasil.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Yggdrasil.modulemap; sourceTree = "<group>"; };
 		FA6F58E87EDF578352EEE5A994010111 /* CancellableTaskType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CancellableTaskType.swift; path = TaskigSource/Base/CancellableTaskType.swift; sourceTree = "<group>"; };
-		FCD0453B136B0507111A697E12568482 /* Yggdrasil-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Yggdrasil-prefix.pch"; sourceTree = "<group>"; };
+		FB7DEB6B58AB2639F69DD2ACEEED7B70 /* MultipartFormDataUploadTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormDataUploadTask.swift; path = Yggdrasil/Classes/MultipartFormDataUploadTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +221,14 @@
 				B0141CB42F8CEF5ADEB4A41C6292DD30 /* Alamofire.framework in Frameworks */,
 				97E71BDDC06A6A2C6D689700F3606C3E /* Foundation.framework in Frameworks */,
 				B62C2CCB3C05AC8AB48C6A88A2B595C6 /* Taskig.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		862E11644B247F5DA3D15E44D55102AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF609CDFD44460F3507AB86903094F00 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,14 +253,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				60929BFB75062F132E211683EB471641 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FFC06DF3B33D06D07DD7E8E43D5F8DA6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7263D4AC797231A0242D9A67F7FC6B5B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,14 +288,6 @@
 				4CB059D91948CDB4751AFC148CC8845C /* Pods-Yggdrasil_Tests */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		2D9DDD3C823D7B080F3C4F4483DFF96F /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				72F90664C1A5EFAF92E159A7EB6D486C /* Yggdrasil */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		33CB9B2C725A6200B146381E2DBC12AC /* Pods-Yggdrasil_Example */ = {
@@ -341,7 +340,30 @@
 				998DAC66B0B9B296A4FFA3A1DC3B6092 /* Validation.swift */,
 				1AC791CA214A216419B1F8524E38E671 /* Support Files */,
 			);
+			name = Alamofire;
 			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		47E2C8E9E777042E1EEF26A65FBE6688 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A94D8F7B33D709CA8763CFC19522DF53 /* Yggdrasil */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		496FAD32EC373C52541164BCCBE87BB5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CA2AFEE418D3AF69FB84287C0895045 /* Info.plist */,
+				AD8D5D0483C5F158AE88CF91A9574E58 /* Yggdrasil.modulemap */,
+				9586E79E486100FA6B8926A355454DE6 /* Yggdrasil.xcconfig */,
+				3D5498FE627006A803E1A37FFD8FCC54 /* Yggdrasil-dummy.m */,
+				50F94911A7AF5F395F47F6A26E24CFCC /* Yggdrasil-prefix.pch */,
+				E8090CD7F5BC614AC7510B6A7712D5E1 /* Yggdrasil-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Yggdrasil";
 			sourceTree = "<group>";
 		};
 		4CB059D91948CDB4751AFC148CC8845C /* Pods-Yggdrasil_Tests */ = {
@@ -362,6 +384,16 @@
 			path = "Target Support Files/Pods-Yggdrasil_Tests";
 			sourceTree = "<group>";
 		};
+		530E4DC1E6B2F62709CE8886F2B41E74 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				CB0858DE40889AA2CE1AE6B25D7CC162 /* LICENSE */,
+				879AE2B12FDACA2CA65869F171DC3860 /* README.md */,
+				B46995747901DDA62FA76B5210B1CB1F /* Yggdrasil.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		5E23560F55430C96CE1DFFB0771DBBC2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,41 +403,11 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		70C10562A10088CAB17A0D8DECA1D2EC /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				DFE748EDBA50FCFBFAAA835A206BB02E /* LICENSE */,
-				7E95210800822EB4C7D132FD7A920B38 /* README.md */,
-				1EA667B362876F187BBBFAF567935BF8 /* Yggdrasil.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		72F90664C1A5EFAF92E159A7EB6D486C /* Yggdrasil */ = {
-			isa = PBXGroup;
-			children = (
-				3BC6C177E1A76881BD1473036EB30BE7 /* AlamofireExtensions.swift */,
-				0B07C3FE7F3701787126403A46FC0769 /* Parsable.swift */,
-				DC0996CED80D1134CBA76AD8EDFB7B95 /* Endpoint.swift */,
-				4518E9E94BEAF5B8F01FFBA483DA27EF /* Request.swift */,
-				36B8E9F6139761239845ACCCE999A9D6 /* MultipartRequest.swift */,
-				EEA79DAC09A518B2CF82DFED92B5FB17 /* BaseTask.swift */,
-				0268E396A668F427245551B54E507E5B /* DataTask.swift */,
-				C52F936362D06CF2660E1D52D7A8159F /* DownloadTask.swift */,
-				E97F008282DD51EC56CF71B2502B7AC8 /* UploadTask.swift */,
-				857F11B420626CFC00B75A2B /* MultipartFormDataUploadTask.swift */,
-				70C10562A10088CAB17A0D8DECA1D2EC /* Pod */,
-				EBD5AA8EDAA50270EABE683D34CF89FB /* Support Files */,
-			);
-			name = Yggdrasil;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				2D9DDD3C823D7B080F3C4F4483DFF96F /* Development Pods */,
+				47E2C8E9E777042E1EEF26A65FBE6688 /* Development Pods */,
 				41BB9B142BBA851633A2B15F88479005 /* Frameworks */,
 				5E23560F55430C96CE1DFFB0771DBBC2 /* Pods */,
 				85034CEBC466A2B7EBD614DFCABA3935 /* Products */,
@@ -437,7 +439,28 @@
 				D645B88A4CB4D1F47C57522E167CB0B4 /* ThrowableTaskType.swift */,
 				DF85B5D915DCC5DA7554B500074BE5D0 /* Support Files */,
 			);
+			name = Taskig;
 			path = Taskig;
+			sourceTree = "<group>";
+		};
+		A94D8F7B33D709CA8763CFC19522DF53 /* Yggdrasil */ = {
+			isa = PBXGroup;
+			children = (
+				28065D8D31BF7AD3CE1336F6CEB85682 /* AlamofireExtensions.swift */,
+				C70DE1A4222AE03C61F237B028229DCB /* BaseTask.swift */,
+				7711818E1C5A0FB1DC26C64B18FFEFF6 /* DataTask.swift */,
+				71C8C2EE483ED7754784FC3E9752CFEB /* DownloadTask.swift */,
+				3A436834365252F97F6FB99DE7CE7E34 /* Endpoint.swift */,
+				FB7DEB6B58AB2639F69DD2ACEEED7B70 /* MultipartFormDataUploadTask.swift */,
+				9DF5C676C9267F97BF78D08550F04591 /* MultipartRequest.swift */,
+				562B8C934BF572222376275D88147F59 /* Parsable.swift */,
+				DAE6602DC82A18FA8B8D218DF92C8C22 /* Request.swift */,
+				1BFD496F66684D8C92951A3EA7A563DC /* UploadTask.swift */,
+				530E4DC1E6B2F62709CE8886F2B41E74 /* Pod */,
+				496FAD32EC373C52541164BCCBE87BB5 /* Support Files */,
+			);
+			name = Yggdrasil;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		DF85B5D915DCC5DA7554B500074BE5D0 /* Support Files */ = {
@@ -452,20 +475,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Taskig";
-			sourceTree = "<group>";
-		};
-		EBD5AA8EDAA50270EABE683D34CF89FB /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				749896014D93EA0AFBAA11305946FF7D /* Info.plist */,
-				FA6ABACED8C1EBB4329A29342845066E /* Yggdrasil.modulemap */,
-				9AA7332776C27CE6188AF4ED4230FA2F /* Yggdrasil.xcconfig */,
-				0EBBB873B0478EEB3BCE3115BC41FDBF /* Yggdrasil-dummy.m */,
-				FCD0453B136B0507111A697E12568482 /* Yggdrasil-prefix.pch */,
-				264C2F0F0FA3DF397D4FBB37E61AE898 /* Yggdrasil-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Yggdrasil";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,6 +504,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9E9B7BB95336865677F6FAFA5A1F4E2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A8E16A896C191B69D4FE247E54C0701 /* Pods-Yggdrasil_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B4002B6E97835FDCCAA5963EFE09A3E0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -503,37 +520,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D37A349AF27FD6ACD5521C94A251BF09 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BFB8019E3903B0BE16E911AA5CE95249 /* Pods-Yggdrasil_Tests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		67BAB8527B1D3604230EE57ABD892316 /* Pods-Yggdrasil_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E6F6ED1F369CA78FFAF9C6F2AD771A9A /* Build configuration list for PBXNativeTarget "Pods-Yggdrasil_Tests" */;
-			buildPhases = (
-				954CC8FA5BE1A58BA27F496D5205551E /* Sources */,
-				FFC06DF3B33D06D07DD7E8E43D5F8DA6 /* Frameworks */,
-				D37A349AF27FD6ACD5521C94A251BF09 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				980172C627330892742FBA2233D3A56B /* PBXTargetDependency */,
-				E063D501E92556C3F02F03316FE06512 /* PBXTargetDependency */,
-				11958F35409CA0B75090E2DF19E85EA2 /* PBXTargetDependency */,
-			);
-			name = "Pods-Yggdrasil_Tests";
-			productName = "Pods-Yggdrasil_Tests";
-			productReference = C2F0088992B9B2A3FC3D0FD0EC43DF2E /* Pods_Yggdrasil_Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 419E5D95491847CD79841B971A8A3277 /* Build configuration list for PBXNativeTarget "Alamofire" */;
@@ -555,7 +544,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C69C6306D0718478BE309DADA54D113 /* Build configuration list for PBXNativeTarget "Yggdrasil" */;
 			buildPhases = (
-				89B6014F12FD6A139B3E3AC3F642F131 /* Sources */,
+				4C7AE89ABCB65A87761E102A55226CB7 /* Sources */,
 				76DC15C31CC545D48DB5C666D82DBDD1 /* Frameworks */,
 				54CCED1DFDAAB50A4F7B36755553B134 /* Headers */,
 			);
@@ -568,6 +557,27 @@
 			name = Yggdrasil;
 			productName = Yggdrasil;
 			productReference = 420AFD5273BB998EB59D01201F85CFEA /* Yggdrasil.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A784D0A0C5E4B25718899170CA4BB5AF /* Pods-Yggdrasil_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64047C45017DBE90C01B74846C8B12BF /* Build configuration list for PBXNativeTarget "Pods-Yggdrasil_Tests" */;
+			buildPhases = (
+				FC9961240C5077BE7AA754A4D98E8F20 /* Sources */,
+				862E11644B247F5DA3D15E44D55102AA /* Frameworks */,
+				A9E9B7BB95336865677F6FAFA5A1F4E2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E111408EC53F04B02703AAC71B4CD12C /* PBXTargetDependency */,
+				93C2CA8972C31FE3E24BA961E937B4C7 /* PBXTargetDependency */,
+				583F5546304E744B1E54005FA85E37CF /* PBXTargetDependency */,
+				F3FCD7DFDE3E47F5211FA9853CD3D571 /* PBXTargetDependency */,
+			);
+			name = "Pods-Yggdrasil_Tests";
+			productName = "Pods-Yggdrasil_Tests";
+			productReference = C2F0088992B9B2A3FC3D0FD0EC43DF2E /* Pods_Yggdrasil_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E8B0C5EEC2DEAE895739A6C07178FF29 /* Pods-Yggdrasil_Example */ = {
@@ -630,7 +640,7 @@
 			targets = (
 				88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */,
 				E8B0C5EEC2DEAE895739A6C07178FF29 /* Pods-Yggdrasil_Example */,
-				67BAB8527B1D3604230EE57ABD892316 /* Pods-Yggdrasil_Tests */,
+				A784D0A0C5E4B25718899170CA4BB5AF /* Pods-Yggdrasil_Tests */,
 				EB41C2CC0B0FEFFA2AB5A29B16CAD083 /* Taskig */,
 				92A76AA1B77CBAC7A7C36A432250D5B3 /* Yggdrasil */,
 			);
@@ -663,6 +673,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4C7AE89ABCB65A87761E102A55226CB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE8038B4677C4C2B42A1189250BE1203 /* AlamofireExtensions.swift in Sources */,
+				641E2D3260EB96BE14065880EE23A0F8 /* BaseTask.swift in Sources */,
+				D66523739F0D9114245B9A6F17C2615D /* DataTask.swift in Sources */,
+				79661D8A0E43F225F6BF4489B2AA8625 /* DownloadTask.swift in Sources */,
+				15994A5B5F7DB10650518F5BB974C512 /* Endpoint.swift in Sources */,
+				988BE07590FD55DB25B0FDE710F46BAE /* MultipartFormDataUploadTask.swift in Sources */,
+				801E40A9C64718C474AA6A8EB6DA8A0F /* MultipartRequest.swift in Sources */,
+				B377819CB27B0920EE1364D7619DB238 /* Parsable.swift in Sources */,
+				ED6543BD6872A3694EB60504AE548775 /* Request.swift in Sources */,
+				31838F498E3E03C77FDD9D4B9CB4CB83 /* UploadTask.swift in Sources */,
+				E426B38F8DC3EFE89FC4045668667DC3 /* Yggdrasil-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		565ABD4A8446CE99DA804D6506FDD963 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -678,32 +706,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		89B6014F12FD6A139B3E3AC3F642F131 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				271A13DE170089D2AFCF02DF31EF08F7 /* AlamofireExtensions.swift in Sources */,
-				55D08CAAE1EF06D7AAB47902E1C74E6A /* Endpoint.swift in Sources */,
-				857F11B520626CFC00B75A2B /* MultipartFormDataUploadTask.swift in Sources */,
-				1942D97A3CE3BB03C6365E4119B62670 /* MultipartRequest.swift in Sources */,
-				41F8B3E67D851D7F3F52323FD2ABB841 /* BaseTask.swift in Sources */,
-				50D43456C3BD6E05261AD85026BBC661 /* DataTask.swift in Sources */,
-				6D77D24BA8614222C34E193226E3EADC /* DownloadTask.swift in Sources */,
-				45B2E528E4AEE4C478D13CF228466FCE /* UploadTask.swift in Sources */,
-				A4986C5F4D8D2760238A1845A05B5AE4 /* Parsable.swift in Sources */,
-				37400DB7B80A43CFA11D4B91AF65C475 /* Request.swift in Sources */,
-				6F11A0482AC95A1619E4C1CD011443C1 /* Yggdrasil-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		954CC8FA5BE1A58BA27F496D5205551E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7A2F6A7481AE4EB69FD9747AF41F2E26 /* Pods-Yggdrasil_Tests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C09018BD1DD5E9B03DE95EB02CFEC004 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -712,15 +714,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FC9961240C5077BE7AA754A4D98E8F20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF276ABB077BAEA9C75CAE2416F96CCC /* Pods-Yggdrasil_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		11958F35409CA0B75090E2DF19E85EA2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Yggdrasil;
-			target = 92A76AA1B77CBAC7A7C36A432250D5B3 /* Yggdrasil */;
-			targetProxy = B1ECEAC885BF8C9B1A01162692AA93AD /* PBXContainerItemProxy */;
-		};
 		1A6F0E51DE6E5F9D58EE30EA921F0838 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Taskig;
@@ -739,11 +743,17 @@
 			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
 			targetProxy = 3F1295447169422452037D92B829F68B /* PBXContainerItemProxy */;
 		};
-		980172C627330892742FBA2233D3A56B /* PBXTargetDependency */ = {
+		583F5546304E744B1E54005FA85E37CF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Alamofire;
-			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
-			targetProxy = 6C2F0ABBB5BD7BBCF04BB32CBE2621F1 /* PBXContainerItemProxy */;
+			name = Taskig;
+			target = EB41C2CC0B0FEFFA2AB5A29B16CAD083 /* Taskig */;
+			targetProxy = C405092510DCCB00A55B00BA49CD2000 /* PBXContainerItemProxy */;
+		};
+		93C2CA8972C31FE3E24BA961E937B4C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Yggdrasil_Example";
+			target = E8B0C5EEC2DEAE895739A6C07178FF29 /* Pods-Yggdrasil_Example */;
+			targetProxy = 300EA85F6C25CF293A1B25525ED55BAC /* PBXContainerItemProxy */;
 		};
 		A1F86A1F968568E5B0B9D393DA8D38D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -751,11 +761,11 @@
 			target = 92A76AA1B77CBAC7A7C36A432250D5B3 /* Yggdrasil */;
 			targetProxy = B06A27F542CC16012FB6459E39901903 /* PBXContainerItemProxy */;
 		};
-		E063D501E92556C3F02F03316FE06512 /* PBXTargetDependency */ = {
+		E111408EC53F04B02703AAC71B4CD12C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Taskig;
-			target = EB41C2CC0B0FEFFA2AB5A29B16CAD083 /* Taskig */;
-			targetProxy = 7CCB1B6738FE4424012B65E2FEF5B4ED /* PBXContainerItemProxy */;
+			name = Alamofire;
+			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
+			targetProxy = 1DE0280F9271D0C2051600664031E11E /* PBXContainerItemProxy */;
 		};
 		E3D574C90989372163599AD74337D829 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -763,12 +773,18 @@
 			target = EB41C2CC0B0FEFFA2AB5A29B16CAD083 /* Taskig */;
 			targetProxy = FD52FBD5D4253C18594EB29A1B679968 /* PBXContainerItemProxy */;
 		};
+		F3FCD7DFDE3E47F5211FA9853CD3D571 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Yggdrasil;
+			target = 92A76AA1B77CBAC7A7C36A432250D5B3 /* Yggdrasil */;
+			targetProxy = 171AF7182B2DB6F14647DF3467F83D36 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		4019054344F46154B30BDECB6B6A311B /* Release */ = {
+		23C33A69E90DA9912D014DB534EAC091 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9AA7332776C27CE6188AF4ED4230FA2F /* Yggdrasil.xcconfig */;
+			baseConfigurationReference = 9586E79E486100FA6B8926A355454DE6 /* Yggdrasil.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -786,20 +802,20 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Yggdrasil/Yggdrasil.modulemap";
+				PRODUCT_MODULE_NAME = Yggdrasil;
 				PRODUCT_NAME = Yggdrasil;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		49B5A78DBE571998053070754D3695E8 /* Release */ = {
+		553022A828EE1991F07D2D73F565AEF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -831,329 +847,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		607C2F6A2F2290F35AFC0D07A9F3D899 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA9C3860A591393F1E60DF1D12B82F32 /* Pods-Yggdrasil_Example.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Yggdrasil_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Yggdrasil_Example/Pods-Yggdrasil_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Yggdrasil_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7106F3A1AE8320C9FF3716A0E6F9189E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9AA7332776C27CE6188AF4ED4230FA2F /* Yggdrasil.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Yggdrasil/Yggdrasil-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Yggdrasil/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Yggdrasil/Yggdrasil.modulemap";
-				PRODUCT_NAME = Yggdrasil;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		92EB46991ECD95434BF8ECF85EA6A44B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7ACFEE2BFBE585A4F23C0F83F24B789E /* Pods-Yggdrasil_Tests.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Yggdrasil_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Yggdrasil_Tests/Pods-Yggdrasil_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Yggdrasil_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		9D1C17A2D06391A10EF972965A352561 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E53699980BDA1E90561DD60E3AC80C4 /* Taskig.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Taskig/Taskig-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Taskig/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Taskig/Taskig.modulemap";
-				PRODUCT_NAME = Taskig;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		ABEECBEE3E8D444C492714799583BA24 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E53699980BDA1E90561DD60E3AC80C4 /* Taskig.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Taskig/Taskig-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Taskig/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Taskig/Taskig.modulemap";
-				PRODUCT_NAME = Taskig;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B0F5F1530D3F4E518BE2B1A52F98487A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 606CE81D330D2890B1E00393D1A9F19A /* Alamofire.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
-				PRODUCT_NAME = Alamofire;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		B8CA02655A4B738D82484691EE8CA58F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 606CE81D330D2890B1E00393D1A9F19A /* Alamofire.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
-				PRODUCT_NAME = Alamofire;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		D2E06DE844EBBE969D4D59F5D8F4ED80 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B98D2021FD6C772CCAA8948162170B56 /* Pods-Yggdrasil_Example.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Yggdrasil_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Yggdrasil_Example/Pods-Yggdrasil_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Yggdrasil_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		DD369323FD85CB26347C0D75C75D837F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1178,17 +872,75 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		F7613D15B3AF42A2A7C187AED5774723 /* Debug */ = {
+		58CE816B060A41D32CEC095441D0E3E0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2257CFB40D0E108EA6B66BEA2935CA40 /* Pods-Yggdrasil_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		6E5B7486E403B7B983CE96099F35BB59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7ACFEE2BFBE585A4F23C0F83F24B789E /* Pods-Yggdrasil_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1209,11 +961,285 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Yggdrasil_Tests;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		88B17DEADC8602CFDA830F04323EA095 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B98D2021FD6C772CCAA8948162170B56 /* Pods-Yggdrasil_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Yggdrasil_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Yggdrasil_Example/Pods-Yggdrasil_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		97E15079905A2787161E3636E8E7C48B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9586E79E486100FA6B8926A355454DE6 /* Yggdrasil.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Yggdrasil/Yggdrasil-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Yggdrasil/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Yggdrasil/Yggdrasil.modulemap";
+				PRODUCT_MODULE_NAME = Yggdrasil;
+				PRODUCT_NAME = Yggdrasil;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		980E72ED2109A1624FB2E048AAC0E0DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E53699980BDA1E90561DD60E3AC80C4 /* Taskig.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Taskig/Taskig-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Taskig/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Taskig/Taskig.modulemap";
+				PRODUCT_MODULE_NAME = Taskig;
+				PRODUCT_NAME = Taskig;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A18C9CC7E37563F2891E7DC87F2DE6CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 606CE81D330D2890B1E00393D1A9F19A /* Alamofire.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AF496EE76BA43DF38A46D9AADF21DC82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E53699980BDA1E90561DD60E3AC80C4 /* Taskig.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Taskig/Taskig-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Taskig/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Taskig/Taskig.modulemap";
+				PRODUCT_MODULE_NAME = Taskig;
+				PRODUCT_NAME = Taskig;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D8FE88F5DC672E6AC6345A0B3B3EA469 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2257CFB40D0E108EA6B66BEA2935CA40 /* Pods-Yggdrasil_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Yggdrasil_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Yggdrasil_Tests/Pods-Yggdrasil_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DAAABD60C0923FE1EC18597073CA2B90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA9C3860A591393F1E60DF1D12B82F32 /* Pods-Yggdrasil_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Yggdrasil_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Yggdrasil_Example/Pods-Yggdrasil_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EA0ADC75B20BB62958101306980460E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 606CE81D330D2890B1E00393D1A9F19A /* Alamofire.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1226,8 +1252,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD369323FD85CB26347C0D75C75D837F /* Debug */,
-				49B5A78DBE571998053070754D3695E8 /* Release */,
+				553022A828EE1991F07D2D73F565AEF8 /* Debug */,
+				58CE816B060A41D32CEC095441D0E3E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1235,8 +1261,17 @@
 		419E5D95491847CD79841B971A8A3277 /* Build configuration list for PBXNativeTarget "Alamofire" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B0F5F1530D3F4E518BE2B1A52F98487A /* Debug */,
-				B8CA02655A4B738D82484691EE8CA58F /* Release */,
+				EA0ADC75B20BB62958101306980460E6 /* Debug */,
+				A18C9CC7E37563F2891E7DC87F2DE6CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64047C45017DBE90C01B74846C8B12BF /* Build configuration list for PBXNativeTarget "Pods-Yggdrasil_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8FE88F5DC672E6AC6345A0B3B3EA469 /* Debug */,
+				6E5B7486E403B7B983CE96099F35BB59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1244,8 +1279,8 @@
 		786C6B43486257D9D60C7EBD33983CED /* Build configuration list for PBXNativeTarget "Pods-Yggdrasil_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D2E06DE844EBBE969D4D59F5D8F4ED80 /* Debug */,
-				607C2F6A2F2290F35AFC0D07A9F3D899 /* Release */,
+				88B17DEADC8602CFDA830F04323EA095 /* Debug */,
+				DAAABD60C0923FE1EC18597073CA2B90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1253,8 +1288,8 @@
 		7C69C6306D0718478BE309DADA54D113 /* Build configuration list for PBXNativeTarget "Yggdrasil" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7106F3A1AE8320C9FF3716A0E6F9189E /* Debug */,
-				4019054344F46154B30BDECB6B6A311B /* Release */,
+				23C33A69E90DA9912D014DB534EAC091 /* Debug */,
+				97E15079905A2787161E3636E8E7C48B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1262,17 +1297,8 @@
 		E209DCC7878848B39EA9FD191F26174E /* Build configuration list for PBXNativeTarget "Taskig" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9D1C17A2D06391A10EF972965A352561 /* Debug */,
-				ABEECBEE3E8D444C492714799583BA24 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E6F6ED1F369CA78FFAF9C6F2AD771A9A /* Build configuration list for PBXNativeTarget "Pods-Yggdrasil_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F7613D15B3AF42A2A7C187AED5774723 /* Debug */,
-				92EB46991ECD95434BF8ECF85EA6A44B /* Release */,
+				980E72ED2109A1624FB2E048AAC0E0DB /* Debug */,
+				AF496EE76BA43DF38A46D9AADF21DC82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (4.7.0)
-  - Taskig (0.2.0)
+  - Alamofire (4.7.1)
+  - Taskig (0.2.1)
   - Yggdrasil (0.1.0):
     - Alamofire (~> 4.7)
     - Taskig (~> 0.2)
@@ -10,15 +10,20 @@ DEPENDENCIES:
   - Taskig (~> 0.2)
   - Yggdrasil (from `../`)
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Taskig
+
 EXTERNAL SOURCES:
   Yggdrasil:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
-  Taskig: 40c927243a054bf1eab001646e256fa527e5a72a
-  Yggdrasil: ecee93c07c6f6bc0bc80acc54365cb74d5ddae0f
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  Taskig: 11ad480e5a3fcde6505010572868f7bb03c4acbc
+  Yggdrasil: ccdbb4f65d399dd8fb60c6e7548b769df62be8bb
 
 PODFILE CHECKSUM: cd275283ab21a89d1964283e6638f574a33d8e1f
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

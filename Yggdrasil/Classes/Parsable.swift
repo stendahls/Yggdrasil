@@ -27,13 +27,23 @@ import Foundation
 
 public protocol Parsable {
     static func parseData(_ data: Data) throws -> Self
+    
+    static func dateDecodingStrategy() -> JSONDecoder.DateDecodingStrategy
+}
+
+public extension Parsable {
+    static func dateDecodingStrategy() -> JSONDecoder.DateDecodingStrategy {
+        return JSONDecoder.DateDecodingStrategy.deferredToDate
+    }
 }
 
 // MARK: - Extension for Decodable support
 
 public extension Parsable {
     static func parseData<T: Decodable>(_ data: Data) throws -> T {
-        return try JSONDecoder().decode(T.self, from: data)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = dateDecodingStrategy()
+        return try decoder.decode(T.self, from: data)
     }    
 }
 
@@ -49,6 +59,8 @@ extension Data: Parsable {
 
 extension Array: Parsable where Element: Decodable {
     public static func parseData(_ data: Data) throws -> Array<Element> {
-        return try JSONDecoder().decode([Element].self, from: data)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = dateDecodingStrategy()
+        return try decoder.decode([Element].self, from: data)
     }
 }
