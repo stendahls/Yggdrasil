@@ -55,7 +55,7 @@ public class BaseTask: NSObject, ProgressReporting {
     
     internal lazy var sessionManager: Alamofire.SessionManager = {
         let sessionManager = SessionManager()
-        sessionManager.retrier = self
+        sessionManager.retrier = TaskRetrier(retryCount: networkRequest.retryCount)
         return sessionManager
     }()
     
@@ -80,9 +80,11 @@ public class BaseTask: NSObject, ProgressReporting {
     }    
 }
 
-extension BaseTask: RequestRetrier {
+struct TaskRetrier: RequestRetrier {
+    let retryCount: Int
+    
     public func should(_ manager: SessionManager, retry request: Alamofire.Request, with error: Error, completion: @escaping RequestRetryCompletion) {
-        guard request.retryCount < networkRequest.retryCount else {
+        guard request.retryCount < self.retryCount else {
             completion(false, 0)
             return
         }

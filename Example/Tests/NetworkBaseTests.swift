@@ -176,10 +176,10 @@ class NetworkBaseTests: XCTestCase {
             XCTAssert(timeDelay == 0)
         }
         
-        BaseTask(request: requestRetryCountZero).should(Alamofire.SessionManager.default,
-                                                           retry: Alamofire.SessionManager.default.request(requestRetryCountZero.fullURL),
-                                                           with: "Something went wrong",
-                                                           completion: requestRetryCompletion)
+        TaskRetrier(retryCount: 0).should(Alamofire.SessionManager.default,
+                                          retry: Alamofire.SessionManager.default.request(requestRetryCountZero.fullURL),
+                                          with: "Something went wrong",
+                                          completion: requestRetryCompletion)
     }
     
     func testRequestRetrierWithRetryCountOne() {
@@ -190,9 +190,9 @@ class NetworkBaseTests: XCTestCase {
             XCTAssert(shouldRetry == true)
         }
         
-        BaseTask(request: requestRetryCountZero).should(Alamofire.SessionManager.default,
-                                                           retry: Alamofire.SessionManager.default.request(requestRetryCountZero.fullURL),
-                                                           with: "Something went wrong",
-                                                           completion: requestRetryCompletion)
+        TaskRetrier(retryCount: 1).should(Alamofire.SessionManager.default,
+                                          retry: Alamofire.SessionManager.default.request(requestRetryCountZero.fullURL),
+                                          with: "Something went wrong",
+                                          completion: requestRetryCompletion)
     }
 }

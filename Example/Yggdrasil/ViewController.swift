@@ -69,6 +69,9 @@ class ViewController: UIViewController {
         
         Task.async {
             do {
+                let retryRequest = NetworkRequest(endpoint: NetworkEndpoint(baseUrl: "blah", path: "blah"), ignoreCache: true, retryCount: 3)
+                let _ = try? DataTask<Data>(request: retryRequest).await()
+                
                 let fileURL = try DownloadTask(url: "https://picsum.photos/1024/1024").await()
                 let fileimage = UIImage(contentsOfFile: fileURL.path)
                 
