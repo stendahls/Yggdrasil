@@ -73,6 +73,16 @@ struct LoremRequest: Request {
     let endpoint: Endpoint = BaconIpsumEndpoint.loremIpsum
 }
 
+extension UIImageView {
+    func setImageWith(contentsOfFile fileURL: URL) {
+        let fileimage = UIImage(contentsOfFile: fileURL.path)
+        
+        DispatchQueue.main.sync {
+            self.image = fileimage
+        }
+    }
+}
+
 class ViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var imageView: UIImageView!
@@ -87,39 +97,52 @@ class ViewController: UIViewController {
         
         Task.async {
             do {
-                let retryRequest = NetworkRequest(endpoint: NetworkEndpoint(baseUrl: "blah", path: "blah"), ignoreCache: true, retryCount: 3)
+                // Simple request with a retry count of 3, means it will try to repeat the request 3 times before giving up and returning.
+                // It will also ignore local caches
+                let retryRequest = NetworkRequest(endpoint: NetworkEndpoint(baseUrl: "blah", path: "blah"),
+                                                  ignoreCache: true, retryCount: 3)
+                
                 let _ = try? DataTask<Data>(request: retryRequest).await()
                 
+                // Download task which will return a file URL to the downloaded data
                 let fileURL = try DownloadTask(url: "https://picsum.photos/1024/1024").await()
-                let fileimage = UIImage(contentsOfFile: fileURL.path)
+                self.imageView.setImageWith(contentsOfFile: fileURL)
                 
-                Task.async(executionQueue: .main) {
-                    self.imageView.image = fileimage
-                }
-                
+                // Upload of a file with json response
                 let jsonUpload: JSONDictionary = try UploadTask(url: "https://httpbin.org/post", dataToUpload: .file(fileURL)).await()
                 print(jsonUpload)
                 
+                // Data request with direct URL instead of request and json response
                 let json: JSONDictionary = try DataTask(url: "https://httpbin.org/uuid").await()
                 print(json)
                 
+                // Define API endpoint with parameters
                 let endPoint = NetworkEndpoint(baseUrl: "https://baconipsum.com", path: "/api", parameters: ["type": "meat-and-filler"])
-                var text: [String] = try DataTask(request: NetworkRequest(endpoint: endPoint)).await()
-                print(text)
                 
+                // Execute data request with text-array response
+                let meatAndFillersText: [String] = try DataTask(request: NetworkRequest(endpoint: endPoint)).await()
+                print(meatAndFillersText)
+                
+                // Creates a request with a previously defined endpoint
                 let request = NetworkRequest(endpoint: BaconIpsumEndpoint.loremIpsum, ignoreCache: true, retryCount: 2)
-                text = try DataTask(request: request).await()
+                
+                // Execute data with defined request, text-array result
+                let baconIpsumText: [String] = try DataTask(request: request).await()
+                print(baconIpsumText)
+                
+                // Data request with predefined LoremRequest
+                let text: [String] = try DataTask(request: LoremRequest()).await()
                 print(text)
                 
-                text = try DataTask(request: LoremRequest()).await()
-                print(text)
-                
+                // Data request with predefined LoremRequest, showing that you can define result type as <> parameter
                 let textAnother = try DataTask<[String]>(request: LoremRequest()).await()
                 print(textAnother)
                 
+                // Define custom endpoint and create inline a request with it
                 let imageEndPoint = NetworkEndpoint(baseUrl: "https://picsum.photos", path: "/2048/2048")
                 let imageData = try DataTask<Data>(request: NetworkRequest(endpoint: imageEndPoint)).await()
                 
+                // Multipart form data POST request
                 let multiPartEndpoint = NetworkEndpoint(baseUrl: "https://httpbin.org", path: "/post", method: .post, parameters: [:])
                 let multiPartRequest = NetworkMultipartFormDataRequest(endpoint: multiPartEndpoint,
                                                                        data: imageData,
@@ -128,6 +151,7 @@ class ViewController: UIViewController {
                 
                 let uploadTask = MultipartFormDataUploadTask<Data>(request: multiPartRequest)
                 
+                // Track progress from upload task
                 DispatchQueue.main.sync {
                     self.progressView.observedProgress = uploadTask.progress
                 }
@@ -135,23 +159,25 @@ class ViewController: UIViewController {
                 let resultData = try uploadTask.await()
                 print(resultData)
                 
-                let directory = NSTemporaryDirectory()
-                let fileName = NSUUID().uuidString
+                // Download task with specific file URL
+                let downloadFileURL = URL(fileURLWithPath: NSTemporaryDirectory())
+                    .appendingPathComponent(UUID().uuidString)
+                    .appendingPathExtension("jpeg")
                 
-                let fullURL = NSURL.fileURL(withPathComponents: [directory, fileName])
                 let downloadRequest = NetworkRequest(endpoint: imageEndPoint)
-                let downloadTask = DownloadTask(request: downloadRequest, downloadDestination: fullURL!)
+                let downloadTask = DownloadTask(request: downloadRequest, downloadDestination: downloadFileURL)
                 
+                // Track progress from download task
                 DispatchQueue.main.sync {
                     self.progressView.observedProgress = downloadTask.progress
                 }
                 
                 let destinationURL = try downloadTask.await()
-                let image = UIImage(contentsOfFile: destinationURL.path)
                 
-                Task.async(executionQueue: .main) {
-                    self.imageView.image = image
-                }
+                // Should be the same
+                assert(downloadFileURL == destinationURL)
+                
+                self.imageView.setImageWith(contentsOfFile: destinationURL)
                 
                 print("DONE!!!")
             } catch {
