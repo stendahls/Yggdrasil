@@ -12,4 +12,4 @@ before_install:
 
 script: 
   - set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/Yggdrasil.xcworkspace -scheme Yggdrasil-Example -destination "platform=iOS Simulator,name=iPhone 7,OS=10.1" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
-  - pod lib lint Taskig.podspec
+  - pod lib lint Yggdrasil.podspec
