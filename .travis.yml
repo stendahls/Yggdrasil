@@ -1,20 +1,3 @@
-# references:
-# * http://www.objc.io/issue-6/travis-ci.html
-# * https://github.com/supermarin/xcpretty#usage
-
-osx_image: xcode10
-language: objective-c
-# cache: cocoapods
-# podfile: Example/Podfile
- before_install:
-  - gem install cocoapods--pre
-
-# - pod install --project-directory=Example
-script:
-- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/Yggdrasil.xcworkspace -scheme Yggdrasil-Example -sdk iphonesimulator10.1 ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint
-
-
 osx_image: xcode10
 language: objective-c
 xcode_workspace: Example/Yggdrasil.xcodeproj
