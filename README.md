@@ -1,9 +1,10 @@
 # Yggdrasil
 
-[![CI Status](http://img.shields.io/travis/bitwizardry-net/Yggdrasil.svg?style=flat)](https://travis-ci.org/bitwizardry-net/Yggdrasil)
+[![CI Status](http://img.shields.io/travis/stendahls/Yggdrasil.svg?style=flat)](https://travis-ci.org/stendahls/Yggdrasil)
 [![Version](https://img.shields.io/cocoapods/v/Yggdrasil.svg?style=flat)](http://cocoapods.org/pods/Yggdrasil)
 [![License](https://img.shields.io/cocoapods/l/Yggdrasil.svg?style=flat)](http://cocoapods.org/pods/Yggdrasil)
 [![Platform](https://img.shields.io/cocoapods/p/Yggdrasil.svg?style=flat)](http://cocoapods.org/pods/Yggdrasil)
+![Swift](https://img.shields.io/badge/%20in-swift%204.2-orange.svg)
 
 ## Example
 
