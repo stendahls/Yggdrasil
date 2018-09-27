@@ -26,7 +26,6 @@
 
 import Foundation
 import Taskig
-import MobileCoreServices
 import Alamofire
 
 public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
