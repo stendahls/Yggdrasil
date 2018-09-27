@@ -13,3 +13,20 @@ language: objective-c
 script:
 - set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/Yggdrasil.xcworkspace -scheme Yggdrasil-Example -sdk iphonesimulator10.1 ONLY_ACTIVE_ARCH=NO | xcpretty
 - pod lib lint
+
+
+osx_image: xcode10
+language: objective-c
+xcode_workspace: Example/Yggdrasil.xcodeproj
+xcode_scheme: Yggdrasil-Example
+
+branches:
+  only:
+    - master
+
+before_install:
+  - gem install cocoapods --pre
+
+script: 
+  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/Yggdrasil.xcworkspace -scheme Yggdrasil-Example -sdk iphonesimulator10.1 -destination "platform=iOS Simulator,name=iPhone 7,OS=10.1" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
+  - pod lib lint Taskig.podspec
