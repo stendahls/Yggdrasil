@@ -26,7 +26,6 @@
 
 import Foundation
 import Taskig
-import MobileCoreServices
 import Alamofire
 
 public typealias PreconditionValidation = () -> Alamofire.DataRequest.ValidationResult
