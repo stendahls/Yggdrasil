@@ -40,12 +40,16 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        let isRunningTests = NSClassFromString("XCTestCase") != nil
+        
+        guard isRunningTests == false else { return }
+        
         Task.async {
             do {
                 // Network request with a retry count of 3
                 // This will repeat the request up to 3 times in case of errors before giving up and returning.
                 // It will also ignore local caches
-                let retryRequest = NetworkRequest(endpoint: NetworkEndpoint(baseUrl: "blah", path: "blah"),
+                let retryRequest = NetworkRequest(endpoint: NetworkEndpoint(baseUrl: "ThisWill", path: "Fail"),
                                                   ignoreCache: true,
                                                   retryCount: 3)
                 
@@ -59,7 +63,7 @@ class ViewController: UIViewController {
                 let jsonUpload: JSONDictionary = try UploadTask(url: "https://httpbin.org/post", dataToUpload: .file(fileURL)).await()
                 print(jsonUpload)
                 
-                // Data request with direct URL instead of request and json response
+                // Data request with direct URL instead of request and json response                
                 let json: JSONDictionary = try DataTask(url: "https://httpbin.org/uuid").await()
                 print(json)
                 
@@ -72,8 +76,12 @@ class ViewController: UIViewController {
                 let meatAndFillersText: [String] = try DataTask(request: NetworkRequest(endpoint: endPoint)).await()
                 print(meatAndFillersText)
                 
+                // Execute data request with endpoint and text-array response
+                let allMeatText = try DataTask<[String]>(endpoint: BaconIpsumEndpoints.allMeat).await()
+                print(allMeatText)
+                
                 // Creates a request with a previously defined endpoint
-                let request = NetworkRequest(endpoint: BaconIpsumEndpoint.loremIpsum, ignoreCache: true, retryCount: 2)
+                let request = NetworkRequest(endpoint: BaconIpsumEndpoints.meatAndFiller, ignoreCache: true, retryCount: 2)
                 
                 // Execute data with defined request, text-array result
                 let baconIpsumText: [String] = try DataTask(request: request).await()
@@ -140,17 +148,20 @@ class ViewController: UIViewController {
         }
     }
     
-    // An enum following the Endpoint protocol to define two network endpoints
-    enum BaconIpsumEndpoint: Endpoint {
-        case loremIpsum
+    // An enum following the Endpoint protocol defining two network endpoints
+    enum BaconIpsumEndpoints: Endpoint {
+        case meatAndFiller
+        case allMeat
         case fail
         
         var baseUrl: String { return "https://baconipsum.com" }
         
         var path: String {
             switch self {
-            case .loremIpsum:
+            case .meatAndFiller:
                 return "/api"
+            case .allMeat:
+                return "/api/"
             case .fail:
                 return "/foobar"
             }
@@ -158,8 +169,10 @@ class ViewController: UIViewController {
         
         var parameters: [String : Any] {
             switch self {
-            case .loremIpsum:
+            case .meatAndFiller:
                 return ["type": "meat-and-filler"]
+            case .allMeat:
+                return ["type": "all-meat", "paras" : "2", "start-with-lorem": "1"]
             default:
                 return [:]
             }
@@ -168,7 +181,7 @@ class ViewController: UIViewController {
     
     // Network request just using the defined BaconIpsumEndpoint.loremIpsum endpoint
     struct LoremRequest: Request {
-        let endpoint: Endpoint = BaconIpsumEndpoint.loremIpsum
+        let endpoint: Endpoint = BaconIpsumEndpoints.meatAndFiller
     }
 }
 
