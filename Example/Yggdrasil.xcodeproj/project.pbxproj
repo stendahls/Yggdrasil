@@ -18,11 +18,11 @@
 		8536DA63205FE253000057C0 /* NetworkEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536DA62205FE253000057C0 /* NetworkEndpointTests.swift */; };
 		857F11AA205FE99B00B75A2B /* RequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11A9205FE99B00B75A2B /* RequestTest.swift */; };
 		857F11AC205FEEAE00B75A2B /* NetworkBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11AB205FEEAE00B75A2B /* NetworkBaseTests.swift */; };
-		857F11AD205FF03E00B75A2B /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536DA5E205FD6D8000057C0 /* JSONDecodable.swift */; };
 		857F11AF2060DAA400B75A2B /* NetworkDataTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11AE2060DAA400B75A2B /* NetworkDataTaskTests.swift */; };
 		857F11B12062540100B75A2B /* NetworkDownloadTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11B02062540100B75A2B /* NetworkDownloadTaskTests.swift */; };
 		857F11B320625BBD00B75A2B /* NetworkUploadTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11B220625BBD00B75A2B /* NetworkUploadTaskTests.swift */; };
 		857F11B72063B1F800B75A2B /* NetworkMultipartFormDataUploadTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F11B62063B1F800B75A2B /* NetworkMultipartFormDataUploadTaskTests.swift */; };
+		85E1940E215E144F006370C9 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536DA5E205FD6D8000057C0 /* JSONDecodable.swift */; };
 		85EC20CF205C132A00488647 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC20CE205C132A00488647 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -389,8 +389,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E1940E215E144F006370C9 /* JSONDecodable.swift in Sources */,
 				857F11AA205FE99B00B75A2B /* RequestTest.swift in Sources */,
-				857F11AD205FF03E00B75A2B /* JSONDecodable.swift in Sources */,
 				857F11AC205FEEAE00B75A2B /* NetworkBaseTests.swift in Sources */,
 				857F11AF2060DAA400B75A2B /* NetworkDataTaskTests.swift in Sources */,
 				857F11B320625BBD00B75A2B /* NetworkUploadTaskTests.swift in Sources */,

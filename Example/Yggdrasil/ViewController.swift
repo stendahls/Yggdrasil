@@ -28,61 +28,6 @@ import UIKit
 import Yggdrasil
 import Taskig
 
-enum BaconIpsumEndpoint: Endpoint {
-    case loremIpsum
-    case fail
-    
-    var baseUrl: String { return "https://baconipsum.com" }
-    
-    var path: String {
-        switch self {
-        case .loremIpsum:
-            return "/api"
-        case .fail:
-            return "/foobar"
-        }
-    }
-    
-    var parameters: [String : Any] {
-        switch self {
-        case .loremIpsum:
-            return ["type": "meat-and-filler"]
-        default:
-            return [:]
-        }
-    }
-}
-
-enum HttpBinEndpoint: Endpoint {
-    case get
-    case post
-    case uuid
-    
-    var baseUrl: String { return "https://httpbin.org" }
-    
-    var path: String {
-        switch self {
-        case .get: return "/get"
-        case .post: return "/post"
-        case .uuid: return "/uuid"
-        }
-    }
-}
-
-struct LoremRequest: Request {
-    let endpoint: Endpoint = BaconIpsumEndpoint.loremIpsum
-}
-
-extension UIImageView {
-    func setImageWith(contentsOfFile fileURL: URL) {
-        let fileimage = UIImage(contentsOfFile: fileURL.path)
-        
-        DispatchQueue.main.sync {
-            self.image = fileimage
-        }
-    }
-}
-
 class ViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var imageView: UIImageView!
@@ -119,7 +64,9 @@ class ViewController: UIViewController {
                 print(json)
                 
                 // Define API endpoint with parameters
-                let endPoint = NetworkEndpoint(baseUrl: "https://baconipsum.com", path: "/api", parameters: ["type": "meat-and-filler"])
+                let endPoint = NetworkEndpoint(baseUrl: "https://baconipsum.com",
+                                               path: "/api",
+                                               parameters: ["type": "meat-and-filler"])
                 
                 // Execute data request with text-array response
                 let meatAndFillersText: [String] = try DataTask(request: NetworkRequest(endpoint: endPoint)).await()
@@ -141,11 +88,17 @@ class ViewController: UIViewController {
                 print(textAnother)
                 
                 // Define custom endpoint and create inline a request with it
-                let imageEndPoint = NetworkEndpoint(baseUrl: "https://picsum.photos", path: "/2048/2048")
+                let imageEndPoint = NetworkEndpoint(baseUrl: "https://picsum.photos",
+                                                    path: "/2048/2048")
+                
                 let imageData = try DataTask<Data>(request: NetworkRequest(endpoint: imageEndPoint)).await()
                 
                 // Multipart form data POST request
-                let multiPartEndpoint = NetworkEndpoint(baseUrl: "https://httpbin.org", path: "/post", method: .post, parameters: [:])
+                let multiPartEndpoint = NetworkEndpoint(baseUrl: "https://httpbin.org",
+                                                        path: "/post",
+                                                        method: .post,
+                                                        parameters: [:])
+                
                 let multiPartRequest = NetworkMultipartFormDataRequest(endpoint: multiPartEndpoint,
                                                                        data: imageData,
                                                                        mimeType: "jpeg",
@@ -186,5 +139,49 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    // An enum following the Endpoint protocol to define two network endpoints
+    enum BaconIpsumEndpoint: Endpoint {
+        case loremIpsum
+        case fail
+        
+        var baseUrl: String { return "https://baconipsum.com" }
+        
+        var path: String {
+            switch self {
+            case .loremIpsum:
+                return "/api"
+            case .fail:
+                return "/foobar"
+            }
+        }
+        
+        var parameters: [String : Any] {
+            switch self {
+            case .loremIpsum:
+                return ["type": "meat-and-filler"]
+            default:
+                return [:]
+            }
+        }
+    }
+    
+    // Network request just using the defined BaconIpsumEndpoint.loremIpsum endpoint
+    struct LoremRequest: Request {
+        let endpoint: Endpoint = BaconIpsumEndpoint.loremIpsum
+    }
 }
+
+// MARK: - Helpers
+
+extension UIImageView {
+    func setImageWith(contentsOfFile fileURL: URL) {
+        let fileimage = UIImage(contentsOfFile: fileURL.path)
+        
+        DispatchQueue.main.sync {
+            self.image = fileimage
+        }
+    }
+}
+
 
