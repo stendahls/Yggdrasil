@@ -97,10 +97,12 @@ class ViewController: UIViewController {
         
         Task.async {
             do {
-                // Simple request with a retry count of 3, means it will try to repeat the request 3 times before giving up and returning.
+                // Network request with a retry count of 3
+                // This will repeat the request up to 3 times in case of errors before giving up and returning.
                 // It will also ignore local caches
                 let retryRequest = NetworkRequest(endpoint: NetworkEndpoint(baseUrl: "blah", path: "blah"),
-                                                  ignoreCache: true, retryCount: 3)
+                                                  ignoreCache: true,
+                                                  retryCount: 3)
                 
                 let _ = try? DataTask<Data>(request: retryRequest).await()
                 
@@ -148,7 +150,6 @@ class ViewController: UIViewController {
                                                                        data: imageData,
                                                                        mimeType: "jpeg",
                                                                        filename: "MyImage")
-                
                 let uploadTask = MultipartFormDataUploadTask<Data>(request: multiPartRequest)
                 
                 // Track progress from upload task
@@ -185,12 +186,5 @@ class ViewController: UIViewController {
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 

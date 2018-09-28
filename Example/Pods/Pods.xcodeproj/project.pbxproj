@@ -165,7 +165,7 @@
 		80C3335C1A599532A8A5A665900B7F02 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
 		8279AA513079A95F95681397949CF684 /* Pods-Yggdrasil_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Yggdrasil_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		845EDA139B541F246C05D21B930594B0 /* Pods-Yggdrasil_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Yggdrasil_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		879AE2B12FDACA2CA65869F171DC3860 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		879AE2B12FDACA2CA65869F171DC3860 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		8A31F7B42FD5B77D5DECAC73856B363C /* Taskig-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Taskig-prefix.pch"; sourceTree = "<group>"; };
 		8CA14A2C7AB30CBC2DD415A2B4A6A660 /* Pods-Yggdrasil_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Yggdrasil_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9394E1C39DF763C2C6E74E8C3314F996 /* Yggdrasil-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Yggdrasil-umbrella.h"; sourceTree = "<group>"; };
