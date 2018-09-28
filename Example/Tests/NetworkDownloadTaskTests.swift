@@ -117,18 +117,16 @@ class NetworkDownloadTaskTests: XCTestCase {
     }
     
     func testFailureCase() {
-        let downloadTask = DownloadTask(url: "")
+        let downloadTask = try! DownloadTask(url: "https://httpbin.org/status/500")
         let finishedExpectation = expectation(description: "Finished")
 
         downloadTask.async(completion: { (result) in
             defer { finishedExpectation.fulfill() }
             
-            guard case let .failure(error) = result else {
+            guard case .failure = result else {
                 XCTFail("Wrong result")
                 return
             }
-            
-            XCTAssert(error.localizedDescription == "URL is not valid: ")
         })
         
         waitForExpectations(timeout: 10, handler: nil)

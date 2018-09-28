@@ -44,22 +44,16 @@ public class UploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
         super.init(request: request)
     }
     
-    public init(url: URLConvertible, dataToUpload: UploadData) {
-        self.dataToUpload = dataToUpload
-        
-        var endpoint: NetworkEndpoint
-        
-        if let url = try? url.asURL() {
-            endpoint = NetworkEndpoint(baseUrl: (url.scheme ?? "") + "://" + (url.host ?? ""),
-                                       path: url.path,
-                                       method: .post)
-        } else {
-            endpoint = NetworkEndpoint(baseUrl: "", path: "", method: .post)
-        }
-        
+    public convenience init(endpoint: Endpoint, dataToUpload: UploadData) {
         let request = NetworkRequest(endpoint: endpoint)
         
-        super.init(request: request)
+        self.init(request: request, dataToUpload: dataToUpload)
+    }
+    
+    public convenience init(url: URLConvertible, dataToUpload: UploadData) throws {
+        let endpoint = try url.asEndpoint(withMethod: .post)
+        
+        self.init(endpoint: endpoint, dataToUpload: dataToUpload)
     }
     
     public func action(completion: @escaping (TaskResult<T>) -> Void) {

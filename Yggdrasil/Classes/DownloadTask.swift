@@ -37,16 +37,6 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
     
     private let downloadDestination: URL
     
-    public init(url: URLConvertible, downloadDestination: URL? = nil) {
-        if let downloadDestination = downloadDestination {
-            self.downloadDestination = downloadDestination
-        } else {
-            self.downloadDestination = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(UUID().uuidString)
-        }
-        
-        super.init(url: url)
-    }
-    
     public init(request: Request, downloadDestination: URL? = nil) {
         if let downloadDestination = downloadDestination {
             self.downloadDestination = downloadDestination
@@ -55,6 +45,18 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
         }
         
         super.init(request: request)
+    }
+    
+    public convenience init(endpoint: Endpoint, downloadDestination: URL? = nil) {
+        let request = NetworkRequest(endpoint: endpoint)
+        
+        self.init(request: request, downloadDestination: downloadDestination)
+    }
+    
+    public convenience init(url: URLConvertible, downloadDestination: URL? = nil) throws {
+        let endpoint = try url.asEndpoint()
+        
+        self.init(endpoint: endpoint, downloadDestination: downloadDestination)
     }
     
     public func action(completion: @escaping (TaskResult<URL>) -> Void) {

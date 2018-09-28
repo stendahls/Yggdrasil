@@ -249,6 +249,7 @@
 						DevelopmentTeam = XS5U4G3W87;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
+						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
 			};
@@ -574,6 +575,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 057FE6CBE96A271C887FD61A /* Pods-Yggdrasil_Tests.debug.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = XS5U4G3W87;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -587,6 +589,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yggdrasil_Example.app/Yggdrasil_Example";
 			};
 			name = Debug;
 		};
@@ -594,16 +597,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3926E8ACF9DCE885FA5F9A65 /* Pods-Yggdrasil_Tests.release.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = XS5U4G3W87;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yggdrasil_Example.app/Yggdrasil_Example";
 			};
 			name = Release;
 		};

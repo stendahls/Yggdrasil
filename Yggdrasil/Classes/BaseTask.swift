@@ -38,19 +38,16 @@ public class BaseTask: NSObject, ProgressReporting {
         self.progress = Progress(totalUnitCount: 1)
     }
     
-    public init(url: URLConvertible) {
-        let endpoint: NetworkEndpoint
-        
-        if let url = try? url.asURL() {
-            endpoint = NetworkEndpoint(baseUrl: (url.scheme ?? "") + "://" + (url.host ?? ""), path: url.path)
-        } else {
-            endpoint = NetworkEndpoint(baseUrl: "", path: "")
-        }
-        
+    public convenience init(endpoint: Endpoint) {
         let request = NetworkRequest(endpoint: endpoint)
         
-        self.networkRequest = request
-        self.progress = Progress(totalUnitCount: 1)
+        self.init(request: request)
+    }
+    
+    public convenience init(url: URLConvertible) throws {
+        let endpoint = try url.asEndpoint()
+        
+        self.init(endpoint: endpoint)
     }
     
     internal lazy var sessionManager: Alamofire.SessionManager = {

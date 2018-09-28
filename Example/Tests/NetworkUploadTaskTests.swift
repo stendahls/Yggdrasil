@@ -108,18 +108,16 @@ class NetworkUploadTaskTests: XCTestCase {
     }
     
     func testFailureCase() {
-        let uploadTask = UploadTask<Data>(url: " ", dataToUpload: .data("FooBar".data(using: .utf8)!))
+        let uploadTask = try! UploadTask<Data>(url: "https://httpbin.org/status/500", dataToUpload: .data("FooBar".data(using: .utf8)!))
         let finishedExpectation = expectation(description: "Finished")
         
         uploadTask.async(completion: { (result) in
             defer { finishedExpectation.fulfill() }
             
-            guard case let .failure(error) = result else {
+            guard case .failure = result else {
                 XCTFail("Wrong result")
                 return
             }
-            
-            XCTAssert(error.localizedDescription == "URL is not valid: ")
         })
         
         waitForExpectations(timeout: 10, handler: nil)

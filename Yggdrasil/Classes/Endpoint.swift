@@ -52,3 +52,19 @@ public struct NetworkEndpoint: Endpoint {
         self.parameters = parameters
     }
 }
+
+// MARK: - Helper extension to convert URLConvertible to Endpoint
+
+public enum EndpointError: Error {
+    case invalidURL
+}
+
+public extension URLConvertible {
+    func asEndpoint(withMethod method: Alamofire.HTTPMethod = .get) throws -> Endpoint {
+        guard let url = try? self.asURL() else {
+            throw EndpointError.invalidURL
+        }
+
+        return  NetworkEndpoint(baseUrl: (url.scheme ?? "") + "://" + (url.host ?? ""), path: url.path, method: method)
+    }
+}
