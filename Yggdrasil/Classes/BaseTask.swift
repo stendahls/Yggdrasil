@@ -31,15 +31,15 @@ public class BaseTask: NSObject, ProgressReporting {
     public let executionQueue: DispatchQueue = .utility
     public var progress: Progress
     
-    let networkRequest: Request
+    let networkRequest: RequestType
     
-    public init(request: Request) {
+    public init(request: RequestType) {
         self.networkRequest = request
         self.progress = Progress(totalUnitCount: 1)
     }
     
-    public convenience init(endpoint: Endpoint) {
-        let request = NetworkRequest(endpoint: endpoint)
+    public convenience init(endpoint: EndpointType) {
+        let request = Request(endpoint: endpoint)
         
         self.init(request: request)
     }

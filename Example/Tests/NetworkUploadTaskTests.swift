@@ -39,8 +39,8 @@ class NetworkUploadTaskTests: XCTestCase {
         super.tearDown()
     }
     
-    private struct TestPostRequest: Yggdrasil.Request {
-        var endpoint: Endpoint { return NetworkEndpoint(baseUrl: "https://httpbin.org", path: "/post", method: .post) }
+    private struct TestPostRequest: Yggdrasil.RequestType {
+        var endpoint: EndpointType { return Endpoint(baseUrl: "https://httpbin.org", path: "/post", method: .post) }
         var preconditions: [PreconditionValidation] = []
         var responseValidations: [ResponseValidation] = []
         var retryCount: Int = 0

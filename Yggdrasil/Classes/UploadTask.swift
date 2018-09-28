@@ -38,14 +38,14 @@ public class UploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
     
     private let dataToUpload: UploadData
     
-    public init(request: Request, dataToUpload: UploadData) {
+    public init(request: RequestType, dataToUpload: UploadData) {
         self.dataToUpload = dataToUpload
         
         super.init(request: request)
     }
     
-    public convenience init(endpoint: Endpoint, dataToUpload: UploadData) {
-        let request = NetworkRequest(endpoint: endpoint)
+    public convenience init(endpoint: EndpointType, dataToUpload: UploadData) {
+        let request = Request(endpoint: endpoint)
         
         self.init(request: request, dataToUpload: dataToUpload)
     }

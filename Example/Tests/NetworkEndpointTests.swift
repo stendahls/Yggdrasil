@@ -40,7 +40,7 @@ class NetworkEndpointTests: XCTestCase {
     }
     
     func testNetworkEndpointInit() {
-        let endpoint = NetworkEndpoint(baseUrl: "https://FooBar.com",
+        let endpoint = Endpoint(baseUrl: "https://FooBar.com",
                                        path: "/FooBar",
                                        method: .post,
                                        parameters: ["Foo" : "Bar"])
@@ -52,7 +52,7 @@ class NetworkEndpointTests: XCTestCase {
     }
     
     func testNetworkEndpointInitStandardParameters() {
-        let endpoint = NetworkEndpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
+        let endpoint = Endpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
         
         XCTAssert(endpoint.baseUrl == "https://FooBar.com")
         XCTAssert(endpoint.path == "/FooBar")

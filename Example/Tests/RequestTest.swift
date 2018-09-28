@@ -40,8 +40,8 @@ class RequestTest: XCTestCase {
     }
     
     func testNetworkRequestInit() {
-        let endpoint = NetworkEndpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
-        let request = NetworkRequest(endpoint: endpoint, ignoreCache: true, retryCount: 42)
+        let endpoint = Endpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
+        let request = Request(endpoint: endpoint, ignoreCache: true, retryCount: 42)
         
         XCTAssert(request.endpoint.baseUrl == "https://FooBar.com")
         XCTAssert(request.endpoint.path == "/FooBar")
@@ -50,8 +50,8 @@ class RequestTest: XCTestCase {
     }
     
     func testNetworkRequestInitStandardParameters() {
-        let endpoint = NetworkEndpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
-        let request = NetworkRequest(endpoint: endpoint)
+        let endpoint = Endpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
+        let request = Request(endpoint: endpoint)
         
         XCTAssert(request.endpoint.baseUrl == "https://FooBar.com")
         XCTAssert(request.endpoint.path == "/FooBar")
@@ -64,14 +64,14 @@ class RequestTest: XCTestCase {
     }
     
     func testRequestFullURL() {
-        let endpoint = NetworkEndpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
-        let request = NetworkRequest(endpoint: endpoint)
+        let endpoint = Endpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
+        let request = Request(endpoint: endpoint)
         
         XCTAssert(try request.fullURL.asURL() == URL(string: "https://FooBar.com/FooBar"))
     }
     
     func testNetworkMultipartFormDataRequestInit() {
-        let endpoint = NetworkEndpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
+        let endpoint = Endpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
         let request = NetworkMultipartFormDataRequest(endpoint: endpoint,
                                                       data: "FooBar".data(using: .utf8)!,
                                                       mimeType: "FooBar",
@@ -93,7 +93,7 @@ class RequestTest: XCTestCase {
     }
     
     func testNetworkMultipartFormDataRequestInitStandardParameters() {
-        let endpoint = NetworkEndpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
+        let endpoint = Endpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
         let request = NetworkMultipartFormDataRequest(endpoint: endpoint,
                                                       data: "FooBar".data(using: .utf8)!,
                                                       mimeType: "FooBar",

@@ -37,7 +37,7 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
     
     private let downloadDestination: URL
     
-    public init(request: Request, downloadDestination: URL? = nil) {
+    public init(request: RequestType, downloadDestination: URL? = nil) {
         if let downloadDestination = downloadDestination {
             self.downloadDestination = downloadDestination
         } else {
@@ -47,8 +47,8 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
         super.init(request: request)
     }
     
-    public convenience init(endpoint: Endpoint, downloadDestination: URL? = nil) {
-        let request = NetworkRequest(endpoint: endpoint)
+    public convenience init(endpoint: EndpointType, downloadDestination: URL? = nil) {
+        let request = Request(endpoint: endpoint)
         
         self.init(request: request, downloadDestination: downloadDestination)
     }

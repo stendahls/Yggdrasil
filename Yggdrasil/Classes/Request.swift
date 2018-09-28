@@ -31,8 +31,8 @@ import Alamofire
 public typealias PreconditionValidation = () -> Alamofire.DataRequest.ValidationResult
 public typealias ResponseValidation = Alamofire.DataRequest.Validation
 
-public protocol Request {
-    var endpoint: Endpoint { get }
+public protocol RequestType {
+    var endpoint: EndpointType { get }
     var headers: HTTPHeaders { get }
     var body: String? { get }
     var retryCount: Int { get }
@@ -41,7 +41,7 @@ public protocol Request {
     var ignoreCache: Bool { get }
 }
 
-public extension Request {
+public extension RequestType {
     var body: String? { return nil }
     var headers: [String: String] { return [:] }
     var retryCount: Int { return 0 }
@@ -54,12 +54,12 @@ public extension Request {
     }
 }
 
-public struct NetworkRequest: Request {
-    public let endpoint: Endpoint
+public struct Request: RequestType {
+    public let endpoint: EndpointType
     public let ignoreCache: Bool
     public let retryCount: Int
     
-    public init(endpoint: Endpoint, ignoreCache: Bool = false, retryCount: Int = 0) {
+    public init(endpoint: EndpointType, ignoreCache: Bool = false, retryCount: Int = 0) {
         self.endpoint = endpoint
         self.ignoreCache = ignoreCache
         self.retryCount = retryCount

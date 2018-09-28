@@ -55,7 +55,7 @@
 		DBE6E2E4D205545E7988CFA5057C31D6 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6070E0E1D8C76B982E932455683E08A6 /* DispatchQueue+Alamofire.swift */; };
 		DD51F869DF60C2836B94E78C43E24039 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A436834365252F97F6FB99DE7CE7E34 /* Endpoint.swift */; };
 		EF1461221681BCA12A4147900A704727 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD11DB94D63209FDE3FA8CC343E65D69 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8646FB8C84559DF505ABF8E03A3FB5E /* MultipartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5C676C9267F97BF78D08550F04591 /* MultipartRequest.swift */; };
+		F8646FB8C84559DF505ABF8E03A3FB5E /* NetworkMultipartFormDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5C676C9267F97BF78D08550F04591 /* NetworkMultipartFormDataRequest.swift */; };
 		F9EA61D484CC15FDDAB0D8C0D26D7949 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683B927CE3B4AA718F439B76F1F26E5B /* Result.swift */; };
 		FF9C7BC64DB23D2CED48197DE67F0335 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F610EA4F0D39AECDE61BE9EAFE900BE /* MultipartFormData.swift */; };
 /* End PBXBuildFile section */
@@ -172,7 +172,7 @@
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9517E75735C0FBB1566A37B6295C4F86 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		998DAC66B0B9B296A4FFA3A1DC3B6092 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
-		9DF5C676C9267F97BF78D08550F04591 /* MultipartRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartRequest.swift; path = Yggdrasil/Classes/MultipartRequest.swift; sourceTree = "<group>"; };
+		9DF5C676C9267F97BF78D08550F04591 /* NetworkMultipartFormDataRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkMultipartFormDataRequest.swift; path = Yggdrasil/Classes/NetworkMultipartFormDataRequest.swift; sourceTree = "<group>"; };
 		9F4683C9A85D5E68C36776335585CEE2 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		A0E7D4F738F79F61FBBD8CBDEE9F074F /* Yggdrasil.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Yggdrasil.modulemap; sourceTree = "<group>"; };
 		A567D08B2B4E34E7880BF7E17C42C7B4 /* Collections.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Collections.swift; path = TaskigSource/Base/Collections.swift; sourceTree = "<group>"; };
@@ -413,7 +413,7 @@
 				3A436834365252F97F6FB99DE7CE7E34 /* Endpoint.swift */,
 				562B8C934BF572222376275D88147F59 /* Parsable.swift */,
 				DAE6602DC82A18FA8B8D218DF92C8C22 /* Request.swift */,
-				9DF5C676C9267F97BF78D08550F04591 /* MultipartRequest.swift */,
+				9DF5C676C9267F97BF78D08550F04591 /* NetworkMultipartFormDataRequest.swift */,
 				C70DE1A4222AE03C61F237B028229DCB /* BaseTask.swift */,
 				7711818E1C5A0FB1DC26C64B18FFEFF6 /* DataTask.swift */,
 				71C8C2EE483ED7754784FC3E9752CFEB /* DownloadTask.swift */,
@@ -711,7 +711,7 @@
 				4ED4CC5828C78DF6F9AC1F9AF1AD6234 /* DownloadTask.swift in Sources */,
 				DD51F869DF60C2836B94E78C43E24039 /* Endpoint.swift in Sources */,
 				7752D34FBE70A90F5504A91D54A99BFE /* MultipartFormDataUploadTask.swift in Sources */,
-				F8646FB8C84559DF505ABF8E03A3FB5E /* MultipartRequest.swift in Sources */,
+				F8646FB8C84559DF505ABF8E03A3FB5E /* NetworkMultipartFormDataRequest.swift in Sources */,
 				126CE78B1EDECA62A0FC02D67DB9E4E2 /* Parsable.swift in Sources */,
 				0F21471BBE11DC74BC9456D54FFE52E4 /* Request.swift in Sources */,
 				353A2D9C3774CD130D6A6E2A7F1876D5 /* UploadTask.swift in Sources */,

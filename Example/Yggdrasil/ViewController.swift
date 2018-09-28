@@ -46,12 +46,12 @@ class ViewController: UIViewController {
         
         Task.async {
             do {
-                // Network request with a retry count of 3
+                // Request with a retry count of 3
                 // This will repeat the request up to 3 times in case of errors before giving up and returning.
                 // It will also ignore local caches
-                let retryRequest = NetworkRequest(endpoint: NetworkEndpoint(baseUrl: "ThisWill", path: "Fail"),
-                                                  ignoreCache: true,
-                                                  retryCount: 3)
+                let retryRequest = Request(endpoint: Endpoint(baseUrl: "ThisWill", path: "Fail"),
+                                           ignoreCache: true,
+                                           retryCount: 3)
                 
                 let _ = try? DataTask<Data>(request: retryRequest).await()
                 
@@ -59,53 +59,53 @@ class ViewController: UIViewController {
                 let fileURL = try DownloadTask(url: "https://picsum.photos/1024/1024").await()
                 self.imageView.setImageWith(contentsOfFile: fileURL)
                 
-                // Upload of a file with json response
+                // File upload with JSON response
                 let jsonUpload: JSONDictionary = try UploadTask(url: "https://httpbin.org/post", dataToUpload: .file(fileURL)).await()
                 print(jsonUpload)
                 
-                // Data request with direct URL instead of request and json response                
+                // Data request
                 let json: JSONDictionary = try DataTask(url: "https://httpbin.org/uuid").await()
                 print(json)
                 
-                // Define API endpoint with parameters
-                let endPoint = NetworkEndpoint(baseUrl: "https://baconipsum.com",
-                                               path: "/api",
-                                               parameters: ["type": "meat-and-filler"])
+                // Defines an API endpoint with parameters
+                let endPoint = Endpoint(baseUrl: "https://baconipsum.com",
+                                        path: "/api",
+                                        parameters: ["type": "meat-and-filler"])
                 
-                // Execute data request with text-array response
-                let meatAndFillersText: [String] = try DataTask(request: NetworkRequest(endpoint: endPoint)).await()
+                // Data request with text-array response
+                let meatAndFillersText: [String] = try DataTask(request: Request(endpoint: endPoint)).await()
                 print(meatAndFillersText)
                 
-                // Execute data request with endpoint and text-array response
+                // Execute data task with API endpoint and text-array response
                 let allMeatText = try DataTask<[String]>(endpoint: BaconIpsumEndpoints.allMeat).await()
                 print(allMeatText)
                 
                 // Creates a request with a previously defined endpoint
-                let request = NetworkRequest(endpoint: BaconIpsumEndpoints.meatAndFiller, ignoreCache: true, retryCount: 2)
+                let request = Request(endpoint: BaconIpsumEndpoints.meatAndFiller, ignoreCache: true, retryCount: 2)
                 
-                // Execute data with defined request, text-array result
+                // Execute data task with defined request, text-array result
                 let baconIpsumText: [String] = try DataTask(request: request).await()
                 print(baconIpsumText)
                 
-                // Data request with predefined LoremRequest
+                // Data task with predefined LoremRequest
                 let text: [String] = try DataTask(request: LoremRequest()).await()
                 print(text)
                 
-                // Data request with predefined LoremRequest, showing that you can define result type as <> parameter
+                // Data task with predefined LoremRequest, showing that you can define result type as generic parameter
                 let textAnother = try DataTask<[String]>(request: LoremRequest()).await()
                 print(textAnother)
                 
-                // Define custom endpoint and create inline a request with it
-                let imageEndPoint = NetworkEndpoint(baseUrl: "https://picsum.photos",
-                                                    path: "/2048/2048")
+                // Define custom API endpoint and create an inline request with it
+                let imageEndPoint = Endpoint(baseUrl: "https://picsum.photos",
+                                             path: "/2048/2048")
                 
-                let imageData = try DataTask<Data>(request: NetworkRequest(endpoint: imageEndPoint)).await()
+                let imageData = try DataTask<Data>(request: Request(endpoint: imageEndPoint)).await()
                 
                 // Multipart form data POST request
-                let multiPartEndpoint = NetworkEndpoint(baseUrl: "https://httpbin.org",
-                                                        path: "/post",
-                                                        method: .post,
-                                                        parameters: [:])
+                let multiPartEndpoint = Endpoint(baseUrl: "https://httpbin.org",
+                                                 path: "/post",
+                                                 method: .post,
+                                                 parameters: [:])
                 
                 let multiPartRequest = NetworkMultipartFormDataRequest(endpoint: multiPartEndpoint,
                                                                        data: imageData,
@@ -126,7 +126,7 @@ class ViewController: UIViewController {
                     .appendingPathComponent(UUID().uuidString)
                     .appendingPathExtension("jpeg")
                 
-                let downloadRequest = NetworkRequest(endpoint: imageEndPoint)
+                let downloadRequest = Request(endpoint: imageEndPoint)
                 let downloadTask = DownloadTask(request: downloadRequest, downloadDestination: downloadFileURL)
                 
                 // Track progress from download task
@@ -148,11 +148,10 @@ class ViewController: UIViewController {
         }
     }
     
-    // An enum following the Endpoint protocol defining two network endpoints
-    enum BaconIpsumEndpoints: Endpoint {
+    // An enum following the EndpointType protocol defining two API endpoints
+    enum BaconIpsumEndpoints: EndpointType {
         case meatAndFiller
         case allMeat
-        case fail
         
         var baseUrl: String { return "https://baconipsum.com" }
         
@@ -162,8 +161,6 @@ class ViewController: UIViewController {
                 return "/api"
             case .allMeat:
                 return "/api/"
-            case .fail:
-                return "/foobar"
             }
         }
         
@@ -173,15 +170,13 @@ class ViewController: UIViewController {
                 return ["type": "meat-and-filler"]
             case .allMeat:
                 return ["type": "all-meat", "paras" : "2", "start-with-lorem": "1"]
-            default:
-                return [:]
             }
         }
     }
     
     // Network request just using the defined BaconIpsumEndpoint.loremIpsum endpoint
-    struct LoremRequest: Request {
-        let endpoint: Endpoint = BaconIpsumEndpoints.meatAndFiller
+    struct LoremRequest: RequestType {
+        let endpoint: EndpointType = BaconIpsumEndpoints.meatAndFiller
     }
 }
 

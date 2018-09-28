@@ -41,8 +41,8 @@ class NetworkBaseTests: XCTestCase {
         super.tearDown()
     }
     
-    private struct TestRequest: Yggdrasil.Request {
-        var endpoint: Endpoint { return NetworkEndpoint(baseUrl: "https://httpbin.org", path: "/get") }
+    private struct TestRequest: Yggdrasil.RequestType {
+        var endpoint: EndpointType { return Endpoint(baseUrl: "https://httpbin.org", path: "/get") }
         var preconditions: [PreconditionValidation] = []
         var responseValidations: [ResponseValidation] = []
         var retryCount: Int = 0

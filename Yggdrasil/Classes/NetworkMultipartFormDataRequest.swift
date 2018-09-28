@@ -28,28 +28,28 @@ import Foundation
 import Alamofire
 import Taskig
 
-public protocol MultipartRequest: Request {
+public protocol MultipartRequestType: RequestType {
     var data: Data { get }
     var mimeType: String { get }
     var filename: String { get }    
 }
 
-public extension MultipartRequest {
+public extension MultipartRequestType {
     var body: String? { return nil }
     var retryCount: Int { return 0 }
     var responseValidations: [Alamofire.DataRequest.Validation] { return [] }
     var preconditions: [PreconditionValidation] { return [] }
 }
 
-public struct NetworkMultipartFormDataRequest: MultipartRequest {
-    public let endpoint: Endpoint
+public struct NetworkMultipartFormDataRequest: MultipartRequestType {
+    public let endpoint: EndpointType
     public let ignoreCache: Bool
     public let retryCount: Int
     public let data: Data
     public let mimeType: String
     public let filename: String
     
-    public init(endpoint: Endpoint, data: Data, mimeType: String, filename: String, ignoreCache: Bool = false, retryCount: Int = 0) {
+    public init(endpoint: EndpointType, data: Data, mimeType: String, filename: String, ignoreCache: Bool = false, retryCount: Int = 0) {
         self.endpoint = endpoint
         self.ignoreCache = ignoreCache
         self.retryCount = retryCount

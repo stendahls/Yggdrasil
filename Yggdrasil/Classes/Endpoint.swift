@@ -27,19 +27,19 @@
 import Foundation
 import Alamofire
 
-public protocol Endpoint {
+public protocol EndpointType {
     var baseUrl: String { get }
     var path: String { get }
     var method: Alamofire.HTTPMethod { get }
     var parameters: [String: Any] { get }
 }
 
-public extension Endpoint {
+public extension EndpointType {
     var method: Alamofire.HTTPMethod { return .get }
     var parameters: [String: Any] { return [:] }
 }
 
-public struct NetworkEndpoint: Endpoint {
+public struct Endpoint: EndpointType {
     public let baseUrl: String
     public let path: String
     public let method: Alamofire.HTTPMethod
@@ -60,11 +60,11 @@ public enum EndpointError: Error {
 }
 
 public extension URLConvertible {
-    func asEndpoint(withMethod method: Alamofire.HTTPMethod = .get) throws -> Endpoint {
+    func asEndpoint(withMethod method: Alamofire.HTTPMethod = .get) throws -> EndpointType {
         guard let url = try? self.asURL() else {
             throw EndpointError.invalidURL
         }
 
-        return  NetworkEndpoint(baseUrl: (url.scheme ?? "") + "://" + (url.host ?? ""), path: url.path, method: method)
+        return  Endpoint(baseUrl: (url.scheme ?? "") + "://" + (url.host ?? ""), path: url.path, method: method)
     }
 }
