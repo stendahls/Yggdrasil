@@ -28,12 +28,13 @@ import Foundation
 import Alamofire
 import Taskig
 
-public enum UploadData {
-    case file(URL)
-    case data(Data)
-}
 
 public class UploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
+    public enum UploadData {
+        case file(URL)
+        case data(Data)
+    }
+
     public typealias ResultType = T
     
     private let dataToUpload: UploadData
