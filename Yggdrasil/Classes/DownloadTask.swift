@@ -53,8 +53,8 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
         self.init(request: request, downloadDestination: downloadDestination)
     }
     
-    public convenience init(url: URLConvertible, downloadDestination: URL? = nil) throws {
-        let endpoint = try url.asEndpoint()
+    public convenience init(url: URLConvertible, downloadDestination: URL? = nil) {
+        let endpoint = url.asEndpoint() ?? Endpoint(baseUrl: "", path: "")
         
         self.init(endpoint: endpoint, downloadDestination: downloadDestination)
     }

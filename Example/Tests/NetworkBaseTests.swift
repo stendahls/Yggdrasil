@@ -62,22 +62,14 @@ class NetworkBaseTests: XCTestCase {
     }
     
     func testNetworkBaseInit() {
-        do {
-            let validURL = try BaseTask(url: "https://httpbin.org/get")
-            
-            XCTAssert(validURL.networkRequest.endpoint.baseUrl == "https://httpbin.org")
-            XCTAssert(validURL.networkRequest.endpoint.path == "/get")
-        } catch {
-            XCTFail("Valid URL creation failed")
-        }
-
-        do {
-            let _ = try BaseTask(url: " a _ _ ")
-            
-            XCTFail("Invalid URL creation should fail")
-        } catch {
-            XCTAssert(true)
-        }
+        let validURL = BaseTask(url: "https://httpbin.org/get")
+        
+        XCTAssert(validURL.networkRequest.endpoint.baseUrl == "https://httpbin.org")
+        XCTAssert(validURL.networkRequest.endpoint.path == "/get")
+        
+        let invalidURL = BaseTask(url: " a _ _ ")
+        XCTAssert(invalidURL.networkRequest.endpoint.baseUrl == "")
+        XCTAssert(invalidURL.networkRequest.endpoint.path == "")
     }
     
     func testPreconditionValidationsCallsAllPreconditions() {

@@ -108,7 +108,7 @@ class NetworkDataTaskTests: XCTestCase {
     }
     
     func testFailureCase() {
-        let dataTask = try! DataTask<Data>(url: "https://httpbin.org/status/500")
+        let dataTask = DataTask<Data>(url: "https://httpbin.org/status/500")
         let finishedExpectation = expectation(description: "Finished")
         
         dataTask.async(completion: { (result) in

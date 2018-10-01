@@ -108,7 +108,7 @@ class NetworkUploadTaskTests: XCTestCase {
     }
     
     func testFailureCase() {
-        let uploadTask = try! UploadTask<Data>(url: "https://httpbin.org/status/500", dataToUpload: .data("FooBar".data(using: .utf8)!))
+        let uploadTask = UploadTask<Data>(url: "https://httpbin.org/status/500", dataToUpload: .data("FooBar".data(using: .utf8)!))
         let finishedExpectation = expectation(description: "Finished")
         
         uploadTask.async(completion: { (result) in

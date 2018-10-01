@@ -56,7 +56,8 @@ class ViewController: UIViewController {
                 let _ = try? DataTask<Data>(request: retryRequest).await()
                 
                 // Download task which will return a file URL to the downloaded data
-                let fileURL = try DownloadTask(url: "https://picsum.photos/1024/1024").await()
+                let imageDownloadTask = DownloadTask(url: "https://picsum.photos/1024/1024")
+                let fileURL = try imageDownloadTask.await()
                 self.imageView.setImageWith(contentsOfFile: fileURL)
                 
                 // File upload with JSON response

@@ -117,7 +117,7 @@ class NetworkDownloadTaskTests: XCTestCase {
     }
     
     func testFailureCase() {
-        let downloadTask = try! DownloadTask(url: "https://httpbin.org/status/500")
+        let downloadTask = DownloadTask(url: "https://httpbin.org/status/500")
         let finishedExpectation = expectation(description: "Finished")
 
         downloadTask.async(completion: { (result) in

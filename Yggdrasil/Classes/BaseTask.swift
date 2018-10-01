@@ -44,8 +44,8 @@ public class BaseTask: NSObject, ProgressReporting {
         self.init(request: request)
     }
     
-    public convenience init(url: URLConvertible) throws {
-        let endpoint = try url.asEndpoint()
+    public convenience init(url: URLConvertible) {
+        let endpoint = url.asEndpoint() ?? Endpoint(baseUrl: "", path: "")
         
         self.init(endpoint: endpoint)
     }

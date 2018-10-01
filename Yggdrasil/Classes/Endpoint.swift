@@ -60,9 +60,9 @@ public enum EndpointError: Error {
 }
 
 public extension URLConvertible {
-    func asEndpoint(withMethod method: Alamofire.HTTPMethod = .get) throws -> EndpointType {
+    func asEndpoint(withMethod method: Alamofire.HTTPMethod = .get) -> EndpointType? {
         guard let url = try? self.asURL() else {
-            throw EndpointError.invalidURL
+            return nil
         }
 
         return  Endpoint(baseUrl: (url.scheme ?? "") + "://" + (url.host ?? ""), path: url.path, method: method)

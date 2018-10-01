@@ -50,8 +50,8 @@ public class UploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
         self.init(request: request, dataToUpload: dataToUpload)
     }
     
-    public convenience init(url: URLConvertible, dataToUpload: UploadData) throws {
-        let endpoint = try url.asEndpoint(withMethod: .post)
+    public convenience init(url: URLConvertible, dataToUpload: UploadData) {
+        let endpoint = url.asEndpoint(withMethod: .post) ?? Endpoint(baseUrl: "", path: "", method: .post)
         
         self.init(endpoint: endpoint, dataToUpload: dataToUpload)
     }
