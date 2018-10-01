@@ -61,11 +61,13 @@ class ViewController: UIViewController {
                 self.imageView.setImageWith(contentsOfFile: fileURL)
                 
                 // File upload with JSON response
-                let jsonUpload: JSONDictionary = try UploadTask(url: "https://httpbin.org/post", dataToUpload: .file(fileURL)).await()
+                let uploadTask = UploadTask<JSONDictionary>(url: "https://httpbin.org/post", dataToUpload: .file(fileURL))
+                let jsonUpload = try uploadTask.await()
                 print(jsonUpload)
                 
                 // Data request
-                let json: JSONDictionary = try DataTask(url: "https://httpbin.org/uuid").await()
+                let dataTask = DataTask<JSONDictionary>(url: "https://httpbin.org/uuid")
+                let json: JSONDictionary = try dataTask.await()
                 print(json)
                 
                 // Defines an API endpoint with parameters
@@ -112,14 +114,14 @@ class ViewController: UIViewController {
                                                                        data: imageData,
                                                                        mimeType: "jpeg",
                                                                        filename: "MyImage")
-                let uploadTask = MultipartFormDataUploadTask<Data>(request: multiPartRequest)
+                let multipartUploadTask = MultipartFormDataUploadTask<Data>(request: multiPartRequest)
                 
                 // Track progress from upload task
                 DispatchQueue.main.sync {
-                    self.progressView.observedProgress = uploadTask.progress
+                    self.progressView.observedProgress = multipartUploadTask.progress
                 }
                 
-                let resultData = try uploadTask.await()
+                let resultData = try multipartUploadTask.await()
                 print(resultData)
                 
                 // Download task with specific file URL
