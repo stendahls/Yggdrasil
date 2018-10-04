@@ -28,8 +28,13 @@ import Foundation
 import Taskig
 import Alamofire
 
-public typealias PreconditionValidation = () -> Alamofire.DataRequest.ValidationResult
-public typealias ResponseValidation = Alamofire.DataRequest.Validation
+public enum ValidationResult {
+    case success
+    case failure(Error)
+}
+
+public typealias PreconditionValidation = () -> ValidationResult
+public typealias ResponseValidation = (URLRequest?, HTTPURLResponse, Data?) -> ValidationResult
 
 public protocol RequestType {
     var endpoint: EndpointType { get }
@@ -45,7 +50,7 @@ public extension RequestType {
     var body: String? { return nil }
     var headers: [String: String] { return [:] }
     var retryCount: Int { return 0 }
-    var responseValidations: [Alamofire.DataRequest.Validation] { return [] }
+    var responseValidations: [ResponseValidation] { return [] }
     var preconditions: [PreconditionValidation] { return [] }
     var ignoreCache: Bool { return false }
     
