@@ -31,7 +31,7 @@ import Alamofire
 public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
     public typealias ResultType = T
     
-    public init(request: MultipartRequestType) {
+    public init(request: MultipartFormDataRequestType) {
         super.init(request: request)
     }
     
@@ -42,7 +42,7 @@ public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskTy
         }
         
         do {
-            let uploadRequest = try createUploadRequest(networkRequest as! MultipartRequestType).await()
+            let uploadRequest = try createUploadRequest(networkRequest as! MultipartFormDataRequestType).await()
             
             executeUploadRequest(uploadRequest, with: completion)
         } catch {
@@ -50,11 +50,11 @@ public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskTy
         }
     }
     
-    internal func createUploadRequest(_ multipartRequest: MultipartRequestType) -> ThrowableTask<UploadRequest> {
+    internal func createUploadRequest(_ multipartRequest: MultipartFormDataRequestType) -> ThrowableTask<UploadRequest> {
         return ThrowableTask<UploadRequest>(action: { (completion) in
             self.sessionManager.upload(
                 multipartFormData: { (multipartFormData) in
-                    multipartFormData.append(multipartRequest.data, withName: multipartRequest.filename, mimeType: multipartRequest.mimeType)
+                    multipartFormData.append(multipartRequest.data, withName: multipartRequest.dataName, mimeType: multipartRequest.mimeType)
             },
                 to: self.networkRequest.endpoint.baseUrl + self.networkRequest.endpoint.path,
                 method: self.networkRequest.endpoint.method,

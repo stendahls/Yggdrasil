@@ -39,10 +39,10 @@ class NetworkMultipartFormDataUploadTaskTests: XCTestCase {
         super.tearDown()
     }
     
-    private struct TestMultipartRequest: MultipartRequestType {
+    private struct TestMultipartRequest: MultipartFormDataRequestType {
         var data: Data  { return "FooBar".data(using: .utf8)! }
         var mimeType: String = "txt"
-        var filename: String = "Foobar.txt"
+        var dataName: String = "Foobar.txt"
         
         var endpoint: EndpointType { return Endpoint(baseUrl: "https://httpbin.org", path: "/post", method: .post) }
         var preconditions: [PreconditionValidation] = []
@@ -96,7 +96,7 @@ class NetworkMultipartFormDataUploadTaskTests: XCTestCase {
     }
     
     func testFailureCase() {
-        let request = NetworkMultipartFormDataRequest(endpoint: Endpoint(baseUrl: "", path: ""), data: "FooBar".data(using: .utf8)!, mimeType: "txt", filename: "Foobar.txt")
+        let request = MultipartFormDataRequest(endpoint: Endpoint(baseUrl: "", path: ""), data: "FooBar".data(using: .utf8)!, mimeType: "txt", dataName: "Foobar.txt")
         let uploadTask = MultipartFormDataUploadTask<Data>(request: request)
         let finishedExpectation = expectation(description: "Finished")
         

@@ -72,10 +72,10 @@ class RequestTest: XCTestCase {
     
     func testNetworkMultipartFormDataRequestInit() {
         let endpoint = Endpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
-        let request = NetworkMultipartFormDataRequest(endpoint: endpoint,
+        let request = MultipartFormDataRequest(endpoint: endpoint,
                                                       data: "FooBar".data(using: .utf8)!,
                                                       mimeType: "FooBar",
-                                                      filename: "FooBar",
+                                                      dataName: "FooBar",
                                                       ignoreCache: true,
                                                       retryCount: 42)
         
@@ -89,15 +89,15 @@ class RequestTest: XCTestCase {
         XCTAssert(request.preconditions.count == 0)
         XCTAssert(request.data == "FooBar".data(using: .utf8)!)
         XCTAssert(request.mimeType == "FooBar")
-        XCTAssert(request.filename == "FooBar")
+        XCTAssert(request.dataName == "FooBar")
     }
     
     func testNetworkMultipartFormDataRequestInitStandardParameters() {
         let endpoint = Endpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
-        let request = NetworkMultipartFormDataRequest(endpoint: endpoint,
+        let request = MultipartFormDataRequest(endpoint: endpoint,
                                                       data: "FooBar".data(using: .utf8)!,
                                                       mimeType: "FooBar",
-                                                      filename: "FooBar")
+                                                      dataName: "FooBar")
         
         XCTAssert(request.endpoint.baseUrl == "https://FooBar.com")
         XCTAssert(request.endpoint.path == "/FooBar")
@@ -109,6 +109,6 @@ class RequestTest: XCTestCase {
         XCTAssert(request.preconditions.count == 0)
         XCTAssert(request.data == "FooBar".data(using: .utf8)!)
         XCTAssert(request.mimeType == "FooBar")
-        XCTAssert(request.filename == "FooBar")
+        XCTAssert(request.dataName == "FooBar")
     }
 }
