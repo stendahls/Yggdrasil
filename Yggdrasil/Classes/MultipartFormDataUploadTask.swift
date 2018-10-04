@@ -35,6 +35,17 @@ public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskTy
         super.init(request: request)
     }
     
+    public convenience init(url: URLConvertible, data: Data, mimeType: String, dataName: String) {
+        let endpoint = url.asEndpoint(withMethod: .post) ?? Endpoint(baseUrl: "", path: "", method: .post)
+     
+        let request = MultipartFormDataRequest(endpoint: endpoint,
+                                               data: data,
+                                               mimeType: mimeType,
+                                               dataName: dataName)
+        
+        self.init(request: request)
+    }
+    
     public func action(completion: @escaping (TaskResult<T>) -> Void) {
         if case .failure(let error) = preconditionValidation() {
             completion(TaskResult.failure(error))
