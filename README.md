@@ -83,18 +83,65 @@ NetworkEndpoint(baseUrl: "https://baconipsum.com",
 ```
 
 ### Request
-Protocol Request defines a network request with headers, parameters, etc., convenience class NetworRequest
-    Give example with enum and Request
+The RequestType protocol defines the actual network request with all its possilbe parameters, e.g. body, headers, retryCount, etc. The convenience struct Request allows the easy creation of requests.
+
+```swift
+// Network request just using the defined BaconIpsumEndpoints
+struct LoremRequest: RequestType {
+    let endpoint: EndpointType = BaconIpsumEndpoints.meatAndFiller
+    let retryCount = 3
+    let ignoreCache = true    
+}
+```
+This request definition sets the `retryCount` parameter to 3 which will try to fetch the request 3 times after the intial one before giving up and returning an error. Additionally the `ignoresCache` parameter is set to *true* which ignores local caches during the request.
+
+#### Request preconditions & responseValidations
+You can add precondition checks to request to ensure specific conditions before starting a request. The request is only started if all preconditions are met. Likewise the request finish only successfull if all responseValidations are met. Each precondition and responseValidation check must return a validition result either `.success` or `.failure`.
+
+```swift
+// Network request with preconditions and response validations
+struct LoremRequest: RequestType {
+    let endpoint: EndpointType = BaconIpsumEndpoints.meatAndFiller
+
+    var preconditions: [PreconditionValidation] = []
+    var responseValidations: [ResponseValidation] = []
+}
+
+var loremRequest = LoremRequest()
+
+// Adding a precondition check
+loremRequest.preconditions.append({ () -> ValidationResult in
+    guard self.userSignedIn() else {
+        return .failure(MyErrors.noActiveUser)
+        }
+
+    return .success
+})
+
+// Adding a responseValidation check
+loremRequest.responseValidations.append({ (request, response, data) -> ValidationResult in
+    guard response.statusCode < 300 else {
+        return .failure(MyErrors.wrongStatusCode)
+    }
+
+    return .success
+})
+```
+
+### MultipartRequest
+
+The MultipartFormDataRequestType protocol and the corresponding MultipartFormDataRequest can be used to create multipart request to upload for example images or other binary data. It inherits from RequestType and 
+
 
 ### Parsable & Return types
+
+
 
 ### DataTask
 
 ### DownloadTask
 
 ### UploadTask
-
-### MultipartRequest
 
 ### MultipartFormDataUploadTask
 
