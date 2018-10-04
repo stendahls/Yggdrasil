@@ -125,16 +125,16 @@ class ViewController: UIViewController {
                 let imageData = try DataTask<Data>(request: Request(endpoint: imageEndPoint)).await()
                 
                 // Multipart form data POST request
-                let multiPartEndpoint = Endpoint(baseUrl: "https://httpbin.org",
+                let multipartEndpoint = Endpoint(baseUrl: "https://httpbin.org",
                                                  path: "/post",
-                                                 method: .post,
-                                                 parameters: [:])
+                                                 method: .post)
                 
-                let multiPartRequest = MultipartFormDataRequest(endpoint: multiPartEndpoint,
-                                                                       data: imageData,
-                                                                       mimeType: "jpeg",
-                                                                       dataName: "MyImage")
-                let multipartUploadTask = MultipartFormDataUploadTask<Data>(request: multiPartRequest)
+                let multipartRequest = MultipartFormDataRequest(endpoint: multipartEndpoint,
+                                                                data: imageData,
+                                                                mimeType: "jpeg",
+                                                                dataName: "MyImage")
+
+                let multipartUploadTask = MultipartFormDataUploadTask<Data>(request: multipartRequest)
                 
                 // Track progress from upload task
                 DispatchQueue.main.sync {

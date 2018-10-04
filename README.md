@@ -130,20 +130,32 @@ loremRequest.responseValidations.append({ (request, response, data) -> Validatio
 
 ### MultipartRequest
 
-The MultipartFormDataRequestType protocol and the corresponding MultipartFormDataRequest can be used to create multipart request to upload for example images or other binary data. It inherits from RequestType and 
+The MultipartFormDataRequestType protocol and the corresponding MultipartFormDataRequest can be used to create multipart request to upload for example images or other binary data. It inherits from RequestType and adds data, mimeType and dataName properties.
+
+```swift
+let multipartEndpoint = Endpoint(baseUrl: "https://httpbin.org",
+                                    path: "/post",
+                                    method: .post)
+
+let multipartRequest = MultipartFormDataRequest(endpoint: multipartEndpoint,
+                                                    data: imageData,
+                                                    mimeType: "jpeg",
+                                                    dataName: "MyImage")
+```
 
 
-### Parsable & Return types
+### Execution Tasks
 
 
+#### Parsable & Return types
 
-### DataTask
+#### DataTask
 
-### DownloadTask
+#### DownloadTask
 
-### UploadTask
+#### UploadTask
 
-### MultipartFormDataUploadTask
+#### MultipartFormDataUploadTask
 
 
 
