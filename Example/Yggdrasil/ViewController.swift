@@ -94,7 +94,27 @@ class ViewController: UIViewController {
                 let text: [String] = try DataTask(request: LoremRequest()).await()
                 print(text)
                 
-                // Data task with predefined LoremRequest, showing that you can define result type as generic parameter
+                // Data task with predefined LoremRequest
+                var loremRequest = LoremRequest()
+                
+                // Adding a precondition
+                loremRequest.preconditions.append({ () -> ValidationResult in
+                    guard self.userSignedIn() else {
+                        return .failure(MyErrors.noActiveUser)
+                    }
+                    
+                    return .success
+                })
+                
+                // Adding a responseValidation
+                loremRequest.responseValidations.append({ (request, response, data) -> ValidationResult in
+                    guard response.statusCode < 300 else {
+                        return .failure(MyErrors.wrongStatusCode)
+                    }
+                    
+                    return .success
+                })
+                
                 let textAnother = try DataTask<[String]>(request: LoremRequest()).await()
                 print(textAnother)
                 
@@ -110,10 +130,10 @@ class ViewController: UIViewController {
                                                  method: .post,
                                                  parameters: [:])
                 
-                let multiPartRequest = NetworkMultipartFormDataRequest(endpoint: multiPartEndpoint,
+                let multiPartRequest = MultipartFormDataRequest(endpoint: multiPartEndpoint,
                                                                        data: imageData,
                                                                        mimeType: "jpeg",
-                                                                       filename: "MyImage")
+                                                                       dataName: "MyImage")
                 let multipartUploadTask = MultipartFormDataUploadTask<Data>(request: multiPartRequest)
                 
                 // Track progress from upload task
@@ -151,6 +171,16 @@ class ViewController: UIViewController {
         }
     }
     
+    private func userSignedIn() -> Bool {
+        // Fake method
+        return true
+    }
+    
+    enum MyErrors: Error {
+        case wrongStatusCode
+        case noActiveUser
+    }
+    
     // An enum following the EndpointType protocol defining two API endpoints
     enum BaconIpsumEndpoints: EndpointType {
         case meatAndFiller
@@ -180,6 +210,11 @@ class ViewController: UIViewController {
     // Network request just using the defined BaconIpsumEndpoint.loremIpsum endpoint
     struct LoremRequest: RequestType {
         let endpoint: EndpointType = BaconIpsumEndpoints.meatAndFiller
+        let retryCount = 3
+        let ignoreCache = true
+        
+        var preconditions: [PreconditionValidation] = []
+        var responseValidations: [ResponseValidation] = []
     }
 }
 
