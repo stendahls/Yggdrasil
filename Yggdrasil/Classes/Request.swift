@@ -63,10 +63,20 @@ public struct Request: RequestType {
     public let endpoint: EndpointType
     public let ignoreCache: Bool
     public let retryCount: Int
+    public let preconditions: [PreconditionValidation]
+    public let responseValidations: [ResponseValidation]
     
-    public init(endpoint: EndpointType, ignoreCache: Bool = false, retryCount: Int = 0) {
+    public init(endpoint: EndpointType, ignoreCache: Bool = false, retryCount: Int = 0, preconditions: [PreconditionValidation] = [], responseValidations: [ResponseValidation] = []) {
         self.endpoint = endpoint
         self.ignoreCache = ignoreCache
         self.retryCount = retryCount
+        self.preconditions = preconditions
+        self.responseValidations = responseValidations
+    }
+    
+    public init(url: URLConvertible, ignoreCache: Bool = false, retryCount: Int = 0) {
+        let endpoint = url.asEndpoint() ?? Endpoint(baseUrl: "", path: "")
+        
+        self.init(endpoint: endpoint, ignoreCache: ignoreCache, retryCount: retryCount)
     }
 }
