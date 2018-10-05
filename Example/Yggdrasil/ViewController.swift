@@ -59,9 +59,21 @@ class ViewController: UIViewController {
                 let _ = try? DataTask<Data>(request: retryRequest).await()
                 
                 // Download task which will return a file URL to the downloaded data
-                let imageDownloadTask = DownloadTask(url: "https://picsum.photos/1024/1024")
+                let imageDownloadTask = DownloadTask(url: "https://picsum.photos/1024/1024/?random")
                 let fileURL = try imageDownloadTask.await()
                 self.imageView.setImageWith(contentsOfFile: fileURL)
+                
+                
+                // Download task with custom file URL
+                let downloadDestinationURL = FileManager.default
+                    .temporaryDirectory
+                    .appendingPathComponent("MyImage")
+                    .appendingPathExtension("jpeg")
+                
+                try DownloadTask(url: "https://picsum.photos/1024/1024/?random",
+                                 downloadDestination: downloadDestinationURL).await()
+                
+                self.imageView.setImageWith(contentsOfFile: downloadDestinationURL)
                 
                 // File upload with JSON response
                 let uploadTask = UploadTask<JSONDictionary>(url: "https://httpbin.org/post", dataToUpload: .file(fileURL))
@@ -148,7 +160,8 @@ class ViewController: UIViewController {
                 print(resultData)
                 
                 // Download task with specific file URL
-                let downloadFileURL = URL(fileURLWithPath: NSTemporaryDirectory())
+                let downloadFileURL = FileManager.default
+                    .temporaryDirectory
                     .appendingPathComponent(UUID().uuidString)
                     .appendingPathExtension("jpeg")
                 
