@@ -31,6 +31,7 @@ import Taskig
 class ViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,8 @@ class ViewController: UIViewController {
         let isRunningTests = NSClassFromString("XCTestCase") != nil
         
         guard isRunningTests == false else { return }
+        
+        label.text = "Running tests..."
         
         Task.async {
             do {
@@ -67,7 +70,7 @@ class ViewController: UIViewController {
                 
                 // Data request
                 let dataTask = DataTask<JSONDictionary>(url: "https://httpbin.org/uuid")
-                let json: JSONDictionary = try dataTask.await()
+                let json = try dataTask.await()
                 print(json)
                 
                 // Defines an API endpoint with parameters
@@ -164,9 +167,34 @@ class ViewController: UIViewController {
                 
                 self.imageView.setImageWith(contentsOfFile: destinationURL)
                 
-                print("DONE!!!")
+                // Fetch many small images at the same time
+                let iconEndPoint = Endpoint(baseUrl: "https://picsum.photos",
+                                             path: "/256/256/?random")
+                
+                // All icon data will be fetched,
+                // if one request fails an error will be thrown
+                // Then the data will be converted to images
+                let iconImages = try (0..<10)
+                    .map({ _ in DataTask<Data>(endpoint: iconEndPoint) })
+                    .awaitAll()
+                    .compactMap({ UIImage(data: $0) })
+                
+                for image in iconImages {
+                    DispatchQueue.main.sync {
+                        self.imageView.image = image
+                    }
+                    
+                    Thread.sleep(forTimeInterval: 0.5)
+                }
+                
+                
+                DispatchQueue.main.sync {
+                    self.label.text = "DONE!"
+                }
             } catch {
-                print("ERROR: \(error)")
+                DispatchQueue.main.sync {
+                    self.label.text = "ERROR: \(error)!"
+                }
             }
         }
     }

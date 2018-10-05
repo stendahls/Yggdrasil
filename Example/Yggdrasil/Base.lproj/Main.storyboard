@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14092" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14081.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,24 +13,32 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Na_tverk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Yggdrasil_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ts1-cC-odA">
-                                <rect key="frame" x="26" y="332" width="323" height="2"/>
+                                <rect key="frame" x="26" y="332.5" width="323" height="2"/>
                             </progressView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9yf-QR-MV2">
-                                <rect key="frame" x="67" y="394" width="240" height="240"/>
+                                <rect key="frame" x="67.5" y="394.5" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="80Q-2F-AmL"/>
                                     <constraint firstAttribute="height" constant="240" id="i80-eu-KQB"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHF-ID-8su">
+                                <rect key="frame" x="166" y="149" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="JHF-ID-8su" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="129" id="1c9-mq-SOA"/>
+                            <constraint firstItem="JHF-ID-8su" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8ir-ey-G6d"/>
                             <constraint firstItem="9yf-QR-MV2" firstAttribute="top" secondItem="Ts1-cC-odA" secondAttribute="bottom" constant="60" id="9Vd-nO-Hh4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ts1-cC-odA" secondAttribute="trailing" constant="10" id="BPa-9S-Sce"/>
                             <constraint firstItem="Ts1-cC-odA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="TrJ-jL-fEB"/>
@@ -41,6 +49,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="9yf-QR-MV2" id="9yh-mj-vZs"/>
+                        <outlet property="label" destination="JHF-ID-8su" id="d39-fq-7w3"/>
                         <outlet property="progressView" destination="Ts1-cC-odA" id="zF9-4v-SCj"/>
                     </connections>
                 </viewController>
