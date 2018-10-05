@@ -41,7 +41,9 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
         if let downloadDestination = downloadDestination {
             self.downloadDestination = downloadDestination
         } else {
-            self.downloadDestination = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(UUID().uuidString)
+            self.downloadDestination = FileManager.default
+                .temporaryDirectory
+                .appendingPathComponent(UUID().uuidString)
         }
         
         super.init(request: request)
