@@ -52,7 +52,7 @@ class ViewController: UIViewController {
                 // Request with a retry count of 3
                 // This will repeat the request up to 3 times in case of errors before giving up and returning.
                 // It will also ignore local caches
-                let retryRequest = Request(endpoint: Endpoint(baseUrl: "ThisWill", path: "Fail"),
+                let retryRequest = Request(url: "ThisWill/Fail",
                                            ignoreCache: true,
                                            retryCount: 3)
                 
@@ -62,7 +62,6 @@ class ViewController: UIViewController {
                 let imageDownloadTask = DownloadTask(url: "https://picsum.photos/1024/1024/?random")
                 let fileURL = try imageDownloadTask.await()
                 self.imageView.setImageWith(contentsOfFile: fileURL)
-                
                 
                 // Download task with custom file URL
                 let downloadDestinationURL = FileManager.default
@@ -75,8 +74,10 @@ class ViewController: UIViewController {
                 
                 self.imageView.setImageWith(contentsOfFile: downloadDestinationURL)
                 
-                // File upload with JSON response
-                let uploadTask = UploadTask<JSONDictionary>(url: "https://httpbin.org/post", dataToUpload: .file(fileURL))
+                // Data upload with JSON response
+                let data = "Foobar".data(using: .utf8)!
+                let uploadTask = UploadTask<JSONDictionary>(url: "https://httpbin.org/post",
+                                                            dataToUpload: .data(data))
                 let jsonUpload = try uploadTask.await()
                 print(jsonUpload)
                 
