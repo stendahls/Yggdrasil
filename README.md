@@ -6,11 +6,15 @@
 [![Platform](https://img.shields.io/cocoapods/p/Yggdrasil.svg?style=flat)](http://cocoapods.org/pods/Yggdrasil)
 ![Swift](https://img.shields.io/badge/%20in-swift%204.2-orange.svg)
 
-Yggdrasil is a network library which wraps [Taskig](https://github.com/stendahls/Taskig) and [Alamofire](https://github.com/Alamofire/Alamofire) to allow easy to use async/await based network requests. For more information concenring async/await take a look at [Taskig](https://github.com/stendahls/Taskig) which is the underlying async/await library. Yggdrasil is protocol based and modular with some additional structs and classes for convenient usage. 
+Yggdrasil is a network library which allows to create and execute async/await based network requests. The focus is on easy and simple usage to avoid too much code overhead. Yggdrasil is protocol based with some additional structs and classes for convenient usage.
+
+For more information concenring async/await take a look at [Taskig](https://github.com/stendahls/Taskig) which is the underlying async/await library.  
+
+Internally uses Yggdrasil [Taskig](https://github.com/stendahls/Taskig) and [Alamofire](https://github.com/Alamofire/Alamofire).
 
 ## Quick Start 
 
-Start a simple download to file task:
+Start a simple download to file task.
 
 ```swift
 // Download task which will return a file URL to the downloaded data, a picture in this case
@@ -19,61 +23,60 @@ let imageDownloadTask = DownloadTask(url: "https://picsum.photos/1024/1024")
 // .await() pauses the current thread until the data is retrieved
 let fileURL = try imageDownloadTask.await()
 ```
-This starts a download request for the given URL. The request is executed on a background queue and the current thread is paused until the result is retrieved or an error happened. Yggdrasil uses do/catch based error handling which allows to seperate the request code from the error hanlding.
+This starts a download request for the given URL. The request is executed on a background queue and the current thread is paused until the result is retrieved or an error happened. Yggdrasil uses do/catch based error handling which allows to seperate the request code from the error hanlding. Be careful not to start tasks with `.await()` on the main thread as this would block the UI.
 
 Or download the same as data task:
 
 ```swift
-// Data task which returns the image as Swift data struct
-// You have to define the response type as generic function parameter
-let dataTask = DataTask<Data>(url: "https://picsum.photos/1024/1024")
-let imageData = try dataTask.await()
+// Data task which returns the image as Swift data structure
+// The response type needs to be defined as type parameter
+let imageData = try DataTask<Data>(url: "https://picsum.photos/1024/1024").await
 ```
-It is also to straight forward to start an upload tasks:
+It is also to straight forward to start an upload task:
 
 ```swift
 // Upload task which does a POST request to the given URL 
 // The response is a JSON dictionary
-let uploadTask = UploadTask<JSONDictionary>(url: "https://httpbin.org/post", dataToUpload: .data(imageData))
+let uploadTask = UploadTask<JSONDictionary>(url: "https://httpbin.org/post", 
+                                            dataToUpload: .data(imageData))
 let jsonUpload = try uploadTask.await()
 ```
 
 ## Architecture
 
-Yggdrasil is based on a set of protocols which define requirements for network endpoints, request types and response values. Based on these endpoints Yggdrasil offers convenience structs for easier usage and smaller code footprint. Let's have a look at the underlying protocols. 
+Yggdrasil is based on a set of protocols which define requirements for API endpoints, request types and response values. Based on these protocols Yggdrasil offers convenience structs/classes for easier usage and smaller code footprint. Let's have a look at the underlying protocols. 
 
-### Endpoints
-The EndpointType protocol defines the base requirements for request endpoints. This protocol defines the baseUrl, path, method and parameters. The Endpoint convenience struct can be used to define endpoints without the need to define your own enums or structs.
-
-It's easy to define your own network endpoints, for example with the help of an enum:
+### Endpoint
+The `EndpointType` protocol defines the base requirements for requests. The protocol defines baseUrl, path, method and parameters of a request. It's easy to define your own API endpoints, for example with the help of an enum:
 
 ```swift
-// An enum following the EndpointType protocol defining two API endpoints
+// An enum adopting the EndpointType protocol defining two API endpoints
 enum BaconIpsumEndpoints: EndpointType {
     case meatAndFiller
     case allMeat
 
     var baseUrl: String { return "https://baconipsum.com" }
-        var path: String {
-            switch self {
-            case .meatAndFiller:
-                return "/api"
-            case .allMeat:
-                return "/api/"
-            }
+        
+    var path: String {
+        switch self {
+        case .meatAndFiller:
+            return "/api"
+        case .allMeat:
+            return "/api/"
         }
+    }
 
-        var parameters: [String : Any] {
-            switch self {
-            case .meatAndFiller:
-                return ["type": "meat-and-filler"]
-            case .allMeat:
-                return ["type": "all-meat", "paras" : "2", "start-with-lorem": "1"]
-            }
+    var parameters: [String : Any] {
+        switch self {
+        case .meatAndFiller:
+            return ["type": "meat-and-filler"]
+        case .allMeat:
+            return ["type": "all-meat", "paras" : "2", "start-with-lorem": "1"]
         }
+    }
 }
 ```
-Or if you want to create an endpoint  for usage inside a function you can use the convenience struct Endpoint:
+The `Endpoint` convenience struct can be used to define endpoints without the need to define your own enums or structs.
 
 ```swift
 // Defines an endpoint with parameters
@@ -83,10 +86,10 @@ NetworkEndpoint(baseUrl: "https://baconipsum.com",
 ```
 
 ### Request
-The RequestType protocol defines the actual network request with all its possilbe parameters, e.g. body, headers, retryCount, etc. The convenience struct Request allows the easy creation of requests.
+The `RequestType` protocol defines the actual network request with all its possilbe parameters, e.g. body, headers, retryCount, etc. 
 
 ```swift
-// Network request just using the defined BaconIpsumEndpoints
+// Network request using the defined BaconIpsumEndpoints
 struct LoremRequest: RequestType {
     let endpoint: EndpointType = BaconIpsumEndpoints.meatAndFiller
     let retryCount = 3
@@ -95,8 +98,16 @@ struct LoremRequest: RequestType {
 ```
 This request definition sets the `retryCount` parameter to 3 which will try to fetch the request 3 times after the intial one before giving up and returning an error. Additionally the `ignoresCache` parameter is set to *true* which ignores local caches during the request.
 
-#### Request preconditions & responseValidations
-You can add precondition checks to request to ensure specific conditions before starting a request. The request is only started if all preconditions are met. Likewise the request finish only successfull if all responseValidations are met. Each precondition and responseValidation check must return a validition result either `.success` or `.failure`.
+The convenience struct `Request` allows the easy creation of requests without the need of dedicated structs or enums.
+
+```swift
+let request = Request(url: "https://picsum.photos/1024",  
+                      ignoreCache: true, 
+                      retryCount: 2)
+```
+
+#### Preconditions & response validations
+It is possible to add precondition and response validation checks to a request to ensure specific conditions are met before starting a request or at the end of a request. The request will only be started if all preconditions are met. Likewise the request finish only successfull if all response validations are met. Each precondition and response validation check must return a validition result either `.success` or `.failure`.
 
 ```swift
 // Network request with preconditions and response validations
@@ -111,9 +122,9 @@ var loremRequest = LoremRequest()
 
 // Adding a precondition check
 loremRequest.preconditions.append({ () -> ValidationResult in
-    guard self.userSignedIn() else {
+    guard self.isUserSignedIn() else {
         return .failure(MyErrors.noActiveUser)
-        }
+    }
 
     return .success
 })
@@ -130,35 +141,85 @@ loremRequest.responseValidations.append({ (request, response, data) -> Validatio
 
 ### MultipartRequest
 
-The MultipartFormDataRequestType protocol and the corresponding MultipartFormDataRequest can be used to create multipart request to upload for example images or other binary data. It inherits from RequestType and adds data, mimeType and dataName properties.
+The `MultipartFormDataRequestType` protocol and the corresponding MultipartFormDataRequest can be used to create a multipart file request to upload for example images or other binary data. It inherits from `RequestType` and adds data, dataName and mimeType  properties.
 
 ```swift
 let multipartEndpoint = Endpoint(baseUrl: "https://httpbin.org",
-                                    path: "/post",
-                                    method: .post)
+                                 path: "/post",
+                                 method: .post)
 
 let multipartRequest = MultipartFormDataRequest(endpoint: multipartEndpoint,
-                                                    data: imageData,
-                                                    mimeType: "jpeg",
-                                                    dataName: "MyImage")
+                                                data: imageData,
+                                                mimeType: "jpeg",
+                                                dataName: "MyImage")
 ```
-
-
 ### Execution Tasks
-
+Requests are executed by async/await based tasks. Tasks can be initalized with either `RequestTypes`, `EndpointTypes` or string based `URL`s. They are then executed by calling `.await()` or `.async()`. `.await()` pauses the current thread until the task finished.  `async()` executes the task on a background queue and expects a completion handler which handles the result of the request.
 
 #### Parsable & Return types
+Each task has a type parameter which defines the expected return type, e.g. a JSON dictionary or a specific data structure. These return types must comply to the `Parsable` protocol. The only exception to this is the DownloadTask which has a predefined `URL` return type. Yggdrasil supports out of the box  types which  adopts the `Decodable` protocol, other custom types must adopt the `Parsable` protocol.  
 
 #### DataTask
+A data task fetches the data of the given request and converts it with the help of the `Parsable` protocol to the data type given as type parameter. 
+
+```swift
+let imageEndPoint = Endpoint(baseUrl: "https://picsum.photos", path: "/2048/2048")
+let imageData = try DataTask<Data>(request: Request(endpoint: imageEndPoint)).await()
+```
 
 #### DownloadTask
+A download task fetches the data of the given request and saves it as a file.
+
+```swift
+let imageDownloadTask = DownloadTask(url: "https://picsum.photos/1024/1024")
+let fileURL = try imageDownloadTask.await()
+```
+
+It is also possible to specify a custom download destination.
+
+```swift
+// Download task with custom file URL
+let downloadDestinationURL = FileManager.default
+    .temporaryDirectory
+    .appendingPathComponent("MyImage")
+    .appendingPathExtension("jpeg")
+
+try DownloadTask(url: "https://picsum.photos/1024/1024/?random",
+                 downloadDestination: downloadDestinationURL).await()
+
+self.imageView.setImageWith(contentsOfFile: downloadDestinationURL)
+```
 
 #### UploadTask
+Upload task allows to post either a file URL or a data structure to the given `URL` or `Request`.
+
+```swift
+// Data upload with JSON response
+let data = "Foobar".data(using: .utf8)!
+let uploadTask = UploadTask<JSONDictionary>(url: "https://httpbin.org/post", dataToUpload: .data(data))
+let jsonResult = try uploadTask.await()
+print(jsonResult)
+```
 
 #### MultipartFormDataUploadTask
 
+Use this task do execute a multipart file upload request. 
 
+```swift
+let multipartRequest = MultipartFormDataRequest(endpoint: multipartEndpoint,
+    data: imageData,
+    mimeType: "jpeg",
+    dataName: "MyImage")
 
+let multipartUploadTask = MultipartFormDataUploadTask<Data>(request: multipartRequest)
+
+let resultData = try multipartUploadTask.await()
+```
+
+#### Sequence & Dictionary support
+A sequence of tasks can be executed via `.awaitAll()`
+
+#### Support for ProgressReporting 
 
 ## Example Project
 
