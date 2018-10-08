@@ -82,9 +82,9 @@ class ViewController: UIViewController {
                 print(jsonUpload)
                 
                 // Data request
-                let dataTask = DataTask<JSONDictionary>(url: "https://httpbin.org/uuid")
-                let json = try dataTask.await()
-                print(json)
+                let dataTask = DataTask<HttpBinUUID>(url: "https://httpbin.org/uuid")
+                let httpBinUUID = try dataTask.await()
+                print(httpBinUUID.uuid)
                 
                 // Defines an API endpoint with parameters
                 let endPoint = Endpoint(baseUrl: "https://baconipsum.com",
@@ -138,7 +138,7 @@ class ViewController: UIViewController {
                 let imageEndPoint = Endpoint(baseUrl: "https://picsum.photos",
                                              path: "/2048/2048")
                 
-                let imageData = try DataTask<Data>(request: Request(endpoint: imageEndPoint)).await()
+                let imageData = try DataTask<Data>(endpoint: imageEndPoint).await()
                 
                 // Multipart form data POST request
                 let multipartEndpoint = Endpoint(baseUrl: "https://httpbin.org",
@@ -260,7 +260,35 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: - Parsable support
+
+// Define decodable struct for httpbin.org uuid
+
+// httpbin.org/uuid response
+// { "uuid": "0a4f1b83-8781-4258-8d72-635edbfa79b5" }
+
+struct HttpBinUUID: Decodable {
+    let uuid: String
+}
+
+// Make decodable
+extension HttpBinUUID: Parsable {}
+
+// Add support for parsable to UIImage
+// This needs a wrapper class which is marked as final to conform to Parsable
+final class Image: UIImage, Parsable {
+    static func parseData(_ data: Data) throws -> Image {
+        guard let image = Image(data: data) else {
+            throw "Couldn't convert image"
+        }
+        
+        return image
+    }
+}
+
 // MARK: - Helpers
+
+extension String: Error {}
 
 extension UIImageView {
     func setImageWith(contentsOfFile fileURL: URL) {
@@ -271,5 +299,3 @@ extension UIImageView {
         }
     }
 }
-
-
