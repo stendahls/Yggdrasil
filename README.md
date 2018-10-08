@@ -8,7 +8,7 @@
 
 Yggdrasil is a network library which allows to create and execute async/await based network requests. The focus is on easy and simple usage to avoid too much code overhead. Yggdrasil is protocol based with some additional structs and classes for convenient usage.
 
-For more information concenring async/await take a look at [Taskig](https://github.com/stendahls/Taskig) which is the underlying async/await library.  
+For more information concerning async/await take a look at [Taskig](https://github.com/stendahls/Taskig) which is the underlying async/await library.  
 
 Internally Yggdrasil uses [Taskig](https://github.com/stendahls/Taskig) and [Alamofire](https://github.com/Alamofire/Alamofire).
 
@@ -21,7 +21,7 @@ let imageDownloadTask = DownloadTask(url: "https://picsum.photos/1024/1024")
 
 let fileURL = try imageDownloadTask.await()
 ```
-This defines a download task which will return a file URL to the downloaded data. Calling `.await()` starts the download request for the given URL. The request is executed on a background queue and the current thread is paused until the result is retrieved or an error has happened. Yggdrasil uses do/catch based error handling which allows to seperate the request code from the error hanlding one. Be careful not to start tasks with `.await()` on the main thread as this would block the UI.
+This defines a download task which will return a file URL to the downloaded data. Calling `.await()` starts the download request for the given URL. The request is executed on a background queue and the current thread is paused until the result is retrieved or an error has happened. Yggdrasil uses do/catch based error handling which allows to separate the request code from the error handling one. Be careful not to start tasks with `.await()` on the main thread as this would block the UI.
 
 Or download the same as data task:
 
@@ -84,7 +84,7 @@ let endpoint = NetworkEndpoint(baseUrl: "https://baconipsum.com",
 ```
 
 ### Request
-The `RequestType` protocol defines the actual network request with all its possilbe parameters, this includes endpoint, headers, body, retryCount, ignoreLocalCache, responseValidation and preconditions. 
+The `RequestType` protocol defines the actual network request with all its possible parameters, this includes endpoint, headers, body, retryCount, ignoreLocalCache, responseValidation and preconditions. 
 
 ```swift
 // Network request using the defined BaconIpsumEndpoints
@@ -94,7 +94,7 @@ struct LoremRequest: RequestType {
     let ignoreLocalCache = true    
 }
 ```
-This request definition sets the `retryCount` parameter to 3 which will try to fetch the request 3 times after the intial one before giving up and returning an error. Additionally the `ignoreLocalCache` parameter is set to *true* which ignores local cache data during the request.
+This request definition sets the `retryCount` parameter to 3 which will try to fetch the request 3 times after the initial one before giving up and returning an error. Additionally, the `ignoreLocalCache` parameter is set to *true* which ignores local cache data during the request.
 
 The convenience struct `Request` allows the easy creation of requests without the need of dedicated structs or enums.
 
@@ -105,7 +105,7 @@ let request = Request(url: "https://picsum.photos/1024",
 ```
 
 #### Preconditions & response validations
-It is possible to add precondition and response validation checks to a request to ensure that specific conditions are met before starting or at the end of a request. The request will only be started if all preconditions are met. Likewise the request finish only successfully if all response validations are met. Each precondition and response validation check must return a validition result either `.success()` or `.failure(YourErrorHere)`.
+It is possible to add precondition and response validation checks to a request to ensure that specific conditions are met before starting or at the end of a request. The request will only be started if all preconditions are met. Likewise, the request finish only successfully if all response validations are met. Each precondition and response validation check must return a validation result either `.success()` or `.failure(YourErrorHere)`.
 
 ```swift
 // Network request with preconditions and response validations
@@ -139,7 +139,7 @@ loremRequest.responseValidations.append({ (request, response, data) -> Validatio
 
 ### MultipartRequest
 
-The `MultipartFormDataRequestType` protocol and the corresponding `MultipartFormDataRequest` struct can be used to create a multipart file request to upload for example images or other binary data. It inherits from `RequestType` and adds data, dataName and mimeType  properties.
+The `MultipartFormDataRequestType` protocol and the corresponding `MultipartFormDataRequest` struct can be used to create a multipart file request to upload for example images or other binary data. It inherits from `RequestType` and adds data, dataName and mimeType properties.
 
 ```swift
 let multipartEndpoint = Endpoint(baseUrl: "https://httpbin.org",
@@ -152,7 +152,7 @@ let multipartRequest = MultipartFormDataRequest(endpoint: multipartEndpoint,
                                                 dataName: "MyImage")
 ```
 ### Execution Tasks
-Requests are executed by async/await based tasks. Tasks can be initalized with either `RequestTypes`, `EndpointTypes` or string based `URL`s. They are then executed by calling `.await()` or `.async()` and are executed on a background thread`.await()` pauses the current thread until the task finished.  `async()`  expects a completion handler which should handle the result of the request.
+Requests are executed by async/await based tasks. Tasks can be initialized with either `RequestTypes`, `EndpointTypes` or string based `URL`s. They are then executed by calling `.await()` or `.async()` and are executed on a background thread.`.await()` will pause the current thread until the task finished.  `async()`  expects a completion handler which should handle the result of the request.
 
 #### Parsable & Return types
 Each task has a type parameter which defines the expected return type, e.g. a JSON dictionary or a specific data structure. These return types must comply to the `Parsable` protocol. The only exception to this is the DownloadTask which has a predefined `URL` return type. Types which adopts the `Decodable` protocol are supported out of the box.
@@ -246,7 +246,7 @@ let resultData = try multipartUploadTask.await()
 ```
 
 #### Sequence & Dictionary support
-A array of tasks can be executed and all results collected via `.awaitAll()`. If one task fails an error will be thrown. 
+An array of tasks can be executed and all results collected via `.awaitAll()`. If one task fails an error will be thrown. 
 
 ```swift
 let iconEndPoint = Endpoint(baseUrl: "https://picsum.photos",
