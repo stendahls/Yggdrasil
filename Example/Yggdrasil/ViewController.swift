@@ -48,169 +48,190 @@ class ViewController: UIViewController {
         label.text = "Running tests..."
         
         Task.async {
-            do {
-                // Request with a retry count of 3
-                // This will repeat the request up to 3 times in case of errors before giving up and returning.
-                // It will also ignore local caches
-                let retryRequest = Request(url: "ThisWill/Fail",
-                                           ignoreLocalCache: true,
-                                           retryCount: 3)
-                
-                let _ = try? DataTask<Data>(request: retryRequest).await()
-                
-                // Download task which will return a file URL to the downloaded data
-                let imageDownloadTask = DownloadTask(url: "https://picsum.photos/1024/1024/?random")
-                let fileURL = try imageDownloadTask.await()
-                self.imageView.setImageWith(contentsOfFile: fileURL)
-                
-                // Download task with custom file URL
-                let downloadDestinationURL = FileManager.default
-                    .temporaryDirectory
-                    .appendingPathComponent("MyImage")
-                    .appendingPathExtension("jpeg")
-                
-                try DownloadTask(url: "https://picsum.photos/1024/1024/?random",
-                                 downloadDestination: downloadDestinationURL).await()
-                
-                self.imageView.setImageWith(contentsOfFile: downloadDestinationURL)
-                
-                // Data upload with JSON response
-                let data = "Foobar".data(using: .utf8)!
-                let uploadTask = UploadTask<JSONDictionary>(url: "https://httpbin.org/post",
-                                                            dataToUpload: .data(data))
-                let jsonUpload = try uploadTask.await()
-                print(jsonUpload)
-                
-                // Data request
-                let dataTask = DataTask<HttpBinUUID>(url: "https://httpbin.org/uuid")
-                let httpBinUUID = try dataTask.await()
-                print(httpBinUUID.uuid)
-                
-                // Defines an API endpoint with parameters
-                let endPoint = Endpoint(baseUrl: "https://baconipsum.com",
-                                        path: "/api",
-                                        parameters: ["type": "meat-and-filler"])
-                
-                // Data request with text-array response
-                let meatAndFillersText: [String] = try DataTask(request: Request(endpoint: endPoint)).await()
-                print(meatAndFillersText)
-                
-                // Execute data task with API endpoint and text-array response
-                let allMeatText = try DataTask<[String]>(endpoint: BaconIpsumEndpoints.allMeat).await()
-                print(allMeatText)
-                
-                // Creates a request with a previously defined endpoint
-                let request = Request(endpoint: BaconIpsumEndpoints.meatAndFiller, ignoreLocalCache: true, retryCount: 2)
-                
-                // Execute data task with defined request, text-array result
-                let baconIpsumText: [String] = try DataTask(request: request).await()
-                print(baconIpsumText)
-                
-                // Data task with predefined LoremRequest
-                let text: [String] = try DataTask(request: LoremRequest()).await()
-                print(text)
-                
-                // Data task with predefined LoremRequest
-                var loremRequest = LoremRequest()
-                
-                // Adding a precondition
-                loremRequest.preconditions.append({ () -> ValidationResult in
-                    guard self.userSignedIn() else {
-                        return .failure(MyErrors.noActiveUser)
-                    }
-                    
-                    return .success
-                })
-                
-                // Adding a responseValidation
-                loremRequest.responseValidations.append({ (request, response, data) -> ValidationResult in
-                    guard response.statusCode < 300 else {
-                        return .failure(MyErrors.wrongStatusCode)
-                    }
-                    
-                    return .success
-                })
-                
-                let textAnother = try DataTask<[String]>(request: LoremRequest()).await()
-                print(textAnother)
-                
-                // Define custom API endpoint and create an inline request with it
-                let imageEndPoint = Endpoint(baseUrl: "https://picsum.photos",
-                                             path: "/2048/2048")
-                
-                let imageData = try DataTask<Data>(endpoint: imageEndPoint).await()
-                
-                // Multipart form data POST request
-                let multipartEndpoint = Endpoint(baseUrl: "https://httpbin.org",
-                                                 path: "/post",
-                                                 method: .post)
-                
-                let multipartRequest = MultipartFormDataRequest(endpoint: multipartEndpoint,
-                                                                data: imageData,
-                                                                mimeType: "jpeg",
-                                                                dataName: "MyImage")
-
-                let multipartUploadTask = MultipartFormDataUploadTask<Data>(request: multipartRequest)
-                
-                // Track progress from upload task
-                DispatchQueue.main.sync {
-                    self.progressView.observedProgress = multipartUploadTask.progress
-                }
-                
-                let resultData = try multipartUploadTask.await()
-                print(resultData)
-                
-                // Download task with specific file URL
-                let downloadFileURL = FileManager.default
-                    .temporaryDirectory
-                    .appendingPathComponent(UUID().uuidString)
-                    .appendingPathExtension("jpeg")
-                
-                let downloadRequest = Request(endpoint: imageEndPoint)
-                let downloadTask = DownloadTask(request: downloadRequest, downloadDestination: downloadFileURL)
-                
-                // Track progress from download task
-                DispatchQueue.main.sync {
-                    self.progressView.observedProgress = downloadTask.progress
-                }
-                
-                let destinationURL = try downloadTask.await()
-                
-                // Should be the same
-                assert(downloadFileURL == destinationURL)
-                
-                self.imageView.setImageWith(contentsOfFile: destinationURL)
-                
-                // Fetch many small images at the same time
-                let iconEndPoint = Endpoint(baseUrl: "https://picsum.photos",
-                                             path: "/256/256/?random")
-                
-                // All icon data will be fetched,
-                // if one request fails an error will be thrown
-                // Then the data will be converted to images
-                let iconImages = try (0..<10)
-                    .map({ _ in DataTask<Data>(endpoint: iconEndPoint) })
-                    .awaitAll()
-                    .compactMap({ UIImage(data: $0) })
-                
-                for image in iconImages {
-                    DispatchQueue.main.sync {
-                        self.imageView.image = image
-                    }
-                    
-                    Thread.sleep(forTimeInterval: 0.5)
-                }
-                
-                
-                DispatchQueue.main.sync {
-                    self.label.text = "DONE!"
-                }
-            } catch {
-                DispatchQueue.main.sync {
-                    self.label.text = "ERROR: \(error)!"
-                }
-            }
+            execute(example: self.dataTasks)
+            
+            execute(example: self.downloadTasks)
+            
+            execute(example: self.uploadTasks)
+            
+            execute(example: self.multipartUploadTask)
+            
+            execute(example: self.retryRequest)
+            
+            execute(example: self.requestValidation)
+            
+            execute(example: self.progressObserving)
+            
+            execute(example: self.multiDownloadTask)
+            
+            DispatchQueue.main.sync { self.label.text = "DONE!" }
         }
+    }
+    
+    // MARK: - Examples
+    
+    private func dataTasks() throws {
+        // Data task with string based URL with cutom HttpBinUUID response
+        let dataTask = DataTask<HttpBinUUID>(url: "https://httpbin.org/uuid")
+        let httpBinUUID = try dataTask.await()
+        print(httpBinUUID.uuid)
+        
+        // Data task with uses a defined endpoint and the response is a string-array
+        let endPoint = Endpoint(baseUrl: "https://baconipsum.com",
+                                path: "/api",
+                                parameters: ["type": "meat-and-filler"])
+        let meatAndFillersText: [String] = try DataTask(request: Request(endpoint: endPoint)).await()
+        print(meatAndFillersText)
+        
+        // Execute data task with a pre-defined enum based endpoint
+        let allMeatText = try DataTask<[String]>(endpoint: BaconIpsumEndpoints.allMeat).await()
+        print(allMeatText)
+        
+        // A data task with a request based on a previously defined endpoint
+        let request = Request(endpoint: BaconIpsumEndpoints.meatAndFiller, ignoreLocalCache: true, retryCount: 2)
+        let baconIpsumText: [String] = try DataTask(request: request).await()
+        print(baconIpsumText)
+        
+        // Data task with predefined LoremRequest
+        let text: [String] = try DataTask(request: LoremRequest()).await()
+        print(text)
+    }
+    
+    private func downloadTasks() throws {
+        // Download task which will return a file URL to the downloaded data
+        let imageDownloadTask = DownloadTask(url: "https://picsum.photos/1024/1024/?random")
+        
+        let temporaryFileURL = try imageDownloadTask.await()
+        
+        imageView.setImageWith(contentsOfFile: temporaryFileURL)
+
+        // Download task with custom file URL
+        let downloadDestinationURL = FileManager.default
+            .temporaryDirectory
+            .appendingPathComponent("MyImage")
+            .appendingPathExtension("jpeg")
+        
+        try DownloadTask(url: "https://picsum.photos/1024/1024/?random",
+                         downloadDestination: downloadDestinationURL).await()
+        
+        imageView.setImageWith(contentsOfFile: downloadDestinationURL)
+    }
+    
+    private func uploadTasks() throws {
+        // Data upload with JSON response
+        let data = "Foobar".data(using: .utf8)!
+        
+        let uploadTask = UploadTask<JSONDictionary>(url: "https://httpbin.org/post",
+                                                    dataToUpload: .data(data))
+        
+        let jsonUpload = try uploadTask.await()
+        
+        print(jsonUpload)
+    }
+    
+    private func multipartUploadTask() throws {
+        // Fetch first data to upload
+        let imageData = try DataTask<Data>(url: "https://picsum.photos/2048/2048").await()
+        
+        // Multipart form data POST request
+        let multipartEndpoint = Endpoint(baseUrl: "https://httpbin.org",
+                                         path: "/post",
+                                         method: .post)
+        
+        let multipartRequest = MultipartFormDataRequest(endpoint: multipartEndpoint,
+                                                        data: imageData,
+                                                        mimeType: "jpeg",
+                                                        dataName: "MyImage")
+        
+        let multipartUploadTask = MultipartFormDataUploadTask<Data>(request: multipartRequest)
+        
+        let resultData = try multipartUploadTask.await()
+        print(resultData)
+    }
+    
+    private func progressObserving() throws {
+        let imageEndPoint = Endpoint(baseUrl: "https://picsum.photos",
+                                     path: "/2048/2048")
+        
+        // Download task with specific file URL
+        let downloadFileURL = FileManager.default
+            .temporaryDirectory
+            .appendingPathComponent(UUID().uuidString)
+            .appendingPathExtension("jpeg")
+        
+        let downloadRequest = Request(endpoint: imageEndPoint)
+        let downloadTask = DownloadTask(request: downloadRequest, downloadDestination: downloadFileURL)
+        
+        // Track progress from download task
+        DispatchQueue.main.sync {
+            self.progressView.observedProgress = downloadTask.progress
+        }
+        
+        let destinationURL = try downloadTask.await()
+        
+        // Should be the same
+        assert(downloadFileURL == destinationURL)
+        
+        self.imageView.setImageWith(contentsOfFile: destinationURL)
+    }
+    
+    private func multiDownloadTask() throws {
+        // Fetch many small images at the same time
+        let iconEndPoint = Endpoint(baseUrl: "https://picsum.photos",
+                                    path: "/256/256/?random")
+        
+        // All icon data will be fetched,
+        // if one request fails an error will be thrown
+        // Then the data will be converted to images
+        let iconImages = try (0..<10)
+            .map({ _ in DataTask<Data>(endpoint: iconEndPoint) })
+            .awaitAll()
+            .compactMap({ UIImage(data: $0) })
+        
+        for image in iconImages {
+            DispatchQueue.main.sync {
+                self.imageView.image = image
+            }
+            
+            Thread.sleep(forTimeInterval: 0.5)
+        }
+    }
+    
+    private func retryRequest() throws {
+        // Request with a retry count of 3
+        // This will repeat the request up to 3 times in case of errors before giving up and returning.
+        // It will also ignore local caches
+        let retryRequest = Request(url: "ThisWill/Fail",
+                                   ignoreLocalCache: true,
+                                   retryCount: 3)
+        
+        try DataTask<Data>(request: retryRequest).await()
+    }
+    
+    private func requestValidation() throws {
+        // Data task with predefined LoremRequest
+        var loremRequest = LoremRequest()
+        
+        // Adding a precondition
+        loremRequest.preconditions.append({ () -> ValidationResult in
+            guard self.userSignedIn() else {
+                return .failure(MyErrors.noActiveUser)
+            }
+            
+            return .success
+        })
+        
+        // Adding a responseValidation
+        loremRequest.responseValidations.append({ (request, response, data) -> ValidationResult in
+            guard response.statusCode < 300 else {
+                return .failure(MyErrors.wrongStatusCode)
+            }
+            
+            return .success
+        })
+        
+        let textAnother = try DataTask<[String]>(request: LoremRequest()).await()
+        print(textAnother)
     }
     
     private func userSignedIn() -> Bool {
@@ -222,6 +243,8 @@ class ViewController: UIViewController {
         case wrongStatusCode
         case noActiveUser
     }
+    
+    // MARK: - Endpoints definition
     
     // An enum following the EndpointType protocol defining two API endpoints
     enum BaconIpsumEndpoints: EndpointType {
@@ -248,6 +271,8 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Request definition
     
     // Network request just using the defined BaconIpsumEndpoint.loremIpsum endpoint
     struct LoremRequest: RequestType {
@@ -290,12 +315,22 @@ final class Image: UIImage, Parsable {
 
 extension String: Error {}
 
-extension UIImageView {
+fileprivate extension UIImageView {
     func setImageWith(contentsOfFile fileURL: URL) {
         let fileimage = UIImage(contentsOfFile: fileURL.path)
         
         DispatchQueue.main.sync {
             self.image = fileimage
+        }
+    }
+}
+
+fileprivate func execute(example: () throws ->Void) {
+    do {
+        try example()
+    } catch {
+        DispatchQueue.main.sync {
+            print(error)
         }
     }
 }
