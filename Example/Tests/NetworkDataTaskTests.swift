@@ -45,7 +45,7 @@ class NetworkDataTaskTests: XCTestCase {
         var responseValidations: [ResponseValidation] = []
         var retryCount: Int = 0
         var headers: [String : String] = ["Test": "Test"]
-        var ignoreCache: Bool = true
+        var ignoreLocalCache: Bool = true
         
         init(preconditions: [PreconditionValidation] = [], responseValidations: [ResponseValidation] = [], retryCount: Int = 0) {
             self.preconditions = preconditions

@@ -10,25 +10,23 @@ Yggdrasil is a network library which allows to create and execute async/await ba
 
 For more information concenring async/await take a look at [Taskig](https://github.com/stendahls/Taskig) which is the underlying async/await library.  
 
-Internally uses Yggdrasil [Taskig](https://github.com/stendahls/Taskig) and [Alamofire](https://github.com/Alamofire/Alamofire).
+Internally Yggdrasil uses [Taskig](https://github.com/stendahls/Taskig) and [Alamofire](https://github.com/Alamofire/Alamofire).
 
 ## Quick Start 
 
 Start a simple download to file task.
 
 ```swift
-// Download task which will return a file URL to the downloaded data, a picture in this case
 let imageDownloadTask = DownloadTask(url: "https://picsum.photos/1024/1024")
 
-// .await() pauses the current thread until the data is retrieved
 let fileURL = try imageDownloadTask.await()
 ```
-This starts a download request for the given URL. The request is executed on a background queue and the current thread is paused until the result is retrieved or an error happened. Yggdrasil uses do/catch based error handling which allows to seperate the request code from the error hanlding. Be careful not to start tasks with `.await()` on the main thread as this would block the UI.
+This defines a download task which will return a file URL to the downloaded data. Calling `.await()` starts the download request for the given URL. The request is executed on a background queue and the current thread is paused until the result is retrieved or an error has happened. Yggdrasil uses do/catch based error handling which allows to seperate the request code from the error hanlding one. Be careful not to start tasks with `.await()` on the main thread as this would block the UI.
 
 Or download the same as data task:
 
 ```swift
-// Data task which returns the image as Swift data structure
+// Data task which returns the downloaded data as Swift data structure
 // The response type needs to be defined as type parameter
 let imageData = try DataTask<Data>(url: "https://picsum.photos/1024/1024").await
 ```
@@ -47,7 +45,7 @@ let jsonUpload = try uploadTask.await()
 Yggdrasil is based on a set of protocols which define requirements for API endpoints, request types and response values. Based on these protocols Yggdrasil offers convenience structs/classes for easier usage and smaller code footprint. Let's have a look at the underlying protocols. 
 
 ### Endpoint
-The `EndpointType` protocol defines the base requirements for requests. The protocol defines baseUrl, path, method and parameters of a request. It's easy to define your own API endpoints, for example with the help of an enum:
+The `EndpointType` protocol defines the base requirements for an API endpoint: baseUrl, path, method and parameters. It's easy to define your own API endpoints, for example with the help of an enum:
 
 ```swift
 // An enum adopting the EndpointType protocol defining two API endpoints
@@ -80,20 +78,20 @@ The `Endpoint` convenience struct can be used to define endpoints without the ne
 
 ```swift
 // Defines an endpoint with parameters
-NetworkEndpoint(baseUrl: "https://baconipsum.com",
-    path: "/api",
-    parameters: ["type": "meat-and-filler"])
+let endpoint = NetworkEndpoint(baseUrl: "https://baconipsum.com",
+                               path: "/api",
+                               parameters: ["type": "meat-and-filler"])
 ```
 
 ### Request
-The `RequestType` protocol defines the actual network request with all its possilbe parameters, e.g. body, headers, retryCount, etc. 
+The `RequestType` protocol defines the actual network request with all its possilbe parameters, this includes endpoint, headers, body, retryCount, ignoreLocalCache, responseValidation and preconditions. 
 
 ```swift
 // Network request using the defined BaconIpsumEndpoints
 struct LoremRequest: RequestType {
     let endpoint: EndpointType = BaconIpsumEndpoints.meatAndFiller
     let retryCount = 3
-    let ignoreCache = true    
+    let ignoreLocalCache = true    
 }
 ```
 This request definition sets the `retryCount` parameter to 3 which will try to fetch the request 3 times after the intial one before giving up and returning an error. Additionally the `ignoresCache` parameter is set to *true* which ignores local caches during the request.
@@ -102,7 +100,7 @@ The convenience struct `Request` allows the easy creation of requests without th
 
 ```swift
 let request = Request(url: "https://picsum.photos/1024",  
-                      ignoreCache: true, 
+                      ignoreLocalCache: true, 
                       retryCount: 2)
 ```
 

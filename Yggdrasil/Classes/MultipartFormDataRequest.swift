@@ -43,15 +43,15 @@ public extension MultipartFormDataRequestType {
 
 public struct MultipartFormDataRequest: MultipartFormDataRequestType {
     public let endpoint: EndpointType
-    public let ignoreCache: Bool
+    public let ignoreLocalCache: Bool
     public let retryCount: Int
     public let data: Data
     public let mimeType: String
     public let dataName: String
     
-    public init(endpoint: EndpointType, data: Data, mimeType: String, dataName: String, ignoreCache: Bool = false, retryCount: Int = 0) {
+    public init(endpoint: EndpointType, data: Data, mimeType: String, dataName: String, ignoreLocalCache: Bool = false, retryCount: Int = 0) {
         self.endpoint = endpoint
-        self.ignoreCache = ignoreCache
+        self.ignoreLocalCache = ignoreLocalCache
         self.retryCount = retryCount
         self.data = data
         self.mimeType = mimeType

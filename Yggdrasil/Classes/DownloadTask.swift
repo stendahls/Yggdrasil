@@ -81,7 +81,7 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
         }
         
         var urlRequest = try URLRequest(url: networkRequest.fullURL, method: networkRequest.endpoint.method, headers: networkRequest.headers)
-        urlRequest.cachePolicy =  networkRequest.ignoreCache ? .reloadIgnoringLocalCacheData : .useProtocolCachePolicy
+        urlRequest.cachePolicy =  networkRequest.ignoreLocalCache ? .reloadIgnoringLocalCacheData : .useProtocolCachePolicy
         
         let encoding: ParameterEncoding = networkRequest.body ?? URLEncoding.default
         let encodedURLRequest = try encoding.encode(urlRequest, with: networkRequest.endpoint.parameters)

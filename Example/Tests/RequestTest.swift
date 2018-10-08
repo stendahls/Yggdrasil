@@ -41,11 +41,11 @@ class RequestTest: XCTestCase {
     
     func testNetworkRequestInit() {
         let endpoint = Endpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
-        let request = Request(endpoint: endpoint, ignoreCache: true, retryCount: 42)
+        let request = Request(endpoint: endpoint, ignoreLocalCache: true, retryCount: 42)
         
         XCTAssert(request.endpoint.baseUrl == "https://FooBar.com")
         XCTAssert(request.endpoint.path == "/FooBar")
-        XCTAssert(request.ignoreCache == true)
+        XCTAssert(request.ignoreLocalCache == true)
         XCTAssert(request.retryCount == 42)
     }
     
@@ -55,7 +55,7 @@ class RequestTest: XCTestCase {
         
         XCTAssert(request.endpoint.baseUrl == "https://FooBar.com")
         XCTAssert(request.endpoint.path == "/FooBar")
-        XCTAssert(request.ignoreCache == false)
+        XCTAssert(request.ignoreLocalCache == false)
         XCTAssert(request.retryCount == 0)
         XCTAssert(request.body == nil)
         XCTAssert(request.headers.count == 0)
@@ -76,12 +76,12 @@ class RequestTest: XCTestCase {
                                                       data: "FooBar".data(using: .utf8)!,
                                                       mimeType: "FooBar",
                                                       dataName: "FooBar",
-                                                      ignoreCache: true,
+                                                      ignoreLocalCache: true,
                                                       retryCount: 42)
         
         XCTAssert(request.endpoint.baseUrl == "https://FooBar.com")
         XCTAssert(request.endpoint.path == "/FooBar")
-        XCTAssert(request.ignoreCache == true)
+        XCTAssert(request.ignoreLocalCache == true)
         XCTAssert(request.retryCount == 42)
         XCTAssert(request.body == nil)
         XCTAssert(request.headers.count == 0)
@@ -101,7 +101,7 @@ class RequestTest: XCTestCase {
         
         XCTAssert(request.endpoint.baseUrl == "https://FooBar.com")
         XCTAssert(request.endpoint.path == "/FooBar")
-        XCTAssert(request.ignoreCache == false)
+        XCTAssert(request.ignoreLocalCache == false)
         XCTAssert(request.retryCount == 0)
         XCTAssert(request.body == nil)
         XCTAssert(request.headers.count == 0)

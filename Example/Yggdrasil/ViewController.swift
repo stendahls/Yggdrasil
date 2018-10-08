@@ -53,7 +53,7 @@ class ViewController: UIViewController {
                 // This will repeat the request up to 3 times in case of errors before giving up and returning.
                 // It will also ignore local caches
                 let retryRequest = Request(url: "ThisWill/Fail",
-                                           ignoreCache: true,
+                                           ignoreLocalCache: true,
                                            retryCount: 3)
                 
                 let _ = try? DataTask<Data>(request: retryRequest).await()
@@ -100,7 +100,7 @@ class ViewController: UIViewController {
                 print(allMeatText)
                 
                 // Creates a request with a previously defined endpoint
-                let request = Request(endpoint: BaconIpsumEndpoints.meatAndFiller, ignoreCache: true, retryCount: 2)
+                let request = Request(endpoint: BaconIpsumEndpoints.meatAndFiller, ignoreLocalCache: true, retryCount: 2)
                 
                 // Execute data task with defined request, text-array result
                 let baconIpsumText: [String] = try DataTask(request: request).await()
@@ -253,7 +253,7 @@ class ViewController: UIViewController {
     struct LoremRequest: RequestType {
         let endpoint: EndpointType = BaconIpsumEndpoints.meatAndFiller
         let retryCount = 3
-        let ignoreCache = true
+        let ignoreLocalCache = true
         
         var preconditions: [PreconditionValidation] = []
         var responseValidations: [ResponseValidation] = []

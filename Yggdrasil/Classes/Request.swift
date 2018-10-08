@@ -43,7 +43,7 @@ public protocol RequestType {
     var retryCount: Int { get }
     var responseValidations: [ResponseValidation] { get }
     var preconditions: [PreconditionValidation] { get }
-    var ignoreCache: Bool { get }
+    var ignoreLocalCache: Bool { get }
 }
 
 public extension RequestType {
@@ -52,7 +52,7 @@ public extension RequestType {
     var retryCount: Int { return 0 }
     var responseValidations: [ResponseValidation] { return [] }
     var preconditions: [PreconditionValidation] { return [] }
-    var ignoreCache: Bool { return false }
+    var ignoreLocalCache: Bool { return false }
     
     var fullURL: URLConvertible {
         return endpoint.baseUrl + endpoint.path
@@ -61,22 +61,22 @@ public extension RequestType {
 
 public struct Request: RequestType {
     public let endpoint: EndpointType
-    public let ignoreCache: Bool
+    public let ignoreLocalCache: Bool
     public let retryCount: Int
     public let preconditions: [PreconditionValidation]
     public let responseValidations: [ResponseValidation]
     
-    public init(endpoint: EndpointType, ignoreCache: Bool = false, retryCount: Int = 0, preconditions: [PreconditionValidation] = [], responseValidations: [ResponseValidation] = []) {
+    public init(endpoint: EndpointType, ignoreLocalCache: Bool = false, retryCount: Int = 0, preconditions: [PreconditionValidation] = [], responseValidations: [ResponseValidation] = []) {
         self.endpoint = endpoint
-        self.ignoreCache = ignoreCache
+        self.ignoreLocalCache = ignoreLocalCache
         self.retryCount = retryCount
         self.preconditions = preconditions
         self.responseValidations = responseValidations
     }
     
-    public init(url: URLConvertible, ignoreCache: Bool = false, retryCount: Int = 0) {
+    public init(url: URLConvertible, ignoreLocalCache: Bool = false, retryCount: Int = 0) {
         let endpoint = url.asEndpoint() ?? Endpoint(baseUrl: "", path: "")
         
-        self.init(endpoint: endpoint, ignoreCache: ignoreCache, retryCount: retryCount)
+        self.init(endpoint: endpoint, ignoreLocalCache: ignoreLocalCache, retryCount: retryCount)
     }
 }
