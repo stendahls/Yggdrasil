@@ -183,18 +183,20 @@ class ViewController: UIViewController {
         // All icon data will be fetched,
         // if one request fails an error will be thrown
         // Then the data will be converted to images
-        let iconImages = try (0..<10)
-            .map({ _ in DataTask<Data>(endpoint: iconEndPoint) })
+        var iconImages = try (0..<10)
+            .map({ _ in DataTask<Image>(endpoint: iconEndPoint) })
             .awaitAll()
-            .compactMap({ UIImage(data: $0) })
         
-        for image in iconImages {
-            DispatchQueue.main.sync {
-                self.imageView.image = image
-            }
-            
-            Thread.sleep(forTimeInterval: 0.5)
-        }
+        self.imageView.presentImages(iconImages, withInBetweenDelay: 0.5)
+        
+        iconImages = (0..<10)
+            .map({ _ in DataTask<Image>(endpoint: iconEndPoint) })
+            .awaitAllResults()
+            .compactMap({ (resultImage) -> Image? in
+                try? resultImage.unpack()
+            })
+
+        self.imageView.presentImages(iconImages, withInBetweenDelay: 0.5)
     }
     
     private func retryRequest() throws {
@@ -321,6 +323,16 @@ fileprivate extension UIImageView {
         
         DispatchQueue.main.sync {
             self.image = fileimage
+        }
+    }
+    
+    func presentImages(_ images: [UIImage], withInBetweenDelay delay: TimeInterval) {
+        for image in images {
+            DispatchQueue.main.async {
+                self.image = image
+            }
+            
+            Thread.sleep(forTimeInterval: delay)
         }
     }
 }

@@ -246,7 +246,27 @@ let resultData = try multipartUploadTask.await()
 ```
 
 #### Sequence & Dictionary support
-A sequence of tasks can be executed via `.awaitAll()`
+A array of tasks can be executed and all results collected via `.awaitAll()`. If one task fails an error will be thrown. 
+
+```swift
+let iconEndPoint = Endpoint(baseUrl: "https://picsum.photos",
+                            path: "/256/256/?random")
+
+let iconImages = try (0..<10)
+    .map({ _ in DataTask<Image>(endpoint: iconEndPoint) })
+    .awaitAll()
+```
+
+To retrieve only the results of successful task `.awaitAllResults()` can be used in combination with a compactMap.
+
+```swift
+let iconImages = try (0..<10)
+    .map({ _ in DataTask<Image>(endpoint: iconEndPoint) })
+    .awaitAllResults()
+    .compactMap({ (resultImage) -> Image? in
+        try? resultImage.unpack()
+    })
+```
 
 #### Support for ProgressReporting 
 
