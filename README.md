@@ -94,7 +94,7 @@ struct LoremRequest: RequestType {
     let ignoreLocalCache = true    
 }
 ```
-This request definition sets the `retryCount` parameter to 3 which will try to fetch the request 3 times after the intial one before giving up and returning an error. Additionally the `ignoresCache` parameter is set to *true* which ignores local caches during the request.
+This request definition sets the `retryCount` parameter to 3 which will try to fetch the request 3 times after the intial one before giving up and returning an error. Additionally the `ignoreLocalCache` parameter is set to *true* which ignores local cache data during the request.
 
 The convenience struct `Request` allows the easy creation of requests without the need of dedicated structs or enums.
 
@@ -105,7 +105,7 @@ let request = Request(url: "https://picsum.photos/1024",
 ```
 
 #### Preconditions & response validations
-It is possible to add precondition and response validation checks to a request to ensure specific conditions are met before starting a request or at the end of a request. The request will only be started if all preconditions are met. Likewise the request finish only successfull if all response validations are met. Each precondition and response validation check must return a validition result either `.success` or `.failure`.
+It is possible to add precondition and response validation checks to a request to ensure that specific conditions are met before starting or at the end of a request. The request will only be started if all preconditions are met. Likewise the request finish only successfully if all response validations are met. Each precondition and response validation check must return a validition result either `.success()` or `.failure(YourErrorHere)`.
 
 ```swift
 // Network request with preconditions and response validations
@@ -127,7 +127,7 @@ loremRequest.preconditions.append({ () -> ValidationResult in
     return .success
 })
 
-// Adding a responseValidation check
+// Adding a response validation check
 loremRequest.responseValidations.append({ (request, response, data) -> ValidationResult in
     guard response.statusCode < 300 else {
         return .failure(MyErrors.wrongStatusCode)
@@ -139,7 +139,7 @@ loremRequest.responseValidations.append({ (request, response, data) -> Validatio
 
 ### MultipartRequest
 
-The `MultipartFormDataRequestType` protocol and the corresponding MultipartFormDataRequest can be used to create a multipart file request to upload for example images or other binary data. It inherits from `RequestType` and adds data, dataName and mimeType  properties.
+The `MultipartFormDataRequestType` protocol and the corresponding `MultipartFormDataRequest` struct can be used to create a multipart file request to upload for example images or other binary data. It inherits from `RequestType` and adds data, dataName and mimeType  properties.
 
 ```swift
 let multipartEndpoint = Endpoint(baseUrl: "https://httpbin.org",
@@ -152,17 +152,47 @@ let multipartRequest = MultipartFormDataRequest(endpoint: multipartEndpoint,
                                                 dataName: "MyImage")
 ```
 ### Execution Tasks
-Requests are executed by async/await based tasks. Tasks can be initalized with either `RequestTypes`, `EndpointTypes` or string based `URL`s. They are then executed by calling `.await()` or `.async()`. `.await()` pauses the current thread until the task finished.  `async()` executes the task on a background queue and expects a completion handler which handles the result of the request.
+Requests are executed by async/await based tasks. Tasks can be initalized with either `RequestTypes`, `EndpointTypes` or string based `URL`s. They are then executed by calling `.await()` or `.async()` and are executed on a background thread`.await()` pauses the current thread until the task finished.  `async()`  expects a completion handler which should handle the result of the request.
 
 #### Parsable & Return types
-Each task has a type parameter which defines the expected return type, e.g. a JSON dictionary or a specific data structure. These return types must comply to the `Parsable` protocol. The only exception to this is the DownloadTask which has a predefined `URL` return type. Yggdrasil supports out of the box  types which  adopts the `Decodable` protocol, other custom types must adopt the `Parsable` protocol.  
+Each task has a type parameter which defines the expected return type, e.g. a JSON dictionary or a specific data structure. These return types must comply to the `Parsable` protocol. The only exception to this is the DownloadTask which has a predefined `URL` return type. Types which adopts the `Decodable` protocol are supported out of the box.
+
+```swift
+// MARK: - Define decodable struct for httpbin.org/uuid
+
+// httpbin.org/uuid response
+// { "uuid": "0a4f1b83-8781-4258-8d72-635edbfa79b5" }
+
+struct HttpBinUUID: Decodable {
+    let uuid: String
+}
+
+// Make parsable
+extension HttpBinUUID: Parsable {}
+```
+
+Other types must adopt the `Parsable` protocol.
+
+```swift
+// Add support for parsable to UIImage
+// This needs a wrapper class which is marked as final to conform to Parsable
+final class Image: UIImage, Parsable {
+    static func parseData(_ data: Data) throws -> Image {
+        guard let image = Image(data: data) else {
+            throw MyErrors.ImageConversionFailed
+        }
+
+        return image
+    }
+}
+```
 
 #### DataTask
 A data task fetches the data of the given request and converts it with the help of the `Parsable` protocol to the data type given as type parameter. 
 
 ```swift
 let imageEndPoint = Endpoint(baseUrl: "https://picsum.photos", path: "/2048/2048")
-let imageData = try DataTask<Data>(request: Request(endpoint: imageEndPoint)).await()
+let image = try DataTask<Data>(endpoint: imageEndPoint).await()
 ```
 
 #### DownloadTask
@@ -194,9 +224,10 @@ Upload task allows to post either a file URL or a data structure to the given `U
 ```swift
 // Data upload with JSON response
 let data = "Foobar".data(using: .utf8)!
+
 let uploadTask = UploadTask<JSONDictionary>(url: "https://httpbin.org/post", dataToUpload: .data(data))
+
 let jsonResult = try uploadTask.await()
-print(jsonResult)
 ```
 
 #### MultipartFormDataUploadTask
