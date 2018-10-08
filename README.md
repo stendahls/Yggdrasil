@@ -1,4 +1,4 @@
-# Yggdrasil
+![Yggdrasil](../master/YggdrasilIcon.png)
 
 [![CI Status](http://img.shields.io/travis/stendahls/Yggdrasil.svg?style=flat)](https://travis-ci.org/stendahls/Yggdrasil)
 [![Version](https://img.shields.io/cocoapods/v/Yggdrasil.svg?style=flat)](http://cocoapods.org/pods/Yggdrasil)
