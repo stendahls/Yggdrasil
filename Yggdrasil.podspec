@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  Yggdrasil is a network library which allows to create and execute async/await based network requests. The focus is on easy and simple usage to avoid too much code overhead. Yggdrasil is protocol based with some additional structs and classes for convenient usage.
                        DESC
 
   s.homepage         = 'https://github.com/stendahls/Yggdrasil'
