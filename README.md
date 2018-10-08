@@ -257,7 +257,7 @@ let iconImages = try (0..<10)
     .awaitAll()
 ```
 
-To retrieve only the results of successful task `.awaitAllResults()` can be used in combination with a compactMap.
+To handle errors on a case to case basis a set of tasks can be executed via `.awaitAllResults()` and then be handled or filtered, f.eg. via compactMap. To handle the result or error of an task call `unpack()` on the `TaskResult` struct retrieved from the `.awaitAllResults()` call.   
 
 ```swift
 let iconImages = try (0..<10)
@@ -269,6 +269,18 @@ let iconImages = try (0..<10)
 ```
 
 #### Support for ProgressReporting 
+All task types support the `ProgressReporting` protocol. The `.progress` property gives access to the underlying progress object, which then can be handed over to a `UIProgressView`.
+
+```swift
+let downloadTask = DownloadTask(url: "https://picsum.photos/1024/1024/?random")
+
+// Track progress from the download task
+DispatchQueue.main.sync {
+    self.progressView.observedProgress = downloadTask.progress
+}
+
+let imageURL = try downloadTask.await()
+```
 
 ## Example Project
 

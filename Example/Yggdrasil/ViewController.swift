@@ -60,7 +60,7 @@ class ViewController: UIViewController {
             
             execute(example: self.requestValidation)
             
-            execute(example: self.progressObserving)
+            execute(example: self.progressReporting)
             
             execute(example: self.multiDownloadTask)
             
@@ -149,7 +149,7 @@ class ViewController: UIViewController {
         print(resultData)
     }
     
-    private func progressObserving() throws {
+    private func progressReporting() throws {
         let imageEndPoint = Endpoint(baseUrl: "https://picsum.photos",
                                      path: "/2048/2048")
         
