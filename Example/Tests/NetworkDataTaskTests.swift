@@ -60,7 +60,7 @@ class NetworkDataTaskTests: XCTestCase {
         
         do {
             let dataRequest = try dataTask.createDataRequest()
-            let fullRequestURL = try request.fullURL.asURL()
+            let fullRequestURL = try request.fullURL()
             
             XCTAssert(dataRequest.request?.url == fullRequestURL)
             XCTAssert(dataRequest.request?.httpMethod == request.endpoint.method.rawValue)

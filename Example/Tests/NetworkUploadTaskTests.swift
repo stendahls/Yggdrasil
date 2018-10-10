@@ -59,7 +59,7 @@ class NetworkUploadTaskTests: XCTestCase {
         
         do {
             let uploadRequest = try uploadTask.createUploadRequest()
-            let fullRequestURL = try request.fullURL.asURL()
+            let fullRequestURL = try request.fullURL()
             
             XCTAssert(uploadRequest.request?.url == fullRequestURL)
             XCTAssert(uploadRequest.request?.httpMethod == request.endpoint.method.rawValue)

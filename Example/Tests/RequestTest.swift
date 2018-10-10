@@ -67,7 +67,7 @@ class RequestTest: XCTestCase {
         let endpoint = Endpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
         let request = Request(endpoint: endpoint)
         
-        XCTAssert(try request.fullURL.asURL() == URL(string: "https://FooBar.com/FooBar"))
+        XCTAssert(try request.fullURL() == URL(string: "https://FooBar.com/FooBar"))
     }
     
     func testNetworkMultipartFormDataRequestInit() {

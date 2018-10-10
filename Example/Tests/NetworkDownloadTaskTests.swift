@@ -61,7 +61,7 @@ class NetworkDownloadTaskTests: XCTestCase {
         
         do {
             let downloadRequest = try downloadTask.createDownloadRequest(toFileURL: temporaryFileURL)
-            let fullRequestURL = try request.fullURL.asURL()
+            let fullRequestURL = try request.fullURL()
             
             XCTAssert(downloadRequest.request?.url == fullRequestURL)
             XCTAssert(downloadRequest.request?.httpMethod == request.endpoint.method.rawValue)

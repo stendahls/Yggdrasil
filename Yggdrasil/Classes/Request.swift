@@ -26,7 +26,6 @@
 
 import Foundation
 import Taskig
-import Alamofire
 
 public typealias HTTPHeaders = [String: String]
 
@@ -56,8 +55,8 @@ public extension RequestType {
     var preconditions: [PreconditionValidation] { return [] }
     var ignoreLocalCache: Bool { return false }
     
-    var fullURL: URLConvertible {
-        return endpoint.baseUrl + endpoint.path
+    func fullURL() throws -> URL {
+        return try (endpoint.baseUrl + endpoint.path).asURL()
     }
 }
 
@@ -76,8 +75,8 @@ public struct Request: RequestType {
         self.responseValidations = responseValidations
     }
     
-    public init(url: URLConvertible, ignoreLocalCache: Bool = false, retryCount: Int = 0) {
-        let endpoint = url.asEndpoint() ?? Endpoint(baseUrl: "", path: "")
+    public init(url: String, ignoreLocalCache: Bool = false, retryCount: Int = 0) {
+        let endpoint = (try? url.asEndpoint()) ?? Endpoint(baseUrl: "", path: "")
         
         self.init(endpoint: endpoint, ignoreLocalCache: ignoreLocalCache, retryCount: retryCount)
     }

@@ -33,23 +33,11 @@ public class BaseTask: NSObject, ProgressReporting {
     
     let networkRequest: RequestType
     
-    public init(request: RequestType) {
+    internal init(request: RequestType) {
         self.networkRequest = request
         self.progress = Progress(totalUnitCount: 1)
     }
-    
-    public convenience init(endpoint: EndpointType) {
-        let request = Request(endpoint: endpoint)
         
-        self.init(request: request)
-    }
-    
-    public convenience init(url: URLConvertible) {
-        let endpoint = url.asEndpoint() ?? Endpoint(baseUrl: "", path: "")
-        
-        self.init(endpoint: endpoint)
-    }
-    
     internal lazy var sessionManager: Alamofire.SessionManager = {
         let sessionManager = SessionManager()
         sessionManager.retrier = TaskRetrier(retryCount: networkRequest.retryCount)

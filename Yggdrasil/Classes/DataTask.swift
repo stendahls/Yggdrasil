@@ -31,6 +31,23 @@ import Taskig
 public class DataTask<T: Parsable>: BaseTask, ThrowableTaskType {
     public typealias ResultType = T
     
+    public override init(request: RequestType) {
+        super.init(request: request)
+    }
+    
+    public convenience init(endpoint: EndpointType) {
+        let request = Request(endpoint: endpoint)
+        
+        self.init(request: request)
+    }
+    
+    public convenience init(url: String) {
+        let endpoint = (try? url.asEndpoint()) ?? Endpoint(baseUrl: "", path: "")
+        
+        self.init(endpoint: endpoint)
+    }
+
+    
     public func action(completion: @escaping (TaskResult<T>) -> Void) {
         if case .failure(let error) = preconditionValidation() {
             completion(TaskResult.failure(error))
@@ -47,7 +64,7 @@ public class DataTask<T: Parsable>: BaseTask, ThrowableTaskType {
     }
     
     internal func createDataRequest() throws -> Alamofire.DataRequest {
-        var urlRequest = try URLRequest(url: networkRequest.fullURL,
+        var urlRequest = try URLRequest(url: networkRequest.fullURL(),
                                         method: networkRequest.endpoint.method.asAlamofireHTTPMethod,
                                         headers: networkRequest.headers)
         

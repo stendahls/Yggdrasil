@@ -73,14 +73,20 @@ internal extension HTTPMethod {
     }
 }
 
-// MARK: - Helper extension to convert URLConvertible to Endpoint
+// MARK: - Helper extension to convert String to Endpoint
 
-public extension URLConvertible {
-    func asEndpoint(withMethod method: HTTPMethod = .get) -> EndpointType? {
-        guard let url = try? self.asURL() else {
-            return nil
+public extension String {
+    public func asURL() throws -> URL {
+        guard let url = URL(string: self) else {
+            throw YggdrasilError.invalidURL(url: self)
         }
-
+        
+        return url
+    }
+    
+    public func asEndpoint(withMethod method: HTTPMethod = .get) throws -> EndpointType {
+        let url = try self.asURL()
+        
         return  Endpoint(baseUrl: (url.scheme ?? "") + "://" + (url.host ?? ""), path: url.path, method: method)
     }
 }

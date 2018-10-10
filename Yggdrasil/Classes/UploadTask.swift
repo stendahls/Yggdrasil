@@ -28,7 +28,6 @@ import Foundation
 import Alamofire
 import Taskig
 
-
 public class UploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
     public enum UploadData {
         case file(URL)
@@ -51,9 +50,9 @@ public class UploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
         self.init(request: request, dataToUpload: dataToUpload)
     }
     
-    public convenience init(url: URLConvertible, dataToUpload: UploadData) {
-        let endpoint = url.asEndpoint(withMethod: .post) ?? Endpoint(baseUrl: "", path: "", method: .post)
-        
+    public convenience init(url: String, dataToUpload: UploadData) {
+        let endpoint = (try? url.asEndpoint()) ?? Endpoint(baseUrl: "", path: "", method: .post)
+
         self.init(endpoint: endpoint, dataToUpload: dataToUpload)
     }
     

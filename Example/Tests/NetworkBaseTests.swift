@@ -62,12 +62,14 @@ class NetworkBaseTests: XCTestCase {
     }
     
     func testNetworkBaseInit() {
-        let validURL = BaseTask(url: "https://httpbin.org/get")
+        let validRequest = Request(url: "https://httpbin.org/get")
+        let validURL = BaseTask(request: validRequest)
         
         XCTAssert(validURL.networkRequest.endpoint.baseUrl == "https://httpbin.org")
         XCTAssert(validURL.networkRequest.endpoint.path == "/get")
         
-        let invalidURL = BaseTask(url: " a _ _ ")
+        let invalidRequest = Request(url: " a _ _ ")
+        let invalidURL = BaseTask(request: invalidRequest)
         XCTAssert(invalidURL.networkRequest.endpoint.baseUrl == "")
         XCTAssert(invalidURL.networkRequest.endpoint.path == "")
     }
@@ -194,10 +196,14 @@ class NetworkBaseTests: XCTestCase {
             XCTAssert(timeDelay == 0)
         }
         
-        TaskRetrier(retryCount: 0).should(Alamofire.SessionManager.default,
-                                          retry: Alamofire.SessionManager.default.request(requestRetryCountZero.fullURL),
-                                          with: "Something went wrong",
-                                          completion: requestRetryCompletion)
+        do {
+            try TaskRetrier(retryCount: 0).should(Alamofire.SessionManager.default,
+                                                  retry: Alamofire.SessionManager.default.request(requestRetryCountZero.fullURL()),
+                                                  with: "Something went wrong",
+                                                  completion: requestRetryCompletion)
+        } catch {
+            XCTFail()
+        }
     }
     
     func testRequestRetrierWithRetryCountOne() {
@@ -208,9 +214,13 @@ class NetworkBaseTests: XCTestCase {
             XCTAssert(shouldRetry == true)
         }
         
-        TaskRetrier(retryCount: 1).should(Alamofire.SessionManager.default,
-                                          retry: Alamofire.SessionManager.default.request(requestRetryCountZero.fullURL),
-                                          with: "Something went wrong",
-                                          completion: requestRetryCompletion)
+        do {
+            try TaskRetrier(retryCount: 1).should(Alamofire.SessionManager.default,
+                                                  retry: Alamofire.SessionManager.default.request(requestRetryCountZero.fullURL()),
+                                                  with: "Something went wrong",
+                                                  completion: requestRetryCompletion)
+        } catch {
+            XCTFail()
+        }
     }
 }

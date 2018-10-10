@@ -28,10 +28,6 @@ import Foundation
 import Alamofire
 import Taskig
 
-public enum DownloadTaskError: Error {
-    case unknown
-}
-
 public class DownloadTask: BaseTask, ThrowableTaskType {
     public typealias ResultType = URL
     
@@ -55,8 +51,8 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
         self.init(request: request, downloadDestination: downloadDestination)
     }
     
-    public convenience init(url: URLConvertible, downloadDestination: URL? = nil) {
-        let endpoint = url.asEndpoint() ?? Endpoint(baseUrl: "", path: "")
+    public convenience init(url: String, downloadDestination: URL? = nil) {
+        let endpoint = (try? url.asEndpoint()) ?? Endpoint(baseUrl: "", path: "")
         
         self.init(endpoint: endpoint, downloadDestination: downloadDestination)
     }
@@ -80,7 +76,7 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         
-        var urlRequest = try URLRequest(url: networkRequest.fullURL,
+        var urlRequest = try URLRequest(url: networkRequest.fullURL(),
                                         method: networkRequest.endpoint.method.asAlamofireHTTPMethod,
                                         headers: networkRequest.headers)
         
@@ -112,7 +108,7 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
                     return
                 }
                 
-                completion(.failure(DownloadTaskError.unknown))
+                completion(.failure(YggdrasilError.unknown))
         }
         
         self.progress.addChild(request.progress, withPendingUnitCount: 1)
