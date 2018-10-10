@@ -56,7 +56,7 @@ public class BaseTask: NSObject, ProgressReporting {
         return sessionManager
     }()
     
-    internal func preconditionValidation() -> Alamofire.DataRequest.ValidationResult {
+    internal func preconditionValidation() -> ValidationResult {
         for precondition in networkRequest.preconditions {
             if case .failure(let error) = precondition() {
                 return .failure(error)

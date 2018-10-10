@@ -25,7 +25,6 @@
 //
 
 import Foundation
-import Alamofire
 import Taskig
 
 public protocol MultipartFormDataRequestType: RequestType {
@@ -37,7 +36,7 @@ public protocol MultipartFormDataRequestType: RequestType {
 public extension MultipartFormDataRequestType {
     var body: String? { return nil }
     var retryCount: Int { return 0 }
-    var responseValidations: [Alamofire.DataRequest.Validation] { return [] }
+    var responseValidations: [ResponseValidation] { return [] }
     var preconditions: [PreconditionValidation] { return [] }
 }
 
