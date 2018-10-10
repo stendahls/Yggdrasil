@@ -30,22 +30,22 @@ import Alamofire
 public protocol EndpointType {
     var baseUrl: String { get }
     var path: String { get }
-    var method: Alamofire.HTTPMethod { get }
+    var method: HTTPMethod { get }
     var parameters: [String: Any] { get }
 }
 
 public extension EndpointType {
-    var method: Alamofire.HTTPMethod { return .get }
+    var method: HTTPMethod { return .get }
     var parameters: [String: Any] { return [:] }
 }
 
 public struct Endpoint: EndpointType {
     public let baseUrl: String
     public let path: String
-    public let method: Alamofire.HTTPMethod
+    public let method: HTTPMethod
     public let parameters: [String : Any]
     
-    public init(baseUrl: String, path: String, method: Alamofire.HTTPMethod = .get, parameters: [String : Any] = [:]) {
+    public init(baseUrl: String, path: String, method: HTTPMethod = .get, parameters: [String : Any] = [:]) {
         self.baseUrl = baseUrl
         self.path = path
         self.method = method
@@ -53,14 +53,30 @@ public struct Endpoint: EndpointType {
     }
 }
 
-// MARK: - Helper extension to convert URLConvertible to Endpoint
+// MARK: - HTTP method definitions.
 
-public enum EndpointError: Error {
-    case invalidURL
+public enum HTTPMethod: String {
+    case options = "OPTIONS"
+    case get     = "GET"
+    case head    = "HEAD"
+    case post    = "POST"
+    case put     = "PUT"
+    case patch   = "PATCH"
+    case delete  = "DELETE"
+    case trace   = "TRACE"
+    case connect = "CONNECT"
 }
 
+internal extension HTTPMethod {
+    var asAlamofireHTTPMethod: Alamofire.HTTPMethod {
+        return Alamofire.HTTPMethod(rawValue: self.rawValue)!
+    }
+}
+
+// MARK: - Helper extension to convert URLConvertible to Endpoint
+
 public extension URLConvertible {
-    func asEndpoint(withMethod method: Alamofire.HTTPMethod = .get) -> EndpointType? {
+    func asEndpoint(withMethod method: HTTPMethod = .get) -> EndpointType? {
         guard let url = try? self.asURL() else {
             return nil
         }

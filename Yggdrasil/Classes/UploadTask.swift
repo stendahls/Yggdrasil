@@ -77,12 +77,12 @@ public class UploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
         case .data(let data):
             return sessionManager.upload(data,
                                          to: self.networkRequest.endpoint.baseUrl + self.networkRequest.endpoint.path,
-                                         method: self.networkRequest.endpoint.method,
+                                         method: self.networkRequest.endpoint.method.asAlamofireHTTPMethod,
                                          headers: self.networkRequest.headers)
         case .file(let fileURL):
             return sessionManager.upload(fileURL,
                                          to: self.networkRequest.endpoint.baseUrl + self.networkRequest.endpoint.path,
-                                         method: self.networkRequest.endpoint.method,
+                                         method: self.networkRequest.endpoint.method.asAlamofireHTTPMethod,
                                          headers: self.networkRequest.headers)
         }
     }

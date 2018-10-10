@@ -80,7 +80,10 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         
-        var urlRequest = try URLRequest(url: networkRequest.fullURL, method: networkRequest.endpoint.method, headers: networkRequest.headers)
+        var urlRequest = try URLRequest(url: networkRequest.fullURL,
+                                        method: networkRequest.endpoint.method.asAlamofireHTTPMethod,
+                                        headers: networkRequest.headers)
+        
         urlRequest.cachePolicy =  networkRequest.ignoreLocalCache ? .reloadIgnoringLocalCacheData : .useProtocolCachePolicy
         
         let encoding: ParameterEncoding = networkRequest.body ?? URLEncoding.default

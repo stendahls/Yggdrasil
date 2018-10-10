@@ -66,9 +66,9 @@ public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskTy
             self.sessionManager.upload(
                 multipartFormData: { (multipartFormData) in
                     multipartFormData.append(multipartRequest.data, withName: multipartRequest.dataName, mimeType: multipartRequest.mimeType)
-            },
+                },
                 to: self.networkRequest.endpoint.baseUrl + self.networkRequest.endpoint.path,
-                method: self.networkRequest.endpoint.method,
+                method: self.networkRequest.endpoint.method.asAlamofireHTTPMethod,
                 headers: self.networkRequest.headers,
                 encodingCompletion: { (encodingResult) in
                     switch encodingResult {
