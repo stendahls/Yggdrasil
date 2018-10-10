@@ -28,6 +28,8 @@ import Foundation
 import Taskig
 import Alamofire
 
+public typealias HTTPHeaders = [String: String]
+
 public enum ValidationResult {
     case success
     case failure(Error)
