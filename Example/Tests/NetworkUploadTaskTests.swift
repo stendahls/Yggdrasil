@@ -69,6 +69,19 @@ class NetworkUploadTaskTests: XCTestCase {
         }
     }
     
+    func testCreationOfUploadTaskWithURL() {
+        let uploadTask = UploadTask<Data>(url: "http://FooBar", dataToUpload: .data("FooBar".data(using: .utf8)!))
+        
+        do {
+            let uploadRequest = try uploadTask.createUploadRequest()
+            
+            XCTAssert(uploadRequest.request?.url?.absoluteString == "http://FooBar")
+            XCTAssert(uploadRequest.request?.httpMethod == "POST")
+        } catch {
+            XCTFail()
+        }
+    }
+    
     func testProgressReportingIsTriggered() {
         let request = TestPostRequest()
         let uploadTask = UploadTask<Data>(request: request, dataToUpload: .data("FooBar".data(using: .utf8)!))
