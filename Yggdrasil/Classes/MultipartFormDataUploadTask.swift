@@ -65,7 +65,14 @@ public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskTy
         return ThrowableTask<UploadRequest>(action: { (completion) in
             self.sessionManager.upload(
                 multipartFormData: { (multipartFormData) in
-                    multipartFormData.append(multipartRequest.data, withName: multipartRequest.dataName, mimeType: multipartRequest.mimeType)
+                    for (key, value) in self.networkRequest.endpoint.parameters {
+                        let data = "\(value)".data(using: String.Encoding.utf8)!
+                        multipartFormData.append(data, withName: key as String)
+                    }
+                    
+                    multipartFormData.append(multipartRequest.data,
+                                             withName: multipartRequest.dataName,
+                                             mimeType: multipartRequest.mimeType)
                 },
                 to: self.networkRequest.endpoint.baseUrl + self.networkRequest.endpoint.path,
                 method: self.networkRequest.endpoint.method.asAlamofireHTTPMethod,
@@ -77,7 +84,7 @@ public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskTy
                     case .success(let upload, _, _):
                         completion(.success(upload))
                     }
-            }
+                }
             )
         })
     }
