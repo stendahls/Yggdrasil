@@ -40,7 +40,7 @@ class NetworkDownloadTaskTests: XCTestCase {
     }
     
     private struct TestRequest: Yggdrasil.RequestType {
-        var endpoint: EndpointType { return Endpoint(baseUrl: "https://httpbin.org", path: "/get") }
+        var endpoint: EndpointType { return Endpoint(baseUrl: "https://httpbin.org", path: "/image/png") }
         var preconditions: [PreconditionValidation] = []
         var responseValidations: [ResponseValidation] = []
         var retryCount: Int = 0

@@ -37,12 +37,12 @@ public protocol ThrowableTaskType {
     
     func await() throws -> ResultType
     func awaitResult() -> TaskResult<ResultType>
-    func async(completion: @escaping resultHandler)
+    func async(delayBy: TimeInterval, completion: @escaping resultHandler)
 }
 
 public extension ThrowableTaskType {
     @discardableResult
-    public func awaitResult() -> TaskResult<ResultType> {
+    func awaitResult() -> TaskResult<ResultType> {
         precondition((executionQueue == .main && Thread.isMainThread == true) == false)
         
         var result: TaskResult<ResultType>!
@@ -63,18 +63,18 @@ public extension ThrowableTaskType {
     }
     
     @discardableResult
-    public func await() throws -> ResultType {
+    func await() throws -> ResultType {
         return try awaitResult().unpack()
     }
     
-    public func async(completion: @escaping resultHandler) {
-        executionQueue.async {
+    func async(delayBy: TimeInterval = 0, completion: @escaping resultHandler) {
+        executionQueue.asyncAfter(deadline: .now() + delayBy) {
             self.action(completion: completion)
         }
     }
     
     @discardableResult
-    public static func await(executionQueue: DispatchQueue = .global(), action: @escaping () throws -> ResultType) throws -> ResultType {
+    static func await(executionQueue: DispatchQueue = .global(), action: @escaping () throws -> ResultType) throws -> ResultType {
         let task = ThrowableTask<ResultType> { () -> Self.ResultType in
            return try action()
         }

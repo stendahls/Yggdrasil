@@ -76,7 +76,7 @@ internal extension HTTPMethod {
 // MARK: - Helper extension to convert String to Endpoint
 
 public extension String {
-    public func asURL() throws -> URL {
+    func asURL() throws -> URL {
         guard let url = URL(string: self) else {
             throw YggdrasilError.invalidURL(url: self)
         }
@@ -84,7 +84,7 @@ public extension String {
         return url
     }
     
-    public func asEndpoint(withMethod method: HTTPMethod = .get) throws -> EndpointType {
+    func asEndpoint(withMethod method: HTTPMethod = .get) throws -> EndpointType {
         let url = try self.asURL()
         
         return  Endpoint(baseUrl: (url.scheme ?? "") + "://" + (url.host ?? ""), path: url.path, method: method)
