@@ -56,9 +56,9 @@ public class UploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
         self.init(endpoint: endpoint, dataToUpload: dataToUpload)
     }
     
-    public func action(completion: @escaping (TaskResult<T>) -> Void) {
+    public func action(completion: @escaping (Swift.Result<T, Error>) -> Void) {
         if case .failure(let error) = preconditionValidation() {
-            completion(TaskResult.failure(error))
+            completion(.failure(error))
             return
         }
         
@@ -86,7 +86,7 @@ public class UploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
         }
     }
     
-    internal func executeUploadRequest(_ request: Alamofire.UploadRequest, with completion: @escaping (TaskResult<T>) -> Void) {
+    internal func executeUploadRequest(_ request: Alamofire.UploadRequest, with completion: @escaping (Swift.Result<T, Error>) -> Void) {
         request
             .validate()
             .validate(responseValidation)

@@ -46,9 +46,9 @@ public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskTy
         self.init(request: request)
     }
     
-    public func action(completion: @escaping (TaskResult<T>) -> Void) {
+    public func action(completion: @escaping (Swift.Result<T, Error>) -> Void) {
         if case .failure(let error) = preconditionValidation() {
-            completion(TaskResult.failure(error))
+            completion(.failure(error))
             return
         }
         
@@ -89,7 +89,7 @@ public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskTy
         })
     }
     
-    internal func executeUploadRequest(_ request: Alamofire.UploadRequest, with completion: @escaping (TaskResult<T>) -> Void) {
+    internal func executeUploadRequest(_ request: Alamofire.UploadRequest, with completion: @escaping (Swift.Result<T, Error>) -> Void) {
         request
             .validate()
             .validate(responseValidation)

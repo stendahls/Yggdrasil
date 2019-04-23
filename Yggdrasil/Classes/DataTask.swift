@@ -48,9 +48,9 @@ public class DataTask<T: Parsable>: BaseTask, ThrowableTaskType {
     }
 
     
-    public func action(completion: @escaping (TaskResult<T>) -> Void) {
+    public func action(completion: @escaping (Swift.Result<T, Error>) -> Void) {
         if case .failure(let error) = preconditionValidation() {
-            completion(TaskResult.failure(error))
+            completion(.failure(error))
             return
         }
         
@@ -76,7 +76,7 @@ public class DataTask<T: Parsable>: BaseTask, ThrowableTaskType {
         return sessionManager.request(encodedURLRequest)
     }
     
-    internal func executeDataRequest(_ request: Alamofire.DataRequest, with completion: @escaping (TaskResult<ResultType>) -> Void) {
+    internal func executeDataRequest(_ request: Alamofire.DataRequest, with completion: @escaping (Swift.Result<ResultType, Error>) -> Void) {
         request
             .validate()
             .validate(responseValidation)

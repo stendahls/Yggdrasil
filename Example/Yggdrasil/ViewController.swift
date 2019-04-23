@@ -193,7 +193,7 @@ class ViewController: UIViewController {
             .map({ _ in DataTask<Image>(endpoint: iconEndPoint) })
             .awaitAllResults()
             .compactMap({ (resultImage) -> Image? in
-                try? resultImage.unpack()
+                try? resultImage.get()
             })
 
         self.imageView.presentImages(iconImages, withInBetweenDelay: 0.5)

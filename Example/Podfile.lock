@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.8.2)
-  - Taskig (0.2.4)
-  - Yggdrasil (0.1.4):
+  - Taskig (0.2.5)
+  - Yggdrasil (0.1.5):
     - Alamofire (~> 4.7)
     - Taskig (~> 0.2)
 
@@ -21,8 +21,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  Taskig: f246949a294be5f901010ff23bb02dc2dda781d5
-  Yggdrasil: 2ecedb9311279e333bb4fc06870b320762b09fef
+  Taskig: 549da1ca48f37f5bb68cf3e01128a37592c8be1b
+  Yggdrasil: 6d0410039d882a9599a4cad45d8db4181a79bcbd
 
 PODFILE CHECKSUM: cd275283ab21a89d1964283e6638f574a33d8e1f
 

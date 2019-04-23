@@ -57,9 +57,9 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
         self.init(endpoint: endpoint, downloadDestination: downloadDestination)
     }
     
-    public func action(completion: @escaping (TaskResult<URL>) -> Void) {
+    public func action(completion: @escaping (Swift.Result<URL, Error>) -> Void) {
         if case .failure(let error) = preconditionValidation() {
-            completion(TaskResult.failure(error))
+            completion(.failure(error))
             return
         }
         
@@ -88,7 +88,7 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
         return sessionManager.download(encodedURLRequest, to: destination)
     }
     
-    internal func executeDownloadRequest(_ request: Alamofire.DownloadRequest, with completion: @escaping (TaskResult<URL>) -> Void) {
+    internal func executeDownloadRequest(_ request: Alamofire.DownloadRequest, with completion: @escaping (Swift.Result<URL, Error>) -> Void) {
         request
             .validate()
             .validate(responseValidation)
