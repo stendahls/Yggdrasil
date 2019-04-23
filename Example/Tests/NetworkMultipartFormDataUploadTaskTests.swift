@@ -40,6 +40,8 @@ class NetworkMultipartFormDataUploadTaskTests: XCTestCase {
     }
     
     private struct TestMultipartRequest: MultipartFormDataRequestType {
+        var fileName: String?
+        
         var data: Data  { return "FooBar".data(using: .utf8)! }
         var mimeType: String = "txt"
         var dataName: String = "Foobar.txt"
@@ -96,7 +98,7 @@ class NetworkMultipartFormDataUploadTaskTests: XCTestCase {
     }
     
     func testFailureCase() {
-        let request = MultipartFormDataRequest(endpoint: Endpoint(baseUrl: "", path: ""), data: "FooBar".data(using: .utf8)!, mimeType: "txt", dataName: "Foobar.txt")
+        let request = MultipartFormDataRequest(endpoint: Endpoint(baseUrl: "", path: ""), data: "FooBar".data(using: .utf8)!, mimeType: "txt", dataName: "Foobar.txt", fileName: nil)
         let uploadTask = MultipartFormDataUploadTask<Data>(request: request)
         let finishedExpectation = expectation(description: "Finished")
         

@@ -76,6 +76,7 @@ class RequestTest: XCTestCase {
                                                       data: "FooBar".data(using: .utf8)!,
                                                       mimeType: "FooBar",
                                                       dataName: "FooBar",
+                                                      fileName: nil,
                                                       ignoreLocalCache: true,
                                                       retryCount: 42)
         
@@ -95,9 +96,10 @@ class RequestTest: XCTestCase {
     func testNetworkMultipartFormDataRequestInitStandardParameters() {
         let endpoint = Endpoint(baseUrl: "https://FooBar.com", path: "/FooBar")
         let request = MultipartFormDataRequest(endpoint: endpoint,
-                                                      data: "FooBar".data(using: .utf8)!,
-                                                      mimeType: "FooBar",
-                                                      dataName: "FooBar")
+                                               data: "FooBar".data(using: .utf8)!,
+                                               mimeType: "FooBar",
+                                               dataName: "FooBar",
+                                               fileName: nil)
         
         XCTAssert(request.endpoint.baseUrl == "https://FooBar.com")
         XCTAssert(request.endpoint.path == "/FooBar")

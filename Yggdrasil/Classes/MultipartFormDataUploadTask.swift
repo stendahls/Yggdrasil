@@ -35,13 +35,14 @@ public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskTy
         super.init(request: request)
     }
     
-    public convenience init(url: String, data: Data, mimeType: String, dataName: String) {
+    public convenience init(url: String, data: Data, mimeType: String, dataName: String, fileName: String?) {
         let endpoint = (try? url.asEndpoint()) ?? Endpoint(baseUrl: "", path: "", method: .post)
 
         let request = MultipartFormDataRequest(endpoint: endpoint,
                                                data: data,
                                                mimeType: mimeType,
-                                               dataName: dataName)
+                                               dataName: dataName,
+                                               fileName: fileName)
         
         self.init(request: request)
     }
@@ -70,9 +71,16 @@ public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskTy
                         multipartFormData.append(data, withName: key as String)
                     }
                     
-                    multipartFormData.append(multipartRequest.data,
-                                             withName: multipartRequest.dataName,
-                                             mimeType: multipartRequest.mimeType)
+                    if let filename = multipartRequest.fileName {
+                        multipartFormData.append(multipartRequest.data,
+                                                 withName: multipartRequest.dataName,
+                                                 fileName: filename,
+                                                 mimeType: multipartRequest.mimeType)
+                    } else {
+                        multipartFormData.append(multipartRequest.data,
+                                                 withName: multipartRequest.dataName,
+                                                 mimeType: multipartRequest.mimeType)
+                    }
                 },
                 to: self.networkRequest.endpoint.baseUrl + self.networkRequest.endpoint.path,
                 method: self.networkRequest.endpoint.method.asAlamofireHTTPMethod,

@@ -30,7 +30,8 @@ import Taskig
 public protocol MultipartFormDataRequestType: RequestType {
     var data: Data { get }
     var mimeType: String { get }
-    var dataName: String { get }    
+    var dataName: String { get }
+    var fileName: String? { get }
 }
 
 public extension MultipartFormDataRequestType {
@@ -47,13 +48,15 @@ public struct MultipartFormDataRequest: MultipartFormDataRequestType {
     public let data: Data
     public let mimeType: String
     public let dataName: String
+    public let fileName: String?
     
-    public init(endpoint: EndpointType, data: Data, mimeType: String, dataName: String, ignoreLocalCache: Bool = false, retryCount: Int = 0) {
+    public init(endpoint: EndpointType, data: Data, mimeType: String, dataName: String, fileName: String?, ignoreLocalCache: Bool = false, retryCount: Int = 0) {
         self.endpoint = endpoint
         self.ignoreLocalCache = ignoreLocalCache
         self.retryCount = retryCount
         self.data = data
         self.mimeType = mimeType
         self.dataName = dataName
+        self.fileName = fileName
     }
 }

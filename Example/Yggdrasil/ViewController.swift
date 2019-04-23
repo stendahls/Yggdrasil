@@ -141,7 +141,8 @@ class ViewController: UIViewController {
         let multipartRequest = MultipartFormDataRequest(endpoint: multipartEndpoint,
                                                         data: imageData,
                                                         mimeType: "jpeg",
-                                                        dataName: "MyImage")
+                                                        dataName: "MyImage",
+                                                        fileName: UUID().uuidString + ".jpg")
         
         let multipartUploadTask = MultipartFormDataUploadTask<Data>(request: multipartRequest)
         
