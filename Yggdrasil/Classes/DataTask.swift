@@ -78,8 +78,8 @@ public class DataTask<T: Parsable>: BaseTask, ThrowableTaskType {
     
     internal func executeDataRequest(_ request: Alamofire.DataRequest, with completion: @escaping (Swift.Result<ResultType, Error>) -> Void) {
         request
-            .validate()
             .validate(responseValidation)
+            .validate()
             .responseData { (response) in
                 switch response.result {
                 case .failure(let error):

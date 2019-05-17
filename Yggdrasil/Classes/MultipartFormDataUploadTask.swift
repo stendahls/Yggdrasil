@@ -99,8 +99,8 @@ public class MultipartFormDataUploadTask<T: Parsable>: BaseTask, ThrowableTaskTy
     
     internal func executeUploadRequest(_ request: Alamofire.UploadRequest, with completion: @escaping (Swift.Result<T, Error>) -> Void) {
         request
-            .validate()
             .validate(responseValidation)
+            .validate()
             .responseData { (response) in
                 switch response.result {
                 case .failure(let error):

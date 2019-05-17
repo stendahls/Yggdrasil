@@ -88,8 +88,8 @@ public class UploadTask<T: Parsable>: BaseTask, ThrowableTaskType {
     
     internal func executeUploadRequest(_ request: Alamofire.UploadRequest, with completion: @escaping (Swift.Result<T, Error>) -> Void) {
         request
-            .validate()
             .validate(responseValidation)
+            .validate()
             .responseData { (response) in
                 switch response.result {
                 case .failure(let error):

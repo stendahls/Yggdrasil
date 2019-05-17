@@ -90,8 +90,8 @@ public class DownloadTask: BaseTask, ThrowableTaskType {
     
     internal func executeDownloadRequest(_ request: Alamofire.DownloadRequest, with completion: @escaping (Swift.Result<URL, Error>) -> Void) {
         request
-            .validate()
             .validate(responseValidation)
+            .validate()
             .response { (response) in
                 guard response.error == nil else {
                     completion(.failure(response.error!))
