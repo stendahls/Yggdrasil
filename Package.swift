@@ -12,7 +12,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire.git", from: "4.7.0"),
-        .package(url: "https://github.com/stendahls/Taskig.git", from: "0.2.0")
+        .package(url: "https://github.com/stendahls/Taskig.git", revision: "8e7e5603d5f14bb2a1b262137d9122ec58c8837a")
     ],
     targets: [
         .target(
